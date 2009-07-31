@@ -324,9 +324,9 @@
   
 <script>
 	var schoolname = "{$goods.goods_brand}";
-	if(schoolname.length>10)
+	if(schoolname.length>9)
 		schoolname = "我爱学习网";
 </script>
-<script src="http://www.iastudy.com/js/sms.js" type="text/javascript" charset="gb2312"></script>
+<script src="js/sms.js" type="text/javascript" charset="gb2312"></script>
 </body>
 </html>

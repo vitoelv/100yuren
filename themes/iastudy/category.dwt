@@ -26,6 +26,7 @@
               <div id="left">
                <!-- TemplateBeginEditable name="主区域左侧" -->
                 <!-- #BeginLibraryItem "/library/category_tree.lbi" --><!-- #EndLibraryItem -->
+				<!-- #BeginLibraryItem "/Library/goods_advisor.lbi" --><!-- #EndLibraryItem -->
                  <!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem --> 
 				 <!-- TemplateEndEditable --> 
                  </div>

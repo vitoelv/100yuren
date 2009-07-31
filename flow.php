@@ -1627,8 +1627,8 @@ elseif ($_REQUEST['step'] == 'done2')
 	$payment       = isset($_POST['payment']) ? trim($_POST['payment']) : '';   
 	$course_id	= isset($_POST['course_id']) ? trim($_POST['course_id']) : ''; 
 	$postcode = isset($_POST['postcode']) ? trim($_POST['postcode']) : ''; 
-	$qq = isset($_POST['idcardno']) ? trim($_POST['idcardno']) : '';
-	$idcardno = isset($_POST['qq']) ? trim($_POST['qq']) : '';
+	$idcardno= isset($_POST['idcardno']) ? trim($_POST['idcardno']) : '';
+	$qq = isset($_POST['qq']) ? trim($_POST['qq']) : '';
 	$direct_signup = isset($_POST['direct_signup']) ? trim($_POST['direct_signup']) : '0';
 	if($direct_signup == 0 ){
 	    /* 检查购物车中是否有商品 */
