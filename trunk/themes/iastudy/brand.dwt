@@ -597,7 +597,9 @@ fx.sineInOut = function(pos){
     
         {/literal}
 </script>
-<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/library/top10.lbi" -->
+<!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/Library/goods_advisor.lbi" --><!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/top10.lbi" -->
 <!-- {if $top_goods} -->
 <div class="title-02">
     <div class="title">报名冠军</div>
