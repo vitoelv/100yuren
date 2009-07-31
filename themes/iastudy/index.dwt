@@ -1,0 +1,850 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Keywords" content="{$keywords}" />
+  <meta name="Description" content="{$description}" />
+  <!-- TemplateBeginEditable name="doctitle" -->
+  <!-- TemplateEndEditable -->
+  <!-- TemplateBeginEditable name="head" -->
+  <!-- TemplateEndEditable -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="animated_favicon.gif" type="image/gif" />
+  <link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <title>{$page_title}</title>
+  {* 包含脚本文件 *}{insert_scripts files='common.js'}
+</head>
+<body id="index">
+	<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+	<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+    <div id="outer_wrapper">
+        <div id="wrapper">
+          <div id="container">
+            <div id="content">
+              <div id="left">
+			  <!-- TemplateBeginEditable name="左边" -->
+<!-- #BeginLibraryItem "/library/category_tree.lbi" -->
+
+<div class="title-01">
+  <div class="title-01-title">课程/专业分类</div>
+</div>
+<div id="category-tree">
+  <!--{foreach from=$categories item=cat}-->
+      <h3><a href="{$cat.url}">{$cat.name|escape:html}</a></h3>
+      <div class="yiji"></div>
+      <ul class="erji">
+        <!--{foreach from=$cat.children item=child}-->
+        <li><a href="{$child.url}">{$child.name|escape:html}</a></li>
+        <!--{/foreach}-->
+      </ul>
+  <!-- {/foreach}-->
+</div>
+<script type="text/javascript">
+      {literal}
+var Class = {
+    create: function() {
+        return function() {
+            this.initialize.apply(this, arguments);
+        }
+    }
+}
+
+Object.extend = function(destination, source) {
+    for (property in source) destination[property] = source[property];
+    return destination;
+}
+
+Function.prototype.bind = function(object) {
+    var __method = this;
+    return function() {
+        return __method.apply(object, arguments);
+    }
+}
+
+Function.prototype.bindAsEventListener = function(object) {
+var __method = this;
+    return function(event) {
+        __method.call(object, event || window.event);
+    }
+}
+
+function $() {
+    if (arguments.length == 1) return get$(arguments[0]);
+    var elements = [];
+    $c(arguments).each(function(el){
+        elements.push(get$(el));
+    });
+    return elements;
+
+    function get$(el){
+        if (typeof el == 'string') el = document.getElementById(el);
+        return el;
+    }
+}
+
+if (!window.Element) var Element = new Object();
+
+Object.extend(Element, {
+    remove: function(element) {
+        element = $(element);
+        element.parentNode.removeChild(element);
+    },
+
+    hasClassName: function(element, className) {
+        element = $(element);
+        if (!element) return;
+        var hasClass = false;
+        element.className.split(' ').each(function(cn){
+            if (cn == className) hasClass = true;
+        });
+        return hasClass;
+    },
+
+    addClassName: function(element, className) {
+        element = $(element);
+        Element.removeClassName(element, className);
+        element.className += ' ' + className;
+    },
+  
+    removeClassName: function(element, className) {
+        element = $(element);
+        if (!element) return;
+        var newClassName = '';
+        element.className.split(' ').each(function(cn, i){
+            if (cn != className){
+                if (i > 0) newClassName += ' ';
+                newClassName += cn;
+            }
+        });
+        element.className = newClassName;
+    },
+
+    cleanWhitespace: function(element) {
+        element = $(element);
+        $c(element.childNodes).each(function(node){
+            if (node.nodeType == 3 && !/\S/.test(node.nodeValue)) Element.remove(node);
+        });
+    },
+
+    find: function(element, what) {
+        element = $(element)[what];
+        while (element.nodeType != 1) element = element[what];
+        return element;
+    }
+});
+
+var Position = {
+    cumulativeOffset: function(element) {
+        var valueT = 0, valueL = 0;
+        do {
+            valueT += element.offsetTop  || 0;
+            valueL += element.offsetLeft || 0;
+            element = element.offsetParent;
+        } while (element);
+        return [valueL, valueT];
+    }
+};
+
+document.getElementsByClassName = function(className) {
+    var children = document.getElementsByTagName('*') || document.all;
+    var elements = [];
+    $c(children).each(function(child){
+        if (Element.hasClassName(child, className)) elements.push(child);
+    });  
+    return elements;
+}
+
+Array.prototype.iterate = function(func){
+    for(var i=0;i<this.length;i++) func(this[i], i);
+}
+if (!Array.prototype.each) Array.prototype.each = Array.prototype.iterate;
+
+function $c(array){
+    var nArray = [];
+    for (var i=0;i<array.length;i++) nArray.push(array[i]);
+    return nArray;
+}
+
+var fx = new Object();
+fx.Base = function(){};
+fx.Base.prototype = {
+    setOptions: function(options) {
+    this.options = {
+        duration: 500,
+        onComplete: '',
+        transition: fx.sinoidal
+    }
+    Object.extend(this.options, options || {});
+    },
+
+    step: function() {
+        var time  = (new Date).getTime();
+        if (time >= this.options.duration+this.startTime) {
+            this.now = this.to;
+            clearInterval (this.timer);
+            this.timer = null;
+            if (this.options.onComplete) setTimeout(this.options.onComplete.bind(this), 10);
+        }
+        else {
+            var Tpos = (time - this.startTime) / (this.options.duration);
+            this.now = this.options.transition(Tpos) * (this.to-this.from) + this.from;
+        }
+        this.increase();
+    },
+
+    custom: function(from, to) {
+        if (this.timer != null) return;
+        this.from = from;
+        this.to = to;
+        this.startTime = (new Date).getTime();
+        this.timer = setInterval (this.step.bind(this), 13);
+    },
+
+    hide: function() {
+        this.now = 0;
+        this.increase();
+    },
+
+    clearTimer: function() {
+        clearInterval(this.timer);
+        this.timer = null;
+    }
+}
+
+fx.Layout = Class.create();
+fx.Layout.prototype = Object.extend(new fx.Base(), {
+    initialize: function(el, options) {
+        this.el = $(el);
+        this.el.style.overflow = "hidden";
+        this.iniWidth = this.el.offsetWidth;
+        this.iniHeight = this.el.offsetHeight;
+        this.setOptions(options);
+    }
+});
+
+fx.Height = Class.create();
+Object.extend(Object.extend(fx.Height.prototype, fx.Layout.prototype), {    
+    increase: function() {
+        this.el.style.height = this.now + "px";
+    },
+
+    toggle: function() {
+        if (this.el.offsetHeight > 0) this.custom(this.el.offsetHeight, 0);
+        else this.custom(0, this.el.scrollHeight);
+    }
+});
+
+fx.Width = Class.create();
+Object.extend(Object.extend(fx.Width.prototype, fx.Layout.prototype), { 
+    increase: function() {
+        this.el.style.width = this.now + "px";
+    },
+
+    toggle: function(){
+        if (this.el.offsetWidth > 0) this.custom(this.el.offsetWidth, 0);
+        else this.custom(0, this.iniWidth);
+    }
+});
+
+fx.Opacity = Class.create();
+fx.Opacity.prototype = Object.extend(new fx.Base(), {
+    initialize: function(el, options) {
+        this.el = $(el);
+        this.now = 1;
+        this.increase();
+        this.setOptions(options);
+    },
+
+    increase: function() {
+        if (this.now == 1 && (/Firefox/.test(navigator.userAgent))) this.now = 0.9999;
+        this.setOpacity(this.now);
+    },
+    
+    setOpacity: function(opacity) {
+        if (opacity == 0 && this.el.style.visibility != "hidden") this.el.style.visibility = "hidden";
+        else if (this.el.style.visibility != "visible") this.el.style.visibility = "visible";
+        if (window.ActiveXObject) this.el.style.filter = "alpha(opacity=" + opacity*100 + ")";
+        this.el.style.opacity = opacity;
+    },
+
+    toggle: function() {
+        if (this.now > 0) this.custom(1, 0);
+        else this.custom(0, 1);
+    }
+});
+
+fx.sinoidal = function(pos){
+    return ((-Math.cos(pos*Math.PI)/2) + 0.5);
+}
+fx.linear = function(pos){
+    return pos;
+}
+fx.cubic = function(pos){
+    return Math.pow(pos, 3);
+}
+fx.circ = function(pos){
+    return Math.sqrt(pos);
+}
+fx.Scroll = Class.create();
+fx.Scroll.prototype = Object.extend(new fx.Base(), {
+    initialize: function(options) {
+        this.setOptions(options);
+    },
+
+    scrollTo: function(el){
+        var dest = Position.cumulativeOffset($(el))[1];
+        var client = window.innerHeight || document.documentElement.clientHeight;
+        var full = document.documentElement.scrollHeight;
+        var top = window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+        if (dest+client > full) this.custom(top, dest - client + (full-dest));
+        else this.custom(top, dest);
+    },
+
+    increase: function(){
+        window.scrollTo(0, this.now);
+    }
+});
+
+fx.Text = Class.create();
+fx.Text.prototype = Object.extend(new fx.Base(), {
+    initialize: function(el, options) {
+        this.el = $(el);
+        this.setOptions(options);
+        if (!this.options.unit) this.options.unit = "em";
+    },
+
+    increase: function() {
+        this.el.style.fontSize = this.now + this.options.unit;
+    }
+});
+
+fx.Combo = Class.create();
+fx.Combo.prototype = {
+    setOptions: function(options) {
+        this.options = {
+            opacity: true,
+            height: true,
+            width: false
+        }
+        Object.extend(this.options, options || {});
+    },
+
+    initialize: function(el, options) {
+        this.el = $(el);
+        this.setOptions(options);
+        if (this.options.opacity) {
+            this.o = new fx.Opacity(el, options);
+            options.onComplete = null;
+        }
+        if (this.options.height) {
+            this.h = new fx.Height(el, options);
+            options.onComplete = null;
+        }
+        if (this.options.width) this.w = new fx.Width(el, options);
+    },
+    
+    toggle: function() { this.checkExec('toggle'); },
+
+    hide: function(){ this.checkExec('hide'); },
+    
+    clearTimer: function(){ this.checkExec('clearTimer'); },
+    
+    checkExec: function(func){
+        if (this.o) this.o[func]();
+        if (this.h) this.h[func]();
+        if (this.w) this.w[func]();
+    },
+    
+    resizeTo: function(hto, wto) {
+        if (this.h && this.w) {
+            this.h.custom(this.el.offsetHeight, this.el.offsetHeight + hto);
+            this.w.custom(this.el.offsetWidth, this.el.offsetWidth + wto);
+        }
+    },
+
+    customSize: function(hto, wto) {
+        if (this.h && this.w) {
+            this.h.custom(this.el.offsetHeight, hto);
+            this.w.custom(this.el.offsetWidth, wto);
+        }
+    }
+}
+
+fx.Accordion = Class.create();
+fx.Accordion.prototype = {
+    setOptions: function(options) {
+        this.options = {
+            delay: 100,
+            opacity: false
+        }
+        Object.extend(this.options, options || {});
+    },
+
+    initialize: function(yijis, elements, options) {
+        this.elements = elements;
+        this.setOptions(options);
+        var options = options || '';
+        this.fxa = [];
+        if (options && options.onComplete) options.onFinish = options.onComplete;
+        elements.each(function(el, i){
+            options.onComplete = function(){
+                if (el.offsetHeight > 0) el.style.height = '1%';
+                if (options.onFinish) options.onFinish(el);
+            }
+            this.fxa[i] = new fx.Combo(el, options);
+            this.fxa[i].hide();
+        }.bind(this));
+
+        yijis.each(function(tog, i){
+            if (typeof tog.onclick == 'function') var exClick = tog.onclick;
+            tog.onclick = function(){
+                if (exClick) exClick();
+                this.showThisHideOpen(elements[i]);
+            }.bind(this);
+        }.bind(this));
+    },
+
+    showThisHideOpen: function(toShow){
+        this.elements.each(function(el, j){
+            if (el.offsetHeight > 0 && el != toShow) this.clearAndToggle(el, j);
+            if (el == toShow && toShow.offsetHeight == 0) setTimeout(function(){this.clearAndToggle(toShow, j);}.bind(this), this.options.delay);
+        }.bind(this));
+    },
+
+    clearAndToggle: function(el, i){
+        this.fxa[i].clearTimer();
+        this.fxa[i].toggle();
+    }
+}
+
+var Remember = new Object();
+Remember = function(){};
+Remember.prototype = {
+    initialize: function(el, options){
+        this.el = $(el);
+        this.days = 365;
+        this.options = options;
+        this.effect();
+        var cookie = this.readCookie();
+        if (cookie) {
+            this.fx.now = cookie;
+            this.fx.increase();
+        }
+    },
+
+    setCookie: function(value) {
+        var date = new Date();
+        date.setTime(date.getTime()+(this.days*24*60*60*1000));
+        var expires = "; expires="+date.toGMTString();
+        document.cookie = this.el+this.el.id+this.prefix+"="+value+expires+"; path=/";
+    },
+
+    readCookie: function() {
+        var nameEQ = this.el+this.el.id+this.prefix + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;c=ca[i];i++) {
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return false;
+    },
+
+    custom: function(from, to){
+        if (this.fx.now != to) {
+            this.setCookie(to);
+            this.fx.custom(from, to);
+        }
+    }
+}
+
+fx.RememberHeight = Class.create();
+fx.RememberHeight.prototype = Object.extend(new Remember(), {
+    effect: function(){
+        this.fx = new fx.Height(this.el, this.options);
+        this.prefix = 'height';
+    },
+    
+    toggle: function(){
+        if (this.el.offsetHeight == 0) this.setCookie(this.el.scrollHeight);
+        else this.setCookie(0);
+        this.fx.toggle();
+    },
+    
+    resize: function(to){
+        this.setCookie(this.el.offsetHeight+to);
+        this.fx.custom(this.el.offsetHeight,this.el.offsetHeight+to);
+    },
+
+    hide: function(){
+        if (!this.readCookie()) {
+            this.fx.hide();
+        }
+    }
+});
+
+fx.RememberText = Class.create();
+fx.RememberText.prototype = Object.extend(new Remember(), {
+    effect: function(){
+        this.fx = new fx.Text(this.el, this.options);
+        this.prefix = 'text';
+    }
+});
+
+Array.prototype.iterate = function(func){
+    for(var i=0;i<this.length;i++) func(this[i], i);
+}
+if (!Array.prototype.each) Array.prototype.each = Array.prototype.iterate;
+
+fx.expoIn = function(pos){
+    return Math.pow(2, 10 * (pos - 1));
+}
+fx.expoOut = function(pos){
+    return (-Math.pow(2, -10 * pos) + 1);
+}
+
+fx.quadIn = function(pos){
+    return Math.pow(pos, 2);
+}
+fx.quadOut = function(pos){
+    return -(pos)*(pos-2);
+}
+
+fx.circOut = function(pos){
+    return Math.sqrt(1 - Math.pow(pos-1,2));
+}
+fx.circIn = function(pos){
+    return -(Math.sqrt(1 - Math.pow(pos, 2)) - 1);
+}
+
+fx.backIn = function(pos){
+    return (pos)*pos*((2.7)*pos - 1.7);
+}
+fx.backOut = function(pos){
+    return ((pos-1)*(pos-1)*((2.7)*(pos-1) + 1.7) + 1);
+}
+
+fx.sineOut = function(pos){
+    return Math.sin(pos * (Math.PI/2));
+}
+fx.sineIn = function(pos){
+    return -Math.cos(pos * (Math.PI/2)) + 1;
+}
+fx.sineInOut = function(pos){
+    return -(Math.cos(Math.PI*pos) - 1)/2;
+}
+      {/literal}
+</script>
+<script type=text/javascript>
+      {literal}
+    var contents = document.getElementsByClassName('erji');
+    var toggles = document.getElementsByClassName('yiji');
+  
+    var myAccordion = new fx.Accordion(
+      toggles, contents, {opacity: true, duration: 400}
+    );
+    if (document.location.href.indexOf('category.php')>0)
+    {
+      var tree = document.getElementById("category-tree");
+      var tags = tree.getElementsByTagName("H3");
+      for (var i=0;i<tags.length;i++)
+      {
+        if(document.location.href.toLowerCase().indexOf(tags[i].childNodes[0].href)>=0)
+        {
+          myAccordion.showThisHideOpen(contents[i]);
+        }
+      }
+    }
+    else
+    {
+      myAccordion.showThisHideOpen(contents[0]);
+    }
+    
+        {/literal}
+</script>
+
+ <!-- #EndLibraryItem -->
+ 
+ <!-- #BeginLibraryItem "/library/promotion_info.lbi" --><!-- #EndLibraryItem -->
+ <!-- #BeginLibraryItem "/library/goods_advisor.lbi" --><!-- #EndLibraryItem -->
+
+<script type="text/javascript">
+//<![CDATA[
+  var invalid_order_sn = "{$lang.invalid_order_sn}"
+//]]>
+</script>
+
+<!-- #BeginLibraryItem "/library/top10.lbi" -->
+
+<!-- {if $top_goods} -->
+<div class="title-02">
+    <div class="title">课程/专业排行</div>
+    <ul>
+      <!-- {foreach name=top_goods from=$top_goods item=goods}-->
+      <li class="top10-li-{$smarty.foreach.top_goods.iteration}"> <a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name}</a></li>
+      <!--{/foreach}-->
+    </ul>
+</div>
+<!-- {/if} -->
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+              </div>
+              <div id="main">
+                <div class="flash" align="center">
+        <script type="text/javascript">
+        //<![CDATA[
+        var swf_width=563;
+        var swf_height=165;
+        // 0xffffff:文字颜色|1:文字位置|0x0066ff:文字背景颜色|60:文字背景透明度|0xffffff:按键文字颜色|0x0066ff:按键默认颜色|0x000033:按键当前颜色|8:自动播放时间(秒)|2:图片过渡效果|1:是否显示按钮|_blank:打开窗口
+        var swf_config = "|2|||0xFFFFFF|0xFF6600||4|3|1|_blank"
+        document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ swf_width +'" height="'+ swf_height +'">');
+        document.write('<param name="movie" value="data/images/bcastr.swf?bcastr_xml_url=cycle_image.php"><param name="quality" value="high">');
+        document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
+        document.write('<param name="FlashVars" value="bcastr_config='+swf_config+'">');
+        document.write('<embed src="data/images/bcastr.swf?bcastr_xml_url=cycle_image.php" wmode="opaque" FlashVars="bcastr_config='+swf_config+'" menu="false" quality="high" width="'+ swf_width +'" height="'+ swf_height +'" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />');
+        document.write('<\/object>');
+        //]]>
+        </script>
+                </div>
+                <!-- TemplateBeginEditable name="中间" -->
+<!-- #BeginLibraryItem "/library/recommend_best.lbi" -->
+
+<!-- {if $best_goods} -->
+<div class="title-03">
+              <div class="title">精品课程/专业</div>
+              <div class="more"><a href="search.php?intro=best">more...</a> </div>
+            <div class="box">
+  <ul class="product-list">
+    <!--{foreach from=$best_goods item=goods}-->
+    <li>
+      <!--  <div class="photo"><a href="{$goods.url}" title="{$goods.goods_name|escape:html}">{$goods.goods_name|escape:html}</a></div>  -->
+      <div class="info" align="center">
+        <span class="name"><a href="{$goods.url}">{$goods.name|escape:html}</a></span>
+        <div class="price">
+        <!-- {if $goods.promote_price neq ""} -->
+        {$lang.market_price}<span class="market-price">{$goods.market_price}</span><br />
+        {$lang.promote_price}<span class="goods-price">{$goods.promote_price}</span><br />
+        <!--{else}-->
+        {$lang.market_price}<span class="market-price">{$goods.market_price}</span><br />
+        {$lang.shop_price}<span class="goods-price">{$goods.shop_price}</span><br />
+        <!--{/if}-->
+        <!--  <a href="{$goods.goods_brand_url}" title="{$goods.brand_name|escape:html}">{$goods.brand_short_name|escape:html}  -->
+        </div>
+        </div>
+    </li>
+    <!--{/foreach}-->
+  </ul>
+</div>
+          </div>
+          <!-- {/if} -->
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/recommend_hot.lbi" -->
+
+<!-- {if $hot_goods} -->
+<div class="title-03">
+              <div class="title">热门课程/专业</div>
+              <div class="more"><a href="search.php?intro=hot">more...</a> </div>
+            <div class="box">
+  <ul class="product-list">
+    <!--{foreach from=$hot_goods item=goods}-->
+    <li>
+      <!-- <div class="photo"><a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" /></a></div> -->
+      <div class="info" align="center">
+        <span class="name"><a href="{$goods.url}">{$goods.name|escape:html}</a></span>
+        <div class="price">
+        <!-- {if $goods.promote_price neq ""} -->
+        {$lang.market_price}<span class="market-price">{$goods.market_price}</span><br />
+        {$lang.promote_price}<span class="goods-price">{$goods.promote_price}</span><br />
+        <!--{else}-->
+        {$lang.market_price}<span class="market-price">{$goods.market_price}</span><br />
+        {$lang.shop_price}<span class="goods-price">{$goods.shop_price}</span><br />
+        <!--{/if}-->
+        </div>
+        </div>
+    </li>
+    <!--{/foreach}-->
+  </ul>
+</div>
+          </div>
+          <!-- {/if} -->
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/recommend_new.lbi" -->
+
+<!-- {if $new_goods} -->
+<div class="title-03">
+              <div class="title">新推课程/专业</div>
+              <div class="more"><a href="search.php?intro=new">more...</a> </div>
+            <div class="box">
+  <ul class="product-list">
+    <!--{foreach from=$new_goods item=goods}-->
+    <li>
+      <!-- <div class="photo"><a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" /></a></div> -->
+      <div class="info" align="center">
+        <span class="name"><a href="{$goods.url}">{$goods.name|escape:html}</a></span>
+        <div class="price">
+        <!-- {if $goods.promote_price neq ""} -->
+        {$lang.market_price}<span class="market-price">{$goods.market_price}</span><br />
+        {$lang.promote_price}<span class="goods-price">{$goods.promote_price}</span><br />
+        <!--{else}-->
+        {$lang.market_price}<span class="market-price">{$goods.market_price}</span><br />
+        {$lang.shop_price}<span class="goods-price">{$goods.shop_price}</span><br />
+        <!--{/if}-->
+        </div>
+        </div>
+    </li>
+    <!--{/foreach}-->
+  </ul>
+</div>
+          </div>
+          <!-- {/if} -->
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/group_buy.lbi" -->
+
+<!-- {if $group_buy_goods} -->
+<div class="title-03">
+              <div class="title">团体报名</div>
+    <div class="more"><a href="group_buy.php">more...</a></div>
+            <div class="box">
+    <!--{foreach from=$group_buy_goods item=goods}-->
+    <table class="float-left">
+      <tr>
+        <td align="center"><a href="group_buy.php?act=view&id={$goods.group_buy_id}">{$goods.name|escape:html}</a></td>
+      </tr>
+      <tr>
+        <td align="center"><div><span class="name14"><a href="group_buy.php?act=view&id={$goods.group_buy_id}">{$goods.goods_name|escape:html}</a></span>
+            <div class="price"> <span class="goods-price">{$goods.last_price}</span><br />
+            </div>
+          </div></td>
+      </tr>
+    </table>
+    <!--{/foreach}-->
+    <br class="hack" />
+  </div>
+</div>
+<!-- {/if} -->
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/auction.lbi" -->
+
+<!-- {if $auction_list} -->
+<div class="title-03">
+              <div class="title">课程转让</div>
+              <div class="more"><a href="../auction.php">more...</a></div>
+  <div class="box">
+    <ul class="product-list">
+    <!-- {foreach from=$auction_list item=auction} -->
+    <li>
+      <p class="photo"><a href="{$auction.url}"><img src="{$auction.thumb}" alt="{$auction.goods_name|escape:html}" /></a></p>
+      <p class="info" align="center">
+      <span class="name"><a href="{$auction.url}" title="{$auction.goods_name|escape:html}">{$auction.goods_name|escape:html}</a></span>
+      <span class="price">
+        <span class="goodsPrice">{$auction.formated_start_price}</span>
+      </span>
+      </p>
+    </li>
+    <!-- {/foreach} -->
+    </ul>
+  </div>
+</div>
+<!-- {/if} -->
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+                </div>
+            </div>
+          </div>
+          <div id="right">
+		  <!-- TemplateBeginEditable name="右边" -->
+<!-- #BeginLibraryItem "/library/new_articles.lbi" -->
+
+<!-- {if !empty($shop_notice)} -->
+<div class="title-02">
+  <div class="title">最新公告</div>
+  <div id="ECS_NOTICE_BODY"> {$shop_notice} </div>
+</div>
+<!-- {/if} -->
+
+<div class="title-02">
+  <div class="title">最新资讯</div>
+  <div class="new-articles">
+    <ul>
+      <!-- {foreach name=new_articles from=$new_articles item=article} -->
+      <!-- {if $smarty.foreach.new_articles.iteration lte 10} 限制文章显示数量 -->
+      <li>[<a href="{$article.cat_url}">{$article.cat_name}</a>] <a href="{$article.url}" title="{$article.title|escape:html}">{$article.short_title|truncate:18}</a></li>
+      <!-- {/if} -->
+      <!-- {/foreach} -->
+    </ul>
+  </div>
+</div>
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/recommend_promotion.lbi" -->
+
+<!-- {if $promotion_goods} -->
+<div class="title-02">
+    <div class="title">限时抢报</div>
+  <div>
+      <!--{foreach from=$promotion_goods item=goods}-->
+      <table width="100%" border="0" cellpadding="3" cellspacing="1" class="float-left" style="margin-bottom:3px;">
+        <tr>
+          <td width="100" align="center"><a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" width="80" height="80" border="0" style="border:1px #999 solid; padding:2px;" /></a></td>
+          <td valign="top" style="padding-top:10px;"><a href="{$goods.url}" title="{$goods.name|escape:html}"><strong>{$goods.short_name|escape:html}</strong></a><br />
+            {$lang.promote_price}<br />
+            <span class="goods-price" style="margin-left:10px;">{$goods.promote_price}</span>
+            <div>
+              <table width="80" border="0" cellpadding="2" cellspacing="0">
+                <tr>
+                  <td height="28" align="center"><a href="javascript:collect({$goods.id})"><img src="images/sort-collect.gif" alt="收藏" border="0" /></a></td>
+                  <td align="center"><a href="javascript:addToCart({$goods.id})"><img src="images/sort-addcart.gif" alt="购买" border="0" /></a></td>
+                </tr>
+              </table>
+            </div></td>
+        </tr>
+    </table>
+      <!--{/foreach}-->
+      <div class="more"><a href="../search.php?intro=promotion">more...</a></div>
+  </div>
+</div>
+<!-- {/if} -->
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/brands.lbi" -->
+
+<!-- {if $brand_list} -->
+<!-- 品牌区 -->
+<div class="title-02">
+<div class="title">名校人气榜</div>
+<div>
+<ul>
+<!-- {foreach from=$brand_list item=brand} -->
+<li><div class="brands"><a href="{$brand.url}">{$brand.brand_name|escape:html} {if $brand.goods_num}({$brand.goods_num}){/if}</a></div></li>
+<!-- {/foreach} -->
+</ul>
+</div>
+</div>
+<!-- {/if} -->
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+          </div>
+          <div class="clearing">&nbsp;</div>
+        </div>
+      </div>
+      <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+      <!--{if $img_links  or $txt_links }-->
+      <div id="links">
+        <!-- {if $img_links} -->
+        <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
+        <span> <a href="{$link.url}" target="_blank" title="{$link.name}"><img src="{$link.logo}" width="88" height="31" alt="{$link.name}" border="0" /></a> </span>
+        <!--结束图片类型的友情链接{/foreach}-->
+        <!-- {/if} -->
+        <!-- {if $txt_links} -->
+        <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+        <span> [<a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a>] </span>
+        <!--结束文字类型的友情链接{/foreach}-->
+        <!-- {/if} -->
+      </div>
+      <!--{/if}-->
+	  <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

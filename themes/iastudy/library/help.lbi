@@ -1,0 +1,55 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="clear"></div>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="36" align="center"><span class="foot14">网上报名及课程咨询与服务热线：010-69799625</span> &nbsp; </span><a href="tencent://message/?uin=1171196009&Site=www.iastudy.com&Menu=yes" target="_blank" ><img src="images/qq.jpg" width="69" height="17" border=0 align="absmiddle"></a>&nbsp; </td>
+  </tr>
+</table>
+<div id="footer2">
+<div class="footer2_ad">
+  <ul>
+    <li class="footer2_ad_h"><img src="images/now.gif" alt="IAStudy" /> 咨询更专业</li>
+	    <li>专业教育咨询师将为学员提供个性化咨询服务！</li>
+	  </ul>	
+  <ul>
+    <li class="footer2_ad_h"><img src="images/now.gif" alt="IAStudy" /> 学费更优惠</li>
+	    <li>网上报名独享团体报名优惠价，其他优惠同样享受！</li>
+	  </ul>
+  <ul>
+    <li class="footer2_ad_h"><img src="images/now.gif" alt="IAStudy" /> 服务更超值</li>
+	    <li>密切跟踪学员学习情况，为学员提供增值服务。老学员下次报名可享受进一步的优惠！</li>
+	  </ul>  
+  <ul>
+    <li class="footer2_ad_h"><img src="images/now.gif" alt="IAStudy" /> 退费规则</li>
+	    <li><A href="article.php?id=7" title="退款问题">退款问题</A></li>
+	    <li><A href="article.php?id=7" title="学员自身要求退费该如何处理？">学员自身要求退费该如何处理？</A></li>
+	  </ul>
+  <ul>
+    <li class="footer2_ad_h"><img src="images/now.gif" alt="IAStudy" /> 常见问题</li>
+	    <li><A href="article.php?id=9" title="如何得到发票？">如何得到发票？</A></li>
+	    <li><A href="article.php?id=10" title="教材有，可扣书费吗？">教材有，可扣书费吗？</A></li>
+	    <li><A href="article.php?id=11" title="如果学校的班级取消或延期了，怎么办？">如果学校的班级取消或延期了，怎么办？</A></li>
+	  </ul>
+</div>
+
+<div id="help">
+<!--{if $helps}-->
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <!-- {foreach from=$helps item=help_cat} -->
+    <td class="cat-name"><span>{$help_cat.cat_name}</span></td>
+    <!-- {/foreach} -->
+  </tr>
+  <tr>
+    <!-- {foreach from=$helps item=help_cat} -->
+    <td valign="top">
+    <ul>
+        <!-- {foreach from=$help_cat.article item=item} -->
+        <li><a href="{$item.url}" title="{$item.title|escape:html}">{$item.short_title}</a></li>
+        <!-- {/foreach} -->
+      </ul></td>
+    <!-- {/foreach} -->
+  </tr>
+</table>
+<!--{/if}-->
+</div>

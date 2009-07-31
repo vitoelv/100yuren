@@ -1,0 +1,20 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $bought_goods} -->
+  <div class="goods-title"><img src="../images/subtitle2.gif"/>&nbsp;{$lang.shopping_and_other}</div>
+  <ul class="product-list">
+    <!--{foreach from=$bought_goods item=goods}-->
+    <li>
+      <!-- <div class="photo"><a href="{$goods.url}"><img src="{$goods.goods_thumb}" alt="{$goods.short_name}" width="84" height="84" /></a></div> -->
+      <div class="info"> <span class="name"><a href="{$goods.url}">{$goods.short_name}</a></span>
+        <div class="price">
+          <!-- {if $goods.promote_price neq ""} -->
+          {$lang.promote_price}<span class="goods-price">{$goods.formated_promote_price}</span><br />
+          <!--{else}-->
+          {$lang.shop_price}<span class="goods-price">{$goods.shop_price}</span><br />
+          <!--{/if}-->
+        </div>
+        <span class="buy-btn"><a href="javascript:addToCart({$goods.goods_id})"><img src="../images/sort-addcart.gif" alt="buy" width="37" height="17" /></a> <a href="javascript:collect({$goods.goods_id})"><img src="../images/sort-collect.gif" alt="fav" width="37" height="17" /></a></span> </div>
+    </li>
+    <!--{/foreach}-->
+  </ul>
+<!--{/if}-->

@@ -1,0 +1,473 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="UTF-8">
+<head>
+<title>中国人民大学3+1留学招生报名网（SQA HND项目） >> 首页 人大3+1留学，中国人民大学HND，人大HND，HND项目，HND留学，北京HND，HND中心，HND课程，HND专业，留学3+1，3加1留学，三加一，中外合作办学项目，英国高等教育文凭项目</title>
+<meta name="Description" content="中国人民大学3+1留学招生网（SQA HND项目），中国人民大学HND采用3加1模式，国内三年，国个一年，完成英国大学本科学业，学历国家完全承认，HND项目在人大已经举办第7年了，在人大校本部上课，资源共享，统招生的管理，保证了学生的学习质量。" />
+<meta name="Keywords" content="中国人民大学3+1留学招生报名网（SQA HND项目），人大3+1留学，中国人民大学HND，人大HND，HND项目，HND留学，北京HND，HND中心，HND课程，HND专业，留学3+1，3加1留学，三加一，中外合作办学项目，英国高等教育文凭项目" />
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<script src="/JS/prototype.js"></script>
+<script src="/JS/scriptaculous.js"></script>
+<script src="/JS/checklogin.js"></script>
+<SCRIPT src="images/prototype.js" type=text/javascript></SCRIPT>
+<SCRIPT src="/css/images/prototype.js" type=text/javascript></SCRIPT>
+
+<script language='JavaScript' type='text/JavaScript' src='/js/menu.js'></script>
+
+<link href="style.CSS" rel="stylesheet" type="text/css" />
+<link href="/css/style.CSS" rel="stylesheet" type="text/css" />
+</head>
+<body leftmargin=0 topmargin=0  onmousemove='HideMenu()'>
+<noscript> 
+<iframe src=*></iframe> 
+</noscript>
+<SCRIPT>
+var XLScroll = function(args) {
+	var cont = $(args.container) ;
+	var singles = cont.getElementsByTagName("li") ;
+	this.maxlength = singles.length ;
+	this.pershow = args.pershow ;
+	this.switch_data = singles ;
+	this.control_pre = args.control_pre ;
+	this.control_next = args.control_next ;
+	this.objname = args.objname ;
+	if (args.control_show) {
+		this.control_show_elm = args.control_show.elm ;
+		this.control_show_selectedstyle = args.control_show.selected_style ;
+	}
+}
+XLScroll.prototype.scroll_switch = function(obj,page) {
+	var maxpage = parseInt(this.maxlength / this.pershow) ;
+	if (page < 1) {page = maxpage ;}
+	if (page > maxpage) { page = 1 ;}
+	$(this.control_pre).onclick = function() {obj.scroll_switch(obj,page - 1)} ;
+	$(this.control_next).onclick = function() {obj.scroll_switch(obj,page + 1)} ;
+
+	if (this.control_show_elm && this.control_show_selectedstyle) {
+		$(this.control_show_elm).innerHTML = "" ;
+		for (i=1;i<=maxpage;i++) {
+			var showli = document.createElement("li") ;
+			showli.innerHTML = '<a href="javascript://"></a>' ;
+			showli.onclick = new Function(obj.objname+".scroll_switch("+obj.objname+","+i+");") ;  // dasdasd
+			if (i == page) {
+				showli.className = this.control_show_selectedstyle ;
+			}
+			$(this.control_show_elm).appendChild(showli) ;
+		}
+	}
+
+	for (i=0;i<this.maxlength;i++) {
+		if ( i >= ((page-1)*(this.pershow)) && i <= (page*this.pershow - 1) ) {
+			this.switch_data[i].style.display = "block" ;
+		}
+		else {
+			this.switch_data[i].style.display = "none" ;
+		}
+	}
+}
+var SwitchPic = function(args) {
+	this.bigpiccont = $(args.bigpic) ;
+	this.switchnav = $(args.switchnav) ;
+	this.selectstyle = args.selectstyle ;
+	this.objname = args.objname ;
+	this.curpage = 0 ;
+	this.autotimeintval = 3000 ;
+	var bigpics = $(this.bigpiccont).getElementsByTagName("div") ;
+	this.totalcount = bigpics.length ;
+	//this.bigpics = bigpics ;
+	
+	for (i=0;i<bigpics.length;i++) {
+		bigpics[i].onmouseover = new Function(this.objname+".pauseSwitch();") ;
+		bigpics[i].onmouseout = new Function(this.objname+".goonSwitch("+this.objname+");") ;
+	}
+	
+	var switchnavs = $(this.switchnav).getElementsByTagName("li") ;
+	for (i=0;i<switchnavs.length;i++) {
+		switchnavs[i].onmouseover = new Function(this.objname+".goSwitch("+this.objname+","+i+");"+this.objname+".pauseSwitch();") ;
+		switchnavs[i].onmouseout = new Function(this.objname+".goonSwitch("+this.objname+");") ;
+	}
+
+}
+SwitchPic.prototype.goSwitch = function(obj,page) {
+	if (page >= this.totalcount) { page = 0 ;}
+	this.curpage = page ;
+	
+	var bigpics = $(this.bigpiccont).getElementsByTagName("div") ;
+	for (i=0;i<bigpics.length;i++) {
+		if (i == page) {bigpics[i].style.display = "block" ;}
+		else {bigpics[i].style.display = "none" ;}
+	}
+	var switchnavs = $(this.switchnav).getElementsByTagName("li") ;
+	for (i=0;i<switchnavs.length;i++) {
+		if (i == page) {Element.addClassName(switchnavs[i], this.selectstyle); }
+		else { Element.removeClassName(switchnavs[i],this.selectstyle); }
+	}
+}
+SwitchPic.prototype.autoSwitch = function(obj) {
+	this.curpage ++ ;
+	this.goSwitch(obj,this.curpage) ;
+	this.autoSwitchTimer = setTimeout(obj.objname+".autoSwitch("+obj.objname+");", this.autotimeintval);
+}
+SwitchPic.prototype.pauseSwitch = function() {
+	clearTimeout(this.autoSwitchTimer);
+}
+SwitchPic.prototype.goonSwitch = function(obj) {
+	clearTimeout(this.autoSwitchTimer);
+	this.autoSwitchTimer = setTimeout(obj.objname+".autoSwitch("+obj.objname+");", this.autotimeintval);
+}
+</SCRIPT>
+<div id=menuDiv style="Z-INDEX: 1000; VISIBILITY: hidden; WIDTH: 1px; POSITION: absolute; HEIGHT: 1px; BACKGROUND-COLOR: #9cc5f8"></div>
+<div id="header"></div>
+<!-- menu -->
+<div class="w980" style="margin:0px auto">
+<DIV id=Menu_wrap>
+<div class="menu">
+
+<li><a href="/" target="_self">首页</a></li>
+<li><a href="/about/17.html" target="_self">项目介绍</a></li>
+<li><a href="/zhaosheng/ShowClass.asp?ClassID=2" target="_self">专业设置</a></li>
+<li><a href="/article/ShowClass.asp?ClassID=4">教学管理</a></li>
+<li><a href="/article/ShowClass.asp?ClassID=5" target="_self">学生管理</a></li>
+<li><a href="/article/ShowClass.asp?ClassID=6" target="_self">留学就业</a></li>
+<li><a href="/school/" target="_self">合作院校</a></li>
+<li><a href="/pic/" target="_self">校园环境</a></li>
+<li><a href="/zhaosheng/4.html" target="_self">招生简章</a></li>
+
+<li><a href="/about/3.html" target="_self">联系方式</a></li>
+<li><a href="http://www.xuexiao114.com.cn/service/baoming.asp?D_id=1" target="_blank">在线报名</a></li>
+</div>
+</DIV>
+</DIV>
+
+
+<!--内容-->
+<div class=w980>
+<div class=w285>
+<div class=h254>
+  <table style="COLOR: #ff0000; FONT-WEIGHT: bold" border=0 cellSpacing=0 cellPadding=0 width="100%">
+    <tr>
+
+      <td width="33%" align=middle><IMG src="/css/Images/ban_02_1.jpg" width=70 height=28></td>
+      <td width="33%" align=middle><IMG src="/css/Images/ban_02_2.jpg" width=70 height=28></td>
+      <td width="33%" align=middle><IMG src="/css/Images/ban_02_3.jpg" width=70 height=28></td>
+    </tr>
+    <tr>
+      <td height=50 align=middle>
+      <P>政府背景<BR>三强合作</P></td>
+      <td align=middle>专家外教<BR>英式教学</td>
+
+      <td align=middle>国内教育部<BR>服务与保证</td>
+    </tr>
+    <tr>
+      <td height=50 align=middle>中英文凭<BR>国际有效</td>
+      <td align=middle>
+      <P>课时充足<BR>质量保证</P></td>
+
+      <td align=middle>英国政府<BR>相关保证</td>
+    </tr>
+    <tr>
+      <td colSpan=3 align=middle><A href="http://www.xuexiao114.com.cn/service/baoming.asp?D_id=1" target=_blank><IMG style="MARGIN-TOP: 5px" src="/css/Images/bm-online.gif"></A></td>
+    </tr>
+  </table>
+<div class=ad28560>
+<script language='javascript' src='/AD/200906/1.js'></script></div></div></div>
+
+<div class=w680>
+<div class=N_Flash>
+<div class=flashbox>
+<div id=SwitchBigPic>
+<div><A title=国际商务管理（Business） href="/zhaosheng/zhuanye/5.html" blockid="1791"><IMG class=pic alt=国际商务管理（Business） src="/css/images/410250_business.jpg"></A></div>
+<div><A title=“国际金融理财（Financial href="/zhaosheng/zhuanye/6.html" blockid="1791" Services）><IMG class=pic alt=“国际金融理财（Financial src="/css/images/410250_fs.jpg" Services）></A></div>
+<div><A title=国际商务贸易(Global href="/zhaosheng/zhuanye/7.html" blockid="1791" Trade and Business)><IMG class=pic alt=国际商务贸易(Global src="/css/images/410250_gtb.jpg" Trade and Business)></A></div>
+<div><A title=商务信息技术（Business href="/zhaosheng/zhuanye/8.html" blockid="1791" with IT）><IMG class=pic alt=商务信息技术（Business src="/css/images/410250_it.jpg" with IT）></A></div>
+<div><A title="国际酒店管理（Hospitality Management）" href="/zhaosheng/zhuanye/9.html" blockid="1791"><IMG class=pic alt="国际酒店管理（Hospitality Management" src="/css/images/410250_hm.jpg"></A></div></div>
+<UL id=SwitchNav>
+<LI><A href="/zhaosheng/zhuanye/5.html" blockid="1791"><STRONG>国际商务管理（Business）</STRONG>高中应届毕业生及同等学历者经考核入学</A> </LI>
+<LI><A href="/zhaosheng/zhuanye/6.html" blockid="1791"><STRONG>国际金融理财（Financial Services）</STRONG>全日制学习一年英语强化及国际基础课程 </A></LI>
+
+<LI><A href="/zhaosheng/zhuanye/7.html" blockid="1791"><STRONG>国际商务贸易(Global Trade and Business)</STRONG>英国苏格兰学历管理委员会(SQA)颁发HND证书</A> </LI>
+<LI><A href="/zhaosheng/zhuanye/8.html" blockid="1791"><STRONG>商务信息技术（Business with IT）</STRONG>就读于英国及其他国家对接院校 可获得国外大学</A> </LI>
+<LI><A href="/zhaosheng/zhuanye/9.html" blockid="1791"><STRONG>国际酒店管理（Hospitality Management）</STRONG>可直接申请攻读硕士课程或就业</A> </LI></UL></div><SCRIPT>
+			var bigswitch = new SwitchPic(
+				{
+					bigpic:"SwitchBigPic",
+					switchnav:"SwitchNav",
+					selectstyle:"selected",
+					objname:"bigswitch"
+				}
+			) ;
+			bigswitch.goSwitch(bigswitch,0);
+			bigswitch.autoSwitchTimer = setTimeout("bigswitch.autoSwitch(bigswitch) ;", 3000);
+		</SCRIPT> </div></div></div>
+
+<div class="w980">
+<div class="w285">
+
+<div class="yk-h-sub-bar">
+<div class="yk-h-sub-hl"></div>
+<div class="yk-h-sub">
+<ul class="yk-h-sub-menu">
+<li>新闻动态 <span style="POSITION: relative; left:120px"><a href="/article/" target="_blank">更多>></a></span></li>
+</ul>
+</div>
+<div class="yk-h-sub-hr"></div>
+</div>
+<div class="h180">
+<ul>
+<div class="">&nbsp;<a class="click" href="/Article/160.html" title="报名必看—报名流程" target="_blank"><font color="#FF0000"><b>报名必看—报名流程</b></font></a></div><div class="">&nbsp;<a class="click" href="/Article/news/159.html" title="6月27日招生说明会" target="_blank"><font color="#FF0000"><b>6月27日招生说明会</b></font></a></div><div class="">&nbsp;<a class="click" href="/Article/news/79.html" title="09年赴英行前说明会" target="_blank">09年赴英行前说明会</a></div><div class="">&nbsp;<a class="click" href="/Article/news/78.html" title="人大荣获杰出中心称号" target="_blank">人大荣获杰出中心称号</a></div><div class="">&nbsp;<a class="click" href="/Article/news/77.html" title="2006级毕业生欢送会" target="_blank">2006级毕业生欢送会</a></div><div class="">&nbsp;<a class="click" href="/Article/news/76.html" title="数媒06级毕业生欢送会" target="_blank">数媒06级毕业生欢送会</a></div><div class="">&nbsp;<a class="click" href="/Article/news/75.html" title="重游龙庆峡有感" target="_blank">重游龙庆峡有感</a></div><div class="">&nbsp;<a class="click" href="/Article/news/74.html" title="中心荣获SQA免审资格" target="_blank">中心荣获SQA免审资格</a></div>
+
+</ul>
+</div>
+
+</div>
+<div class="w680">
+<div class="w484">
+<div class="yk-h-sub-bar">
+<div class="yk-h-sub-hl"></div>
+<div class="yk-h-sub">
+<ul class="yk-h-sub-menu">
+<li>合作院校 <span>英国</span> <span>美国</span> <span>澳大利亚</span> <span>新西兰</span> <span>荷兰</span> <span>其它国家</span> <span><a href="/hezuo.html" target="_blank">更多>></a></span></li>
+
+</ul>
+</div>
+<div class="yk-h-sub-hr"></div>
+</div>
+<div class="h180">
+<div id="scrolllayer" >
+<div id="scrollmessage" >
+<ul>
+<table width='100%' cellpadding='0' cellspacing='5' border='0' align='center'><tr valign='top'><td align='center'><a class="" href="/school/usa/157.html" title="克拉克森大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604130014485.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/usa/157.html" title="克拉克森大学" target="_blank">克拉克森大学</a></td><td align='center'><a class="" href="/school/usa/156.html" title="加州州立大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604125841806.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/usa/156.html" title="加州州立大学" target="_blank">加州州立大学</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/usa/155.html" title="菲尔莱狄更斯大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604125709336.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/usa/155.html" title="菲尔莱狄更斯大学" target="_blank">菲尔莱狄更斯大学</a></td><td align='center'><a class="" href="/school/usa/154.html" title="密西西比学院" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604125551405.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/usa/154.html" title="密西西比学院" target="_blank">密西西比学院</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/usa/153.html" title="纽约州立大学普拉茨堡校区" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604125440609.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/usa/153.html" title="纽约州立大学普拉茨堡校区" target="_blank">纽约州立大学普拉茨堡校区</a></td><td align='center'><a class="" href="/school/usa/152.html" title="史蒂夫奥斯汀州立大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604125242550.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/usa/152.html" title="史蒂夫奥斯汀州立大学" target="_blank">史蒂夫奥斯汀州立大学</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/usa/151.html" title="新罕布什尔南方大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604125024373.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/usa/151.html" title="新罕布什尔南方大学" target="_blank">新罕布什尔南方大学</a></td><td align='center'><a class="" href="/school/usa/150.html" title="肯塔基大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604124759231.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/usa/150.html" title="肯塔基大学" target="_blank">肯塔基大学</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/usa/149.html" title="北肯塔基大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604124648444.gif'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/usa/149.html" title="北肯塔基大学" target="_blank">北肯塔基大学</a></td><td align='center'><a class="" href="/school/usa/148.html" title="西肯塔基大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604124539614.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/usa/148.html" title="西肯塔基大学" target="_blank">西肯塔基大学</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/aus/147.html" title="澳大利亚&nbsp;南昆士兰大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604124417594.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/aus/147.html" title="澳大利亚&nbsp;南昆士兰大学" target="_blank">澳大利亚&nbsp;南昆士兰大学</a></td><td align='center'><a class="" href="/school/aus/146.html" title="澳大利亚&nbsp;堪培拉大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604124216254.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/aus/146.html" title="澳大利亚&nbsp;堪培拉大学" target="_blank">澳大利亚&nbsp;堪培拉大学</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/aus/145.html" title="澳大利亚&nbsp;詹姆斯库克大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604124048230.gif'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/aus/145.html" title="澳大利亚&nbsp;詹姆斯库克大学" target="_blank">澳大利亚&nbsp;詹姆斯库克大学</a></td><td align='center'><a class="" href="/school/aus/144.html" title="澳大利亚邦德大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604123922718.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/aus/144.html" title="澳大利亚邦德大学" target="_blank">澳大利亚邦德大学</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/nzl/143.html" title="新西兰&nbsp;UNITEC理工学院" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604123733525.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/nzl/143.html" title="新西兰&nbsp;UNITEC理工学院" target="_blank">新西兰&nbsp;UNITEC理工学院</a></td><td align='center'><a class="" href="/school/nzl/142.html" title="维特利亚国立理工学院(Whitieria&nbsp;Community&nbsp;Polytechnic)" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604123601733.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/nzl/142.html" title="维特利亚国立理工学院(Whitieria&nbsp;Community&nbsp;Polytechnic)" target="_blank">维特利亚国立理工学院(Whitieria&nbsp;Community</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/nzl/141.html" title="新西兰&nbsp;奥克兰商学院" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604123310712.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/nzl/141.html" title="新西兰&nbsp;奥克兰商学院" target="_blank">新西兰&nbsp;奥克兰商学院</a></td><td align='center'><a class="" href="/school/hl/140.html" title="荷兰&nbsp;鹿特丹商学院" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604123110295.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/hl/140.html" title="荷兰&nbsp;鹿特丹商学院" target="_blank">荷兰&nbsp;鹿特丹商学院</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/hl/139.html" title="荷兰&nbsp;莱瓦顿北方学院" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604122940453.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/hl/139.html" title="荷兰&nbsp;莱瓦顿北方学院" target="_blank">荷兰&nbsp;莱瓦顿北方学院</a></td><td align='center'><a class="" href="/school/hl/138.html" title="荷兰&nbsp;汉莎大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604121839712.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/hl/138.html" title="荷兰&nbsp;汉莎大学" target="_blank">荷兰&nbsp;汉莎大学</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/hl/137.html" title="荷兰&nbsp;萨克逊大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604121633327.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/hl/137.html" title="荷兰&nbsp;萨克逊大学" target="_blank">荷兰&nbsp;萨克逊大学</a></td><td align='center'><a class="" href="/school/other/136.html" title="唐道克理工学院" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604121255202.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/other/136.html" title="唐道克理工学院" target="_blank">唐道克理工学院</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/other/135.html" title="阿斯隆理工学院" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604121127177.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/other/135.html" title="阿斯隆理工学院" target="_blank">阿斯隆理工学院</a></td><td align='center'><a class="" href="/school/other/134.html" title="沃特福德理工学院" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604121002684.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/other/134.html" title="沃特福德理工学院" target="_blank">沃特福德理工学院</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/other/133.html" title="马来西亚科技大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604120832790.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/other/133.html" title="马来西亚科技大学" target="_blank">马来西亚科技大学</a></td><td align='center'><a class="" href="/school/other/132.html" title="加拿大菲沙河谷大学学院" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604120709310.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/other/132.html" title="加拿大菲沙河谷大学学院" target="_blank">加拿大菲沙河谷大学学院</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/eng/131.html" title="阿尔斯特大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604120450907.gif'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/eng/131.html" title="阿尔斯特大学" target="_blank">阿尔斯特大学</a></td><td align='center'><a class="" href="/school/eng/130.html" title="白金汉大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604120252565.gif'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/eng/130.html" title="白金汉大学" target="_blank">白金汉大学</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/eng/129.html" title="北安普顿大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604120123752.gif'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/eng/129.html" title="北安普顿大学" target="_blank">北安普顿大学</a></td><td align='center'><a class="" href="/school/eng/128.html" title="伯明翰旅游与酒店管理学院" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604115940557.gif'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/eng/128.html" title="伯明翰旅游与酒店管理学院" target="_blank">伯明翰旅游与酒店管理学院</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/eng/127.html" title="德比大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604115813536.gif'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/eng/127.html" title="德比大学" target="_blank">德比大学</a></td><td align='center'><a class="" href="/school/eng/126.html" title="德蒙特福德大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604115615345.gif'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/eng/126.html" title="德蒙特福德大学" target="_blank">德蒙特福德大学</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/eng/125.html" title="格林威治大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604115436206.gif'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/eng/125.html" title="格林威治大学" target="_blank">格林威治大学</a></td><td align='center'><a class="" href="/school/eng/124.html" title="格鲁斯特大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604115313504.gif'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/eng/124.html" title="格鲁斯特大学" target="_blank">格鲁斯特大学</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/eng/123.html" title="赫德斯菲尔德大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604115144853.gif'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/eng/123.html" title="赫德斯菲尔德大学" target="_blank">赫德斯菲尔德大学</a></td><td align='center'><a class="" href="/school/eng/122.html" title="赫尔大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604115004980.gif'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/eng/122.html" title="赫尔大学" target="_blank">赫尔大学</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/eng/121.html" title="胡佛汉顿大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604114833129.gif'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/eng/121.html" title="胡佛汉顿大学" target="_blank">胡佛汉顿大学</a></td><td align='center'><a class="" href="/school/eng/120.html" title="考文垂大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604114700197.gif'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/eng/120.html" title="考文垂大学" target="_blank">考文垂大学</a></td></tr><tr valign='top'><td align='center'><a class="" href="/school/eng/119.html" title="兰开夏郡中央大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604114339650.jpg'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/eng/119.html" title="兰开夏郡中央大学" target="_blank">兰开夏郡中央大学</a></td><td align='center'><a class="" href="/school/eng/118.html" title="南安普顿索伦特大学" target="_blank"><img class='pic1' src='/school/UploadFiles_5670/200906/20090604113939641.gif'  width='120' height='35' border='0'></a></td><td valign='top' align='left'><a class="" href="/school/eng/118.html" title="南安普顿索伦特大学" target="_blank">南安普顿索伦特大学</a></td></tr></table>
+
+</ul>
+</div>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+
+try{
+var marqueesHeight = 163; //高度
+var stopscroll     = false;
+var scrollElem =   document.getElementById("scrolllayer");
+with(scrollElem){
+style.width     = 474;//宽度
+style.height    = marqueesHeight;
+style.overflow  = 'hidden';
+noWrap          = true;
+}
+scrollElem.onmouseover = new   Function('stopscroll = true');
+scrollElem.onmouseout  = new   Function('stopscroll = false');
+var preTop     = 0;
+var currentTop = 0;
+var stoptime   = 0;
+var leftElem =   document.getElementById("scrollmessage");
+scrollElem.appendChild(leftElem.cloneNode(true));
+init_srolltext();
+}catch(e) {}
+function init_srolltext(){
+scrollElem.scrollTop = 0;
+setInterval('scrollUp()', 15); //滚动速度
+}
+function scrollUp(){
+if(stopscroll) return;
+currentTop += 1;
+if(currentTop == 163) { //滚动距离
+stoptime += 1;
+currentTop -= 1;
+if(stoptime == 200) { //停顿时间
+currentTop = 0;
+stoptime = 0;
+}
+}else{
+preTop = scrollElem.scrollTop;
+scrollElem.scrollTop += 1;
+if(preTop == scrollElem.scrollTop){
+scrollElem.scrollTop = 0;
+scrollElem.scrollTop += 1;
+}
+}
+}
+//-->
+</script>
+</div>
+</div>
+
+<div class="w181">
+<div class="yk-h-sub-bar">
+<div class="yk-h-sub-hl"></div>
+<div class="yk-h-sub">
+<ul class="yk-h-sub-menu">
+<li>报考指南</li>
+</ul>
+
+</div>
+<div class="yk-h-sub-hr"></div>
+</div>
+<div class="h180">
+<ul>
+<div class="">&nbsp;<a class="click" href="/about/2.html" title="学院简介" target="_blank">学院简介</a></div><div class="">&nbsp;<a class="click" href="/about/16.html" title="招生问答" target="_blank">招生问答</a></div><div class="">&nbsp;<a class="click" href="/about/15.html" title="招生简章" target="_blank">招生简章</a></div><div class="">&nbsp;<a class="click" href="/about/13.html" title="录取查询" target="_blank">录取查询</a></div><div class="">&nbsp;<a class="click" href="/about/12.html" title="网上报名" target="_blank">网上报名</a></div>
+</ul>
+<a href="http://www.xuexiao114.com.cn/service/baoming.asp?D_id=1" target="_blank"><img src="/css/Images/online_bm.gif" style="margin-top:5px"></a>
+</div>
+
+</div>
+</div>
+
+</div>
+<!--part2-->
+<div class="w980">
+<div class="w285">
+<div class="sub-bar">
+<div class="sub-hl"></div>
+<div class="sub">
+<ul class="sub-menu">
+<li>招生动态</li>
+</ul>
+</div>
+<div class="sub-hr"></div>
+</div>
+<div class="h180">
+<ul>
+
+<div class="">&nbsp;<a class="click" href="/zhaosheng/news/158.html" title="6月27日招生说明会" target="_blank"><font color="#FF0000"><b>6月27日招生说明会</b></font></a></div><div class="">&nbsp;<a class="click" href="/zhaosheng/news/89.html" title="人大招生常见问题解答" target="_blank">人大招生常见问题解答</a></div><div class="">&nbsp;<a class="click" href="/zhaosheng/news/90.html" title="数字媒体设计招生简章" target="_blank">数字媒体设计招生简章</a></div><div class="">&nbsp;<a class="click" href="/zhaosheng/news/11.html" title="第六届HND留学项目招生公告" target="_blank">第六届HND留学项目招生公告</a></div><div class="">&nbsp;<a class="click" href="/zhaosheng/news/91.html" title="数媒考前辅导班招生简章" target="_blank">数媒考前辅导班招生简章</a></div><div class="">&nbsp;<a class="click" href="/zhaosheng/news/88.html" title="07届毕业典礼隆重举行" target="_blank">07届毕业典礼隆重举行</a></div><div class="">&nbsp;<a class="click" href="/zhaosheng/news/87.html" title="人大HND中心新学期" target="_blank">人大HND中心新学期</a></div><div class="">&nbsp;<a class="click" href="/zhaosheng/news/86.html" title="留学英国-艺术专业成热门" target="_blank">留学英国-艺术专业成热门</a></div>
+</ul>
+</div>
+
+</div>
+<div class="w680">
+<div class="w484">
+<div class="sub-bar">
+<div class="sub-hl"></div>
+
+<div class="sub">
+<ul class="sub-menu">
+<li>名师推荐</li>
+</ul>
+</div>
+<div class="sub-hr"></div>
+</div>
+<div class="h180" style="padding:0px; border-width:0px; height:183px">
+<UL class=llst02>
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="484" height="185">
+  <param name="movie" value="/css/Images/Zjms.swf" />
+  <param name="quality" value="high" />
+  <embed src="/css/Images/Zjms.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="484" height="182"></embed>
+
+</object>
+</UL>
+</div>
+</div>
+
+<div class="w181">
+<div class="sub-bar">
+<div class="sub-hl"></div>
+<div class="sub">
+<ul class="sub-menu">
+<li>专业设置</li>
+</ul>
+</div>
+<div class="sub-hr"></div>
+</div>
+<div class="h180">
+
+<ul>
+<div class="">&nbsp;<a class="click" href="/zhaosheng/zhuanye/10.html" title="数字媒体设计（艺术类）" target="_blank">数字媒体设计（艺术类）</a></div><div class="">&nbsp;<a class="click" href="/zhaosheng/zhuanye/9.html" title="国际酒店管理" target="_blank">国际酒店管理</a></div><div class="">&nbsp;<a class="click" href="/zhaosheng/zhuanye/8.html" title="商务信息技术" target="_blank">商务信息技术</a></div><div class="">&nbsp;<a class="click" href="/zhaosheng/zhuanye/7.html" title="国际商务贸易" target="_blank">国际商务贸易</a></div><div class="">&nbsp;<a class="click" href="/zhaosheng/zhuanye/6.html" title="国际金融理财" target="_blank">国际金融理财</a></div>
+</ul>
+<img src="/css/Images/010_51663031.gif"  style="margin-top:5px">
+</div>
+
+</div>
+</div>
+
+</div>
+<!--part3-->
+<div class="w980">
+
+<div class="w285">
+<div class="sub-bar">
+<div class="sub-hl"></div>
+<div class="sub">
+<ul class="sub-menu">
+<li>校园环境</li>
+</ul>
+</div>
+<div class="sub-hr"></div>
+</div>
+<div class="h180" style="padding:0px; border-width:0px; height:180px">
+<SCRIPT type=text/javascript> 
+            <!-- 
+var focus_width=285
+var focus_height=180
+var text_height=0 
+var swf_height = focus_height+text_height 
+var pics='/css/photo/v001.jpg|/css/photo/v002.jpg|/css/photo/v003.jpg|/css/photo/v004.jpg|/css/photo/v005.jpg|/css/photo/v006.jpg|/css/photo/v007.jpg|/css/photo/v008.jpg|/css/photo/v009.jpg|photo/v010.jpg' 
+var links='#|#|#|#|#|#|#|#|#|#'
+var texts='3+x多国留学绿色通道|3+x多国留学绿色通道|3+x多国留学绿色通道|3+x多国留学绿色通道|3+x多国留学绿色通道|3+x多国留学绿色通道|3+x多国留学绿色通道|3+x多国留学绿色通道|3+x多国留学绿色通道|3+x多国留学绿色通道' 
+document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ focus_width +'" height="'+ swf_height +'">'); 
+document.write('<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="/css/images/roll_pic_new.swf"><param name="quality" value="high"><param name="bgcolor" value="#DADADA">'); 
+document.write('<param name="menu" value="false"><param name=wmode value="opaque">'); 
+document.write('<param name="FlashVars" value="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'">'); 
+document.write('<embed src="/css/images/roll_pic_new.swf" wmode="opaque" FlashVars="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'" menu="false" bgcolor="#DADADA" quality="high" width="'+ focus_width +'" height="'+ swf_height +'" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"/>'); document.write('</object>'); 
+//--> 
+</SCRIPT>
+</div>
+
+</div>
+
+<div class="w680">
+<div class="w484">
+<div class="sub-bar">
+<div class="sub-hl"></div>
+<div class="sub">
+<ul class="sub-menu">
+<li>学校简介</li>
+</ul>
+</div>
+<div class="sub-hr"></div>
+</div>
+<div class="h180" style="padding:0px; border-width:0px; height:180px">
+<div style="float:right; margin-left:15px"><a href="/about/2.html" target="_blank"><img src="/css/photo/v006.jpg" width="283" height="183" border="0"></a></div>
+<p><a href="/about/2.html" target="_blank">中国人民大学是一所以人文社会科学为主，兼有部分理工学科的综合性研究型全国重点大学。学校的前身是1937年诞生于抗日战争烽火中的陕北公学，以及后来的华北联合大学、北方大学和华北大学。1950年10月3日，经党中央、政务院批准，以华北大学为基础合并组建的中国人民大学正式成立，成为新中国创办的第一所新型大学。 详细>></a></p>
+</div>
+
+</div>
+
+<div class="w181">
+<div class="sub-bar">
+<div class="sub-hl"></div>
+<div class="sub">
+<ul class="sub-menu">
+<li>友情链接</li>
+</ul>
+</div>
+<div class="sub-hr"></div>
+</div>
+<div class="h180">
+<ul>
+<li><a href="http://www.ruc.edu.cn" target="_blank">中国人民大学</a></li>
+
+<li><a href="http://www.hndruc.cn" target="_blank">中国人民大学3+1留学</a></li>
+<li><a href="http://www.xuexiao114.com.cn/article/hndruc/" target="_blank">中英双文凭留学项目</a></li>
+<li><a href="#">教育部留学服务中心</a></li>
+<li><a href="http://www.sqa.org.uk/sqa/CCC_FirstPage.jsp" target="_blank">苏格兰学历管理委员会</a></li>
+<li><a href="http://www.rdxxxy.cn" target="_blank">人大留学美国特别通道</a></li>
+<li><a href="http://www.rdjrxy.cn" target="_blank">人大财政金融学院留学</a></li>
+<li><a href="http://www.010liuxue.com" target="_blank">北京留学招生网</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<!--bottom-->
+<div id="footer">
+<div id="copyright">
+Copyright &copy;2007-2009. All rights Reserved hndruc.cn <br>
+北京中国人民大学3+1留学 北京中国人民大学指定报名网 北京中国人民大学HND留学英国<br>
+地址：北京市海淀区中关村大街甲59号文化大厦11层1103室 邮编：100872<br>
+电话:010-51663031</div>
+
+<div><script language="javascript" src="http://count8.51yes.com/click.aspx?id=89005862&logo=1"></script></div>
+</div> <script language='javascript' src='/AD/200906/4.js'></script>
+</body>
+</html><NOSCRIPT><IFRAME src='*' Width='0' Height='0'></IFRAME></NOSCRIPT>

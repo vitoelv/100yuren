@@ -1,0 +1,8 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="title-02">
+    <div class="title">浏览历史</div>
+        <ul style="padding-left:20px; list-style-type:circle;">
+    {insert name="history"}
+  </ul>
+</div>
+

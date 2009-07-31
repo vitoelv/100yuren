@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$gallery.goods_name} - {$gallery.img_desc}</title>
+<link rel="shortcut icon" href="favicon.ico" >
+<link rel="icon" href="animated_favicon.gif" type="image/gif" >
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<ul class="gallery">
+  <!-- {foreach from=$thumbs item=thumb} -->
+  <li>
+  <a href="gallery.php?id={$gallery.goods_id}&amp;img={$thumb.img_id}"><img src="{if $thumb.thumb_url}{$thumb.thumb_url}{else}{$thumb.img_url}{/if}" alt="{$img_desc|escape:html}" /></a>
+  </li>
+  <!-- {/foreach} -->
+</ul>
+<div class="gallery_img">
+  <p><img src="{$gallery.img_url}" border="1" /></p>
+  <p>{$gallery.img_desc}</p>
+</div>
+</body>
+</html>

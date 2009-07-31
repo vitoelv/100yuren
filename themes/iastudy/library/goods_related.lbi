@@ -1,0 +1,11 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $related_goods} -->
+<div class="title-02">
+  <div class="title">相关课程</div>
+  <ul style="padding-left:23px; list-style-type:circle;">
+    <!--{foreach from=$related_goods item=related}-->
+    <li> <a href="{$related.url}" title="<!-- {if $related.promote_price neq 0} -->{$lang.promote_price}{$related.formated_promote_price}<!-- {else} -->{$lang.shop_price}{$related.shop_price}<!-- {/if} --> ">{$related.goods_name}</a> </li>
+    <!--{/foreach}-->
+  </ul>
+</div>
+<!-- {/if} -->

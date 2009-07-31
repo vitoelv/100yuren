@@ -1,0 +1,145 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<script language="JavaScript" type="text/javascript">
+    var eval_user = false;
+	function eval_user_input()
+	{
+	    eval_user = false;
+	    var user = new Object;
+		user.true_name = Utils.trim(document.getElementById('true_name').value);
+		user.sex       = 0;
+		user.record    = Utils.trim(document.getElementById('record').value); 
+		user.telephone = Utils.trim(document.getElementById('telephone').value); 
+		user.mobile_phone = Utils.trim(document.getElementById('mobile_phone').value); 
+		user.address   = Utils.trim(document.getElementById('address').value); 
+		user.email     = Utils.trim(document.getElementById('email').value); 
+		user.age       = Utils.trim(document.getElementById('age').value); 
+		user.idcardno  = Utils.trim(document.getElementById('idcardno').value); 
+		user.qq       = Utils.trim(document.getElementById('qq').value); 
+		for (i = 0; i < document.signupForm.elements['sex'].length; i++)
+		{
+			if (document.signupForm.elements['sex'][i].checked)
+			{
+				 user.sex = document.signupForm.elements['sex'][i].value;
+			}
+		}
+		if (user.true_name.length == 0)
+		{
+		  alert('请填写您的真实姓名');
+			return false;
+		}
+		if (user.email.length > 0)
+		{
+			if (!Utils.isEmail(user.email))
+			{
+			  alert('请正确填写您的个人邮件帐户！');
+				return false;
+			}
+		}
+
+        if (user.mobile_phone.length == 0 && user.telephone.length ==0)
+		{
+		    alert('联系电话和手机不能都为空，请至少提供一项');
+			return false;
+		}
+		eval_user = true;
+		return true;
+	  }
+</script> 
+
+<div class="goods-title"><img src="../images/subtitle2.gif"/>&nbsp;网上预报名</div>
+ <form id="signupForm" name="signupForm" method="post" action="flow.php" onsubmit="return eval_user_input();">
+  <div>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+            <tr>
+              <td width="15%" style="color:red;"><span class="STYLE2">真实姓名：</span></td>
+              <td width="30%">
+                <input name="true_name" type="text" class="inp2" id="true_name" value="" /><span class="STYLE1">(必填)</span>
+              </td>
+              <td width="15%" style="color:red;">性&nbsp;别：</td>
+              <td width="40%">
+                <label>
+				<input name="sex" type="radio" value="0" checked />保密
+				<input name="sex" type="radio" value="1"  />男
+				<input name="sex" type="radio" value="2"  />女
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td style="color:red;"><span class="STYLE2">手&nbsp;机：</span></td>
+              <td>
+                <input name="mobile_phone" type="text" class="inp2" id="mobile_phone" value="" />
+                <span class="STYLE1">(必填)</span></td>	
+              <td style="color:red;"><span class="STYLE2">联系电话：</span></td>
+              <td>
+                <label></label>
+                <label>
+                <input name="telephone" type="text" class="inp2" id="telephone" value="" />
+                </label>
+                <span class="STYLE1">(必填! 含电话区号)</span> 
+              </td>
+            </tr>
+            <tr>
+              <td style="color:red;"><span class="STYLE2">身份证号码：</span></td>
+              <td>
+                <input name="idcardno" type="text" class="inp2" id="idcardno" value="" />
+              </td>
+              <td style="color:red;"><span class="STYLE2">电子邮件：</span></td>
+              <td>
+                <input name="email" type="text" class="inp2" id="email" value="" />
+              </td>
+            </tr>
+            <tr>
+              <td><span style="color:#FF0000;">通信地址：</span></td>
+              <td colspan="3">
+                <input name="address" type="text" class="inp" id="address" value="" />
+                	（含邮编，请准确填写以便于邮寄资料和入学通知书等）
+              </td>
+            </tr>			                
+            <tr>
+              <td>年&nbsp;龄：</td>
+              <td>
+                <input name="age" type="text" class="inp2" id="age" value="" />
+              </td>
+              <td>教育程度：</td>
+              <td>
+                <input name="record" type="text" class="inp2" id="record" value="" />
+              </td>
+            </tr>
+            <tr>
+              <td>QQ：</td>
+              <td>
+                <input name="qq" type="text" class="inp2" id="qq" value="" />
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>付款方式</td>
+              <td>
+                  <select name="payment" size="1" id="payment">
+				    <option value="3">到校付款</option>
+                  </select>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>  
+            <tr>
+              <td>简短附言</td>
+              <td colspan="3">
+                  <textarea name="postscript"  id="postscript" style="width:70%"  ></textarea> 
+              </td>
+            </tr>             
+                     
+		  </table>
+    <input type="hidden" name="course_id" value="{$goods.goods_id}" />
+    <input type="hidden" name="goods_id" value="{$goods.goods_id}" />
+    <input name="user_type" id="user_type" type="hidden"  value="0" />
+    <input name="direct_signup" id="direct_signup" type="hidden"  value="1" />
+    <input type="hidden" name="step" value="done2" />
+	<p align=center><input type=submit name=btnSubmit value=" 提 交 "> <input type=reset name=btnReset value=" 重 填 "></p>    
+  </div>
+</form>
+
+
+

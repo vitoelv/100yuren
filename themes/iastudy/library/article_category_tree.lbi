@@ -1,0 +1,14 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="categoryTree" class="globalModule">
+  <h3>文章分类</h3>
+  <ul>
+    <!-- {foreach from=$article_categories item=cat} -->
+    <li>
+      <h4><a href="{$cat.url}">{$cat.name|escape:html} &gt;&gt;</a></h4>
+      <!-- {foreach from=$cat.children item=child} -->
+      <a href="{$child.url}">{$child.name|escape:html}</a><br />
+      <!-- {/foreach} -->
+    </li>
+    <!-- {/foreach} -->
+  </ul>
+</div>

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Keywords" content="{$keywords}" />
+  <meta name="Description" content="{$description}" />
+  <!-- TemplateBeginEditable name="doctitle" -->
+  <!-- TemplateEndEditable -->
+  <!-- TemplateBeginEditable name="head" -->
+  <!-- TemplateEndEditable -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="animated_favicon.gif" type="image/gif" />
+  <link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <title>{$page_title}</title>
+  {* 包含脚本文件 *}{insert_scripts files='common.js'}
+</head>
+<body>
+<div class="width">
+  <div class="minwidth">
+    <div class="neirong">
+
+<div id="outer_wrapper">
+
+      <div>
+        <form action="58.php" method="post" name="theForm" id="theForm" >
+            <p align="center"></p><br>
+        	<p align="center"><strong>网吧渠道报名查询系统</strong></p>
+        	<p align="center"></p><br>
+			<p align="center">请输入网吧IP: <input name="ip" type="text" id="ip" />  <input type="submit" name="btn_submit" value="提交"></p>
+			<!-- {if $signup_list} -->
+			<div class="title-03">
+				<div class="box">
+					<ul class="product-list">
+					<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+					  <tr>
+						<th align="left" width="15%">报名人</th>
+						<th align="left" width="15%">联系电话</th>		
+						<th align="center" width="15%">移动电话</th>
+						<th align="center" width="15%">报名课程</th>
+						<th align="center" width="15%">报名时间</th>
+						<th align="center" width="15%">请求IP</th>
+					  </tr>		
+					  <!--{foreach from=$signup_list item=signups}-->
+						  <tr bgcolor="#ffffff" onMouseOver="this.style.background='#E7FEEA'" onmouseout="this.style.background='#ffffff'">
+							<td align="left">{$signups.true_name}</td>
+							<td align="left">{$signups.telephone}</td>		
+							<td align="left">{$signups.mobile_phone}</td>
+							<td align="left">{$signups.course_name}</td>
+							<td align="left">{$signups.signup_date}</td>
+							<td align="left">{$signups.request_ip}</td>
+						  </tr>		  
+					  <!--{/foreach}-->
+					</table>  
+					</ul>
+				</div>
+			</div>
+			<!-- {/if} -->
+
+        </form>
+      </div>
+
+</div>
+<!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+  </div></div></div><!-- /container -->
+</body>
+</html>

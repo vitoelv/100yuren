@@ -1,0 +1,12 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--{if $price_list}-->
+    <div class="title">最新出价</div>
+    <ul>
+      <!--{foreach from=$price_list item=item}-->
+      <li>· {$item.user_name} <span style="color:#0066CC; margin-left:20px;">{$item.bid_price}</span></li>
+      <!--{/foreach}-->
+    </ul>
+    <!--{else}-->
+    <h3 style="text-align:center;">无出价记录!</h3>
+<!--{/if}-->
+
