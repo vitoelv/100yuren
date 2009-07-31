@@ -1,0 +1,60 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $myprice.is_end eq false} -->
+<form action="javascript:bid()" method="post" name="formBid" id="formBid">
+        <div style="font-size:14px; font-weight:bold; padding:15px 0 5px 30px; border-top:1px #ccc dashed; margin-bottom:5px; margin-top:15px; color:#CD6702">我要出价</div>
+  <div style="padding:10px;">
+    <table width="98%"  border="0" cellpadding="3">
+      <tr>
+        <td width="15%" align="right">{$lang.my_integral}:</td>
+        <td>{$myprice.pay_points}</td>
+      </tr>
+      <tr>
+        <td width="15%" align="right">{$lang.bid}:</td>
+        <td><input type="hidden" name="snatch_id" value="{$id}" /><input name="price" type="text" id="price" /></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input type="submit" name="Submit" value="{$lang.me_bid}" /></td>
+      </tr>
+    </table>
+    <div class="hack"></div>
+  </div>
+</form>
+        <div style="font-size:14px; font-weight:bold; padding:15px 0 5px 30px; border-top:1px #ccc dashed; margin-bottom:5px; margin-top:15px; color:#CD6702">{$lang.me_now_bid}</div>
+<div style="padding:10px;" id="snatch-myprice">
+  <ul style="padding-left:20px;">
+    <!--{foreach from=$myprice.bid_price item=item}-->
+    <li>{$item.price}
+      <!--{if $item.is_only}-->
+      ({$lang.only_price})
+      <!--{/if}-->
+    </li>
+    <!--{foreachelse}-->
+    <li style="border:0;">您还没有出价记录!</li>
+    <!--{/foreach}-->
+  </ul>
+  <div class="hack"></div>
+</div>
+<!-- {else} -->
+<div style="padding:0 10px;">
+  <h3 style="border-bottom:2px solid #DADADA;background:#F1F1F1;margin:0;padding:5px 0 0 5px;">{$lang.view_snatch_result}</h3>
+  <!--{if $result}-->
+  <table width="98%"  border="0" style="margin:10px;">
+    <tr>
+      <th width="80" align="left">{$lang.victory_user}:</th>
+      <td>{$result.user_name}</td>
+    </tr>
+    <tr>
+      <th align="left">{$lang.price_bid}:</th>
+      <td>{$result.bid_price}</td>
+    </tr>
+    <tr>
+      <th align="left">{$lang.bid_time}:</th>
+      <td>{$result.bid_time}</td>
+    </tr>
+  </table>
+</div>
+<!--{else}-->
+{$lang.not_victory_user}
+<!--{/if}-->
+<!--{/if}-->

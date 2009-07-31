@@ -1,0 +1,199 @@
+
+.content_left {
+	DISPLAY: inline; FLOAT: left; OVERFLOW: hidden; WIDTH: 329px; MARGIN-RIGHT: 7px
+}
+
+.title_01 {PADDING-RIGHT: 14px; PADDING-LEFT: 11px; BACKGROUND: url(left_title_01.gif); WIDTH: 305px; PADDING-TOP: 7px; HEIGHT: 19px}
+.title_02 {MARGIN-TOP: 7px; BACKGROUND: url(mid_sec_title_bg.gif) repeat-x 0px 12px; HEIGHT: 16px}
+.left {FLOAT: left}
+.right {FLOAT: right}
+
+.title_orange {PADDING-RIGHT: 14px; PADDING-LEFT: 11px; BACKGROUND: url(left_title_01.gif); WIDTH: 305px; PADDING-TOP: 7px; HEIGHT: 19px}
+
+
+#right_1 {FLOAT: right; width:609px;}
+.right_1_title {BACKGROUND: url(china_hp_right_tt_bg.gif) no-repeat 0px 0px; WIDTH: 609px; HEIGHT: 28px}
+
+.right_1_title UL LI {FLOAT: left}
+.right_1_title UL {PADDING-LEFT: 15px; FLOAT: left}
+
+.right_1_title UL LI.first {MARGIN-TOP: 6px; FONT-WEIGHT: bold; FONT-SIZE: 14px; BACKGROUND: url(http://img.china.alibaba.com/images/cn/home/070709/china_hp_right_tt_f_bg.gif) no-repeat 0px 0px; WIDTH: 89px; COLOR: #ff7300; PADDING-TOP: 5px; HEIGHT: 17px; TEXT-ALIGN: center}
+.right_3_title UL LI.first {MARGIN-TOP: 6px; FONT-WEIGHT: bold; FONT-SIZE: 14px; BACKGROUND: url(http://img.china.alibaba.com/images/cn/home/070709/china_hp_right_tt_f_bg.gif) no-repeat 0px 0px; WIDTH: 89px; COLOR: #ff7300; PADDING-TOP: 5px; HEIGHT: 17px; TEXT-ALIGN: center}
+
+.right_1_title UL LI.four_t A {DISPLAY: block; BACKGROUND: url(http://img.china.alibaba.com/images/cn/home/070709/china_hp_right_tt_4bt.gif) no-repeat 0px 0px; MARGIN: 6px 0px 0px; WIDTH: 61px; COLOR: #000; PADDING-TOP: 5px; HEIGHT: 15px; TEXT-ALIGN: center}
+.right_1_title UL LI.four_t A:visited {DISPLAY: block; BACKGROUND: url(http://img.china.alibaba.com/images/cn/home/070709/china_hp_right_tt_4bt.gif) no-repeat 0px 0px; MARGIN: 6px 0px 0px; WIDTH: 61px; COLOR: #000; PADDING-TOP: 5px; HEIGHT: 15px; TEXT-ALIGN: center}
+.right_1_title UL LI.four_t A:hover {DISPLAY: block; BACKGROUND: url(http://img.china.alibaba.com/images/cn/home/070709/china_hp_right_tt_4bt_hov.gif) no-repeat 0px 0px; MARGIN: 6px 0px 0px; WIDTH: 61px; COLOR: #fff; PADDING-TOP: 5px; HEIGHT: 15px; TEXT-ALIGN: center; TEXT-DECORATION: none}
+.right_1_title UL LI.four_t_act A {DISPLAY: block; BACKGROUND: url(http://img.china.alibaba.com/images/cn/home/070709/china_hp_right_tt_4bt_hov.gif) no-repeat 0px 0px; MARGIN: 6px 0px 0px; WIDTH: 61px; COLOR: #fff; PADDING-TOP: 5px; HEIGHT: 15px; TEXT-ALIGN: center; TEXT-DECORATION: none}
+.right_1_title UL LI.fiv_t A {DISPLAY: block; BACKGROUND: url(http://img.china.alibaba.com/images/cn/home/070709/china_hp_right_tt_5bt.gif) no-repeat 0px 0px; MARGIN: 6px 0px 0px; WIDTH: 73px; COLOR: #000; PADDING-TOP: 5px; HEIGHT: 15px; TEXT-ALIGN: center}
+.right_1_title UL LI.fiv_t A:hover {DISPLAY: block; BACKGROUND: url(http://img.china.alibaba.com/images/cn/home/070709/china_hp_right_tt_5bt_hov.gif) no-repeat 0px 0px; MARGIN: 6px 0px 0px; WIDTH: 73px; COLOR: #fff; PADDING-TOP: 5px; HEIGHT: 15px; TEXT-ALIGN: center; TEXT-DECORATION: none}
+#right_3 .right_3_title UL LI.fiv_t A:hover {DISPLAY: block; BACKGROUND: url(http://img.china.alibaba.com/images/cn/home/070709/china_hp_right_tt_5bt_hov.gif) no-repeat 0px 0px; MARGIN: 6px 0px 0px; WIDTH: 73px; COLOR: #fff; PADDING-TOP: 5px; HEIGHT: 15px; TEXT-ALIGN: center; TEXT-DECORATION: none}
+.right_1_title UL LI.fiv_t_act A {DISPLAY: block; BACKGROUND: url(http://img.china.alibaba.com/images/cn/home/070709/china_hp_right_tt_5bt_hov.gif) no-repeat 0px 0px; MARGIN: 6px 0px 0px; WIDTH: 73px; COLOR: #fff; PADDING-TOP: 5px; HEIGHT: 15px; TEXT-ALIGN: center; TEXT-DECORATION: none}
+
+.right_center {MARGIN-LEFT: -3px}
+
+.mr6 {MARGIN-RIGHT: 6px}
+.ml10 {MARGIN-LEFT: 10px}
+.mt4 {MARGIN-TOP: 4px}
+
+.right_1_content {BORDER-RIGHT: #FFB981 1px solid; BORDER-TOP: #FFB981 0px solid; BORDER-LEFT: #FFB981 1px solid; WIDTH: 607px; BORDER-BOTTOM: #FFB981 1px solid;}
+.right_1_content UL {FLOAT: left; margin:0px; padding:0px;}
+.right_1_content .title {PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM:1px! important; WIDTH: 565px; PADDING-TOP: 10px}
+
+.right_1_content UL.col1 {PADDING-RIGHT: 21px; PADDING-LEFT: 21px; PADDING-BOTTOM: 14px! important; WIDTH: 565px; PADDING-TOP: 7px; BACKGROUND-COLOR: #fff}
+.right_1_content UL.col1 LI {FLOAT: left; MARGIN: 7px 0px 0px; OVERFLOW: visible! important; WIDTH: 270px}
+.right_1_content UL.col1 LI.right {FLOAT: right; MARGIN-LEFT: 25px}
+.right_1_content UL.col1 LI A {COLOR: #004fa3}
+.right_1_content UL.col1 LI UL {MARGIN-TOP: 3px}
+.right_1_content UL.col1 LI UL LI {MARGIN-TOP: 3px; MARGIN-BOTTOM: 3px; COLOR: #4c83be; WHITE-SPACE: nowrap; HEIGHT: auto}
+.right_1_content UL.col1 LI UL LI A {COLOR: #4c83be; WHITE-SPACE: nowrap}
+
+.right_1_content UL LI {FONT-WEIGHT: bold; FONT-SIZE: 14px; FLOAT: left; WIDTH: 270px}
+.right_1_content UL.cate LI {BORDER-RIGHT: #4c83be 1px solid; PADDING-RIGHT: 8px; MARGIN-TOP: 10px; FONT-WEIGHT: normal; FONT-SIZE: 12px; FLOAT: left; OVERFLOW: visible! important; WIDTH: auto; MARGIN-RIGHT: 8px; HEIGHT: 10px}
+.right_1_content UL.cate LI.nobd {BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px}
+
+.right_1_content UL LI.top_cate {DISPLAY: block; BACKGROUND: #fffaee; FLOAT: left; WIDTH: 585px; BORDER-BOTTOM: #ff7300 1px dotted; HEIGHT: 24px! important; height:16px; TEXT-ALIGN: left; padding-top:8px }
+.right_1_content UL LI.top_cate span{ float:right; margin:0px 10px; margin-top:-18px}
+
+.right_1_content UL LI.top_cate_list {DISPLAY: block; FLOAT: left; WIDTH: 565px; TEXT-ALIGN: left}
+.right_1_content UL LI.top_cate_list A {PADDING-RIGHT: 18px; FLOAT: left}
+.right_1_content UL LI.top_cate A {FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #ff7300}
+.right_1_content UL LI.top_cate_2 {DISPLAY: block; BACKGROUND: url(http://img.china.alibaba.com/images/cn/home/070709/china_hp_right1_tt_bg.gif) repeat-x 0px 5px; FLOAT: left; WIDTH: 565px; TEXT-ALIGN: center}
+.right_1_content UL LI.top_cate_2 A {FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #ff7300; BACKGROUND-COLOR: #edf2f8}
+
+.screen9 {BACKGROUND: url(http://img.china.alibaba.com/images/cn/home/080805/cp5_bg_080808.gif) repeat-x 0px -22px; MARGIN: 10px auto 0px; OVERFLOW: hidden; WIDTH: 950px; HEIGHT: 27px}
+.screen9 .left1 {FLOAT: left}
+.screen9 .left3 {FLOAT: left}
+.screen9 .left5 {FLOAT: left}
+.screen9 .left2 {BACKGROUND: url(http://img.china.alibaba.com/images/cn/home/080805/cp5_bg_080808.gif) repeat-x 0px -66px; FLOAT: left; WIDTH: auto; COLOR: #ff7d23; PADDING-TOP: 10px; HEIGHT: 27px}
+.screen9 LI.left5a {PADDING-RIGHT: 10px; FLOAT: right; PADDING-TOP: 9px; HEIGHT: 28px}
+.screen9 .write {COLOR: #fff}
+.screen9 LI.left4 {PADDING-LEFT: 15px; BACKGROUND: url(http://img.china.alibaba.com/images/cn/home/080805/cp5_bg_080808.gif) repeat-x 0px -22px; FLOAT: left; PADDING-TOP: 9px; HEIGHT: 27px}
+.screen9Content {BORDER-RIGHT: #ff7300 1px solid; MARGIN: 0px auto; BORDER-LEFT: #ff7300 1px solid; WIDTH: 950px; PADDING-TOP: 13px; BORDER-BOTTOM: #ff7300 1px solid; HEIGHT: 430px! important}
+.screen9Content .cyStepOne {BORDER-RIGHT: #000 1px; BORDER-TOP: #000 1px; PADDING-LEFT: 40px; OVERFLOW: hidden; BORDER-LEFT: #000 1px; WIDTH: 340px; BORDER-BOTTOM: #000 1px; HEIGHT: 156px}
+.screen9Content .cyStepTwo {BORDER-RIGHT: #000 1px; BORDER-TOP: #000 1px; OVERFLOW: hidden; BORDER-LEFT: #000 1px; WIDTH: 300px; BORDER-BOTTOM: #000 1px; HEIGHT: 156px}
+.screen9Content .mrTopA {MARGIN-TOP: 6px; PADDING-TOP: 0px! important}
+.screen9Content .mrTopB {MARGIN-TOP: 30px}
+.screen9Content .lhA {LINE-HEIGHT: 20px}
+.screen9Content .lhB {LINE-HEIGHT: 30px}
+.screen9Content .lhC {LINE-HEIGHT: 18px}
+.screen9Content .orangeLine {MARGIN: 0px 10px; BORDER-BOTTOM: #ff7300 1px dashed; HEIGHT: 12px}
+.screen9Content .fontSizeC {FONT-SIZE: 12px}
+.screen9Content UL.offsetA {MARGIN-TOP: 4px; MARGIN-LEFT: 20px}
+.screen9Content .video {BORDER-RIGHT: #000 1px; PADDING-RIGHT: 10px; BORDER-TOP: #000 1px; BORDER-LEFT: #000 1px; WIDTH: 250px; BORDER-BOTTOM: #000 1px; HEIGHT: 156px; TEXT-ALIGN: right}
+.screen9Content .imgTitle {MARGIN-TOP: 11px; PADDING-LEFT: 28px; FONT-WEIGHT: bold; BACKGROUND: url(http://img.china.alibaba.com/images/cn/home/080805/cp5_bg_080808.gif) no-repeat 10px -99px; COLOR: #ff7300; LINE-HEIGHT: 20px; HEIGHT: 20px}
+.screen9Content .cyImgList {BORDER-RIGHT: #000 1px; BORDER-TOP: #000 1px; MARGIN-TOP: 6px; BORDER-LEFT: #000 1px; BORDER-BOTTOM: #000 1px}
+.screen9Content .cyImgList A.gray {COLOR: #565656; TEXT-DECORATION: none}
+.screen8Content .cyImgList A.gray:link {COLOR: #565656; TEXT-DECORATION: none}
+.screen8Content .cyImgList A.gray:visited {COLOR: #565656; TEXT-DECORATION: none}
+.screen9Content .cyImgList A.gray:hover {COLOR: #ff7300; TEXT-DECORATION: underline}
+.screen9Content .cyImgList UL LI {BORDER-RIGHT: #000 1px; BORDER-TOP: #000 1px; FLOAT: left; BORDER-LEFT: #000 1px; BORDER-BOTTOM: #000 1px; HEIGHT: 102px}
+.screen9Content .cyImgList UL .pdRight17 {PADDING-RIGHT: 17px}
+.screen9Content .cyImgList UL .pdLeft8 {PADDING-LEFT: 8px}
+.screen9Content .cyImgList UL LI SPAN {CLEAR: both; DISPLAY: block; LINE-HEIGHT: 20px! important; PADDING-TOP: 4px! important; TEXT-ALIGN: center}
+.screen9Content .cyImgList UL LI IMG {BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; BORDER-LEFT: #ccc 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #ccc 1px solid}
+.m {FONT-WEIGHT: bold; FONT-SIZE: 14px}
+
+.screen12Content {BORDER-RIGHT: #ff7300 1px solid; MARGIN: 0pt auto; BORDER-LEFT: #ff7300 1px solid; WIDTH: 948px; PADDING-TOP: 13px; BORDER-BOTTOM: #ff7300 1px solid; HEIGHT: 448px}
+.screen12Content .left {FLOAT: left}
+.screen12Content .right {FLOAT: right}
+.screen12Content .cyStep {MARGIN-TOP: 23px; MARGIN-LEFT: 12px; WIDTH: 926px; MARGIN-RIGHT: 12px; BORDER-BOTTOM: #ff7300 1px dashed; HEIGHT: 205px}
+.screen12Content .cyStepV1 {DISPLAY: inline; MARGIN-LEFT: 6px; WIDTH: 150px; HEIGHT: 205px}
+.screen12Content .cyStepV2 {WIDTH: 152px; HEIGHT: 205px}
+.screen12Content .cyStepV3 {WIDTH: 302px; HEIGHT: 205px}
+.screen12Content .cyStepV3 .cytyTitle {MARGIN-TOP: 6px; FONT-WEIGHT: bold; FONT-SIZE: 12px}
+
+.screen12Content .cyStepV4 {OVERFLOW: hidden; WIDTH: 296px; HEIGHT: 436px! important; BACKGROUND-COLOR: #fffde8}
+.screen12Content .StepV1Title {MARGIN-TOP: 9px; FONT-WEIGHT: bold; FONT-SIZE: 12px; MARGIN-LEFT: 1px}
+.screen12Content .cyStepV1Ul {MARGIN-TOP: 8px}
+.screen12Content .cyStepV1Ul LI {LINE-HEIGHT: 20px}
+.screen12Content .sj_bg {PADDING-LEFT: 12px; FONT-WEIGHT: bold; BACKGROUND: url(mid_sec_title_r.gif) #fff no-repeat 2px 2px; WIDTH: auto; LINE-HEIGHT: 20px; HEIGHT: 20px}
+.screen12Content .listOffers LI {DISPLAY: block; BACKGROUND-IMAGE: none! important; OVERFLOW: hidden; LINE-HEIGHT: 24px; PADDING-TOP: 2px; BORDER-BOTTOM: #ccc 1px dashed; HEIGHT: 20px}
+.screen12Content .listOffers .nobg {BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px}
+.screen12Content .lh20 {LINE-HEIGHT: 20px}
+.screen12Content .lh24 {LINE-HEIGHT: 24px}
+.screen12Content .cyAreaShow {MARGIN: 18px 12px 0px; HEIGHT: 204px}
+.screen12Content .topProject {FLOAT: left; WIDTH: 160px}
+.screen12Content .topProject .topProjectTitle {PADDING-LEFT: 16px; FONT-WEIGHT: bold; BACKGROUND: url(cyjm_bg_v3.gif) #fff no-repeat 0px -10px; COLOR: #ff5404}
+.screen12Content .topProject .topProjectArea { WIDTH: 152px; CURSOR: pointer; PADDING-TOP: 6px; HEIGHT: 182px}
+.screen12Content .sj {PADDING-LEFT: 20px; FONT-WEIGHT: bold; BACKGROUND: url(cyjm_bg_v3.gif) no-repeat 0px -5px}
+
+
+.screen12Content #cyInfoDetail {FLOAT: left; OVERFLOW: hidden; WIDTH: 148px; PADDING-TOP: 5px; HEIGHT: 170px}
+.screen12Content #cyInfoDetail UL LI {PADDING-LEFT: 10px; BACKGROUND: url(cyjm_bg_v3.gif) no-repeat 0px -251px; LINE-HEIGHT: 21px}
+.screen12Content #cyInfoDetail .open {DISPLAY: block}
+.screen12Content #cyInfoDetail .close {DISPLAY: none}
+
+.screen12Content .cyBrand {DISPLAY: inline; FLOAT: left; WIDTH: 454px; HEIGHT: 200px}
+.screen12Content .cyBrand .cyBrandTitle {PADDING-LEFT: 16px; FONT-WEIGHT: bold; BACKGROUND: url(cyjm_bg_v3.gif) #fff no-repeat 0px -10px; COLOR: #ff5404}
+.screen12Content .cyBrand .cyBrandList {MARGIN-TOP: 2px; WIDTH: 456px; HEIGHT: 176px}
+.screen12Content .cyBrand .cyBrandList LI {MARGIN-TOP: 3px; WIDTH: 456px}
+.screen12Content .cyBrand .cyBrandList LI IMG {BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; BORDER-LEFT: #ccc 1px solid; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; BORDER-BOTTOM: #ccc 1px solid; width:78px; height:49px}
+.screen12Content .cyBrand .cyBrandList LI IMG.nomr {MARGIN-RIGHT: 0px}
+
+.screen12Content A.orange {COLOR: #ff7300}
+.screen12Content .screen12_right1 {PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; BACKGROUND-COLOR: #fffbe6}
+.screen12Content .screen12_right1 UL {MARGIN: 0px 10px; WIDTH: 282px}
+.screen12Content .screen12_right1 UL.down {CLEAR: both; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 4px; WHITE-SPACE: nowrap}
+.screen12Content .screen12_right1 LI {PADDING-RIGHT: 12px;  LINE-HEIGHT: 150%; WHITE-SPACE: nowrap}
+.ml11a {MARGIN-LEFT: 22px}
+.mtb {MARGIN-TOP: 3px}
+.hotchance {PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; PADDING-BOTTOM: 0px; WIDTH: 620px; PADDING-TOP: 0px}
+.hotchance_up {WIDTH: 620px; HEIGHT: 150px}
+.hotchance_up UL LI {PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FLOAT: left; PADDING-BOTTOM: 0px; WIDTH: 150px; LINE-HEIGHT: 180%; PADDING-TOP: 0px; TEXT-ALIGN: center}
+.hotchance_up UL LI SPAN {DISPLAY: block; WIDTH: 150px; CURSOR: pointer}
+IMG.img136 {BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; BORDER-LEFT: #ccc 1px solid; WIDTH: 136px; PADDING-TOP: 2px; BORDER-BOTTOM: #ccc 1px solid; HEIGHT: 48px}
+
+.hotchance_mid {MARGIN-TOP: 0px! important; HEIGHT: 70px}
+.hotchance_mid_list LI {FLOAT: left; MARGIN: 0px 5px; WIDTH: 290px; PADDING-TOP: 10px; BORDER-BOTTOM: #ccc 1px dashed; HEIGHT: 20px}
+.hotchance_mid_list LI.last {BORDER-BOTTOM: #ccc 0px dashed}
+.bg {BACKGROUND: url(mid_sec_title_bg.gif) repeat-x 0px 13px}
+.screen3_right2 {MARGIN-TOP: 2px! important; PADDING-TOP: 7px; HEIGHT: 10px}
+.screen3_right2 LI.left {PADDING-LEFT: 10px; FONT-WEIGHT: bold; BACKGROUND: url(mid_sec_title_r.gif) #fff no-repeat 0px 2px; FLOAT: left; WIDTH: auto; HEIGHT: 12px}
+.screen3_right2 LI.right {FLOAT: right; BACKGROUND-COLOR: #fff}
+
+.screen5 {BACKGROUND: url(tab8d.gif) repeat-x 0px 0px; MARGIN: 0px auto; WIDTH: 680px; HEIGHT: 28px}
+.screen5 .m{ font-size:14px; font-weight:bold}
+.screen5 LI {FLOAT: left; HEIGHT: 28px}
+.screen5 LI.left1 {FLOAT: left; WIDTH: 19px; HEIGHT: 28px}
+.screen5 LI.left2 {BACKGROUND: url(tab8b.gif) repeat-x 0px 0px; FLOAT: left; WIDTH: auto; COLOR: #cf6b00; PADDING-TOP: 10px}
+.screen5 LI.left3 {FLOAT: left; WIDTH: 14px; HEIGHT: 28px}
+.screen5 LI.left4 {PADDING-RIGHT: 0px; PADDING-LEFT: 15px; BACKGROUND: url(tab8d.gif) repeat-x 0px 0px; FLOAT: left; PADDING-BOTTOM: 0px; PADDING-TOP: 10px}
+.screen5 LI.left5a {PADDING-RIGHT: 10px; FLOAT: right; PADDING-TOP: 10px; HEIGHT: 28px}
+.screen5 LI.left5 {FLOAT: right; HEIGHT: 28px}
+.screen5_right1 {PADDING-RIGHT: 0px! important; PADDING-LEFT: 0px! important; PADDING-BOTTOM: 2px! important; PADDING-TOP: 0px! important; BACKGROUND-COLOR: #fffbe6}
+.screen5_right1 UL {PADDING-RIGHT: 10px! important; PADDING-LEFT: 10px! important; PADDING-BOTTOM: 5px! important; MARGIN: 0px; WIDTH: 250px; PADDING-TOP: 10px! important}
+.screen5_right1 LI {PADDING-RIGHT: 12px; WORD-BREAK: keep-all; LINE-HEIGHT: 150%; background:url(ontop1.gif) left 0px no-repeat; padding-left:10px}
+
+A.dist2 {MARGIN-RIGHT: 13px}
+.screen3_cont {MARGIN: 0px auto; WIDTH: 680px; PADDING-TOP: 10px! important;}
+.screen3b_right {PADDING-RIGHT: 0px! important; PADDING-LEFT: 0px! important; PADDING-BOTTOM: 0px! important; WIDTH: 270px; PADDING-TOP: 0px! important}
+.screen3b_right2 {PADDING-RIGHT: 0px! important; PADDING-LEFT: 12px! important; PADDING-BOTTOM: 5px! important; WIDTH: 302px; PADDING-TOP: 0px! important}
+.screen3_span {FONT-WEIGHT: bold; FONT-SIZE: 12px; WORD-BREAK: keep-all; LINE-HEIGHT: 150%}
+.screen3b_left {PADDING-RIGHT: 0px! important; PADDING-LEFT: 0px! important; PADDING-BOTTOM: 0px! important; WIDTH: 410px; PADDING-TOP: 0px! important}
+.screen3_right3 {PADDING-TOP: 10px! important}
+.screen3_right3 LI {CLEAR: both; BACKGROUND: url(mid_sec_title_bg.gif) repeat-x 0px 19px; WIDTH: 270px; HEIGHT: 24px! important}
+.screen3_right3 LI.last {BACKGROUND: repeat-x 0px 20px}
+
+.box0402 {PADDING-LEFT: 4px}
+.box0402 #hTitle LI {PADDING-LEFT: 0px; FONT-WEIGHT: bold; FLOAT: left; WIDTH: auto; HEIGHT: 12px}
+.yellB {BORDER-RIGHT: #f8c164 1px solid; BORDER-TOP: #f8c164 1px solid; BORDER-LEFT: #f8c164 1px solid; BORDER-BOTTOM: #f8c164 1px solid; BACKGROUND-COLOR: #fff8ca}
+.h135 {HEIGHT:200px}
+.yellD {PADDING-BOTTOM: 6px! important; MARGIN-LEFT: 4px; MARGIN-RIGHT: 7px; BORDER-BOTTOM: #f9c162 1px dashed}
+#hTitle .front {FONT-WEIGHT: bold; COLOR: #000000;}
+#hTitle .front A:link {FONT-WEIGHT: bold; COLOR: #000000}
+#hTitle #back {FONT-WEIGHT: normal; FLOAT: right}
+#AlicnTab111 {MARGIN-TOP: 4px; FONT-SIZE: 12px; FLOAT: left; WIDTH: 262px}
+.tab1_left {FLOAT: left; WIDTH: 90px; TEXT-ALIGN: center}
+.tab1_left SPAN {WIDTH: 90px; HEIGHT: 20px}
+.tab1_right {FONT-SIZE: 12px; FLOAT: right; WIDTH: 170px; COLOR: #26508c;}
+.tab1_right UL {PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 12px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none}
+.tab1_right LI {LINE-HEIGHT: 21px}
+.tab1_img {BORDER-RIGHT: #d8d5cd 1px solid; BORDER-TOP: #d8d5cd 1px solid; MARGIN-TOP: 5px; MARGIN-BOTTOM: 3px; OVERFLOW: hidden; BORDER-LEFT: #d8d5cd 1px solid; WIDTH: 80px; BORDER-BOTTOM: #d8d5cd 1px solid; HEIGHT: 49px}
+.tab1_img IMG{ width:78px; height:49px; border:0px}
+.screen3b2 {WIDTH: 410px}
+.screen3b2 LI {FLOAT: left; MARGIN-BOTTOM: 10px; MARGIN-RIGHT: 18px}
+.screen3b2 LI A {BORDER-RIGHT: #bfbaac 1px solid; BORDER-TOP: #bfbaac 1px solid; DISPLAY: block; BORDER-LEFT: #bfbaac 1px solid; WIDTH: 116px; LINE-HEIGHT: 210%! important; PADDING-TOP: 4px; BORDER-BOTTOM: #bfbaac 1px solid; HEIGHT: 94px; TEXT-ALIGN: center}
+.screen3b2 LI A:hover {BORDER-RIGHT: #ff9825 1px dotted; BORDER-TOP: #ff9825 1px dotted; DISPLAY: block; BORDER-LEFT: #ff9825 1px dotted; WIDTH: 116px; LINE-HEIGHT: 210%! important; PADDING-TOP: 4px; BORDER-BOTTOM: #ff9825 1px dotted; HEIGHT: 94px; BACKGROUND-COLOR: #fff8e5; TEXT-ALIGN: center}
+.screen3b2 LI.last {MARGIN-RIGHT: 0px}
+
+.new_img_tab {MARGIN-TOP: -100px; Z-INDEX: 99999; BACKGROUND-IMAGE: url(new_icon.gif); WIDTH: 21px; POSITION: absolute; HEIGHT: 21px}

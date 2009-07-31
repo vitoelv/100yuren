@@ -1,0 +1,124 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<script language="JavaScript" type="text/javascript">
+//加入收藏
+function AddFavorite(sTitle)
+{
+   var sURL = document.location.href;
+   try
+   {
+       window.external.addFavorite(sURL, sTitle);
+   }
+   catch (e)
+   {
+       try
+       {
+           window.sidebar.addPanel(sTitle, sURL, "");
+       }
+       catch (e)
+       {
+           alert("加入收藏失败，请使用Ctrl+D进行添加");
+       }
+   }
+}
+function clear_input(obj)
+{
+  var name = obj.name;
+  name = true;
+  if (name)
+  {
+    obj.value = '';
+		obj.style.color = '#000';
+	  name = false;
+  }
+}
+function  consult(frm)
+{
+    var content = new Object;
+	content.real_name = Utils.trim(frm.elements['real_name'].value);
+	content.email = Utils.trim(frm.elements['email'].value);
+	content.telephone = Utils.trim(frm.elements['telephone'].value);
+	content.course_name = Utils.trim(frm.elements['course_name'].value);
+	content.type = frm.elements['type'].value;
+	content.course_id = frm.elements['course_id'].value;
+	content.consult_time = frm.elements['consult_time'].value;
+	var msg = '';
+    if (content.real_name == '您的真实姓名')
+    {
+      msg += '- 请填写真实的姓名。\n';
+    }
+    if (content.telephone == '区号-电话号码')
+    {
+      msg += '- 请填写真实的电话号码。\n';
+    }
+	if (content.real_name.length == 0)
+	{
+	  msg += '- 请填写您的姓名。\n';
+	}
+	if (content.telephone.length == 0)
+	{
+	  msg += '- 请填写真实的电话号码。\n';
+	}	
+	if (content.email.length > 0)
+	{
+	    if (!Utils.isEmail(content.email))
+	    {
+	      msg += '- 邮件地址不符要求。\n';
+	    }
+	}
+
+	if (msg.length > 0)
+	{
+	    alert(msg);
+		return;
+	}
+
+	var Response = function(result)
+	{
+		if (result.error)
+		{
+		  alert (result.content);
+		  return false;
+		}
+		else
+		{
+		  	alert(result.content);
+			frm.elements['real_name'].value = '';
+			frm.elements['email'].value = '';
+			frm.elements['telephone'].value = '';
+			frm.elements['course_name'].value = '';
+			frm.elements['consult_time'].value = '';		  
+		}
+	}	
+	
+	var request = '&real_name=' + content.real_name + '&telephone=' + content.telephone;
+	request = request + '&email=' + content.email + '&course_name=' + content.course_name 
+	request = request + '&consult_time=' + content.consult_time+ '&course_id=' + content.course_id 
+	request = request +  '&type=' + content.type ;
+	Ajax.call('flow.php?step=consult_signup', 'content=' + request, Response, "POST", "JSON");
+	//Ajax.call('flow.php?step=consult_signup', 'content=' + content.toJSONString(), Response, 'POST', 'TEXT');
+	
+	return;
+}
+</script>
+
+<div class="title-01">
+  <div class="title-01-title">免费请一位专业顾问</div>
+</div>  
+<div id="advisor">
+ <form action="" method="post">
+	<li><strong>姓名：</strong><input type="text" size=14 name="real_name" onclick="clear_input(this)" value="您的真实姓名" /><span color="red">*</span></li>
+	<li><strong>电话：</strong><input type="text" size=14 name="telephone" value="区号-电话号码"  onclick="clear_input(this)" /><span color="red">*</span></li>
+	<li><strong>邮箱：</strong><input name="email" size=14 type="text" style="color:#000000"/></li>
+	<li><strong>您关注的课程：</strong><p align="center">&nbsp;&nbsp;&nbsp;<input type="text" name="course_name"  value="{$goods.goods_name} " style="color:#000000" /></p></li>
+	<li><strong>方便联系的时间：</strong><p align="center">&nbsp;&nbsp;&nbsp;<input type="text" name="consult_time"  value="8:00-21:30" style="color:#000000" /></p></li>
+  <p align="center">
+	<input name="type" type="hidden" value="2" />
+	<input name="course_id" type="hidden" value="{$goods.goods_id}" />
+	<input name="提交" type="button" class="for_button" value="提 交" style="cursor:pointer;" onclick="consult(this.form);" />
+	<input type=reset name=btnReset style="cursor:pointer;" value="重 填 ">
+  </p>	
+ </form>
+</div>
+
+

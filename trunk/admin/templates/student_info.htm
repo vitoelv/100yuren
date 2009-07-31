@@ -1,0 +1,246 @@
+<!-- $Id: article_info.htm 13289 2007-10-30 05:50:57Z wj $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,selectzone.js,validator.js"}
+<!-- start goods form -->
+<div class="tab-div">
+  <div id="tabbar-div">
+    <p>
+      <span class="tab-front" id="general-tab">{$lang.tab_content}</span>
+	  </p>
+  </div>
+
+  <div id="tabbody-div">
+    <form  action="course_signup.php" method="post" name="theForm" >
+    <table width="90%" id="general-table">
+      <tr>
+        <td class="narrow-label">{$lang.true_name}</td>
+        <td><input type="text" name="true_name"  maxlength="60" value="{$student.true_name}" /></td>
+      </tr>
+      <tr>
+        <td class="narrow-label">{$lang.user_name}</td>
+        <td><input type="text" name="user_name" maxlength="60" value="{$student.user_name}" /></td>
+      </tr>  
+      <tr>
+        <td class="narrow-label">{$lang.sex}</td>
+        <td>
+			<input type="radio" name="sex" value="0" {if $student.sex eq 0}checked{/if}> {$lang.sex0}
+			<input type="radio" name="sex" value="1" {if $student.sex eq 1}checked{/if}> {$lang.sex1} 
+			<input type="radio" name="sex" value="2" {if $student.sex eq 2}checked{/if}> {$lang.sex2}
+		</td>
+      </tr>	  
+      <tr>
+        <td class="narrow-label">{$lang.telephone}</td>
+        <td><input type="text" name="telephone" maxlength="60" value="{$student.telephone}" /></td>
+      </tr>
+      <tr>
+        <td class="narrow-label">{$lang.mobile_phone}</td>
+        <td><input type="text" name="mobile_phone" maxlength="60" value="{$student.mobile_phone}" /></td>
+      </tr>
+      <tr>
+        <td class="narrow-label">{$lang.idcardno}</td>
+        <td><input type="text" name="idcardno" maxlength="60" value="{$student.idcardno}" /></td>
+      </tr>
+      <tr>
+        <td class="narrow-label">{$lang.course_name}</td>
+        <td><input type="text" name="course_name" maxlength="60" value="{$student.course_name}" /></td>
+      </tr>	  
+      <tr>
+        <td class="narrow-label">{$lang.course_name}{$lang.course_id}</td>
+        <td><input type="text" name="course_id" maxlength="60" value="{$student.course_id}" /> {if $student.course_id neq ""}[<a href="../goods.php?id={$student.course_id}" target="_blank" title="查看" >{$student.course_id}</a>]{/if}</td>
+      </tr>		  
+      <tr>
+        <td class="narrow-label">{$lang.course_school}</td>
+        <td><input type="text" name="course_school" maxlength="60" value="{$student.course_school}" /></td>
+      </tr>
+      <tr>
+        <td class="narrow-label">{$lang.postscript}</td>
+        <!-- <td><textarea name="postscript" cols="58" rows="3">{$student.postscript}</textarea></td> -->
+		<td><input type="text" name="postscript" size ="60" value="{$student.postscript}" /></td>
+      </tr>	
+      <tr>
+        <td class="narrow-label"></td>
+		<td>{$student.postscript}</td>
+      </tr>		  
+      <tr>
+        <td class="narrow-label">{$lang.request_url}</td>
+        <td><input type="text" name="request_url" size ="60" value="{$student.request_url}" /></td>
+      </tr>
+      <tr>
+        <td class="narrow-label">{$lang.address}</td>
+        <td><input type="text" name="address" size ="60" value="{$student.address}" /></td>
+      </tr>	  
+      <tr>
+        <td class="narrow-label">{$lang.postcode}</td>
+        <td><input type="text" name="postcode" maxlength="60" value="{$student.postcode}" /></td>
+      </tr>
+      <tr>
+        <td class="narrow-label">{$lang.age}</td>
+        <td><input type="text" name="age" maxlength="60" value="{$student.age}" /></td>
+      </tr>
+      <tr>
+        <td class="narrow-label">{$lang.email}</td>
+        <td><input type="text" name="email" maxlength="60" value="{$student.email}" /></td>
+      </tr>
+      <tr>
+        <td class="narrow-label">{$lang.record}</td>
+        <td><input type="text" name="record" maxlength="60" value="{$student.record}" /></td>
+      </tr>
+      <tr>
+        <td class="narrow-label">{$lang.request_ip}</td>
+        <td><input type="text" name="request_ip" maxlength="60" value="{$student.request_ip}" /></td>
+      </tr>	  
+      <tr>
+        <td class="narrow-label">{$lang.qq}</td>
+        <td><input type="text" name="qq" maxlength="255" value="{$student.qq}" /></td>
+      </tr>	  
+
+	  <tr>
+        <td class="narrow-label">{$lang.signup_date}</td>
+        <td><input type="text" name="signup_date" maxlength="60" value="{$student.signup_date}" /></td>
+      </tr>	
+      <tr>
+        <td class="narrow-label">{$lang.payment}</td>
+        <td>
+			<input type="radio" name="payment" value="3" {if $student.payment eq 3}checked{/if}> {$lang.payment3}
+			<input type="radio" name="payment" value="2" {if $student.payment eq 2}checked{/if}> {$lang.payment2} 
+			<input type="radio" name="payment" value="1" {if $student.payment eq 1}checked{/if}> {$lang.payment1}
+		</td>
+      </tr>
+	  
+      <tr>
+        <td class="narrow-label">{$lang.business_type}</td>
+        <td>
+			<input type="radio" name="business_type" value="1" {if $student.business_type eq 1}checked{/if}> {$lang.business_type1} 
+			<input type="radio" name="business_type" value="2" {if $student.business_type eq 2}checked{/if}> {$lang.business_type2}
+			<input type="radio" name="business_type" value="0" {if $student.business_type eq 0}checked{/if}> {$lang.business_type0}
+		</td>
+      </tr>
+      <tr>
+        <td class="narrow-label">{$lang.status}</td>
+        <td>
+			<input type="radio" name="status" value="-1" {if $student.status eq -1}checked{/if}> {$lang.statusn1}
+			<input type="radio" name="status" value="0" {if $student.status eq 0}checked{/if}> {$lang.status0}
+			<input type="radio" name="status" value="1" {if $student.status eq 1}checked{/if}> {$lang.status1}
+		</td>
+      </tr>	
+      <tr>
+        <td class="narrow-label">{$lang.admin_verify}</td>
+        <td>
+			<input type="radio" name="admin_verify" value="0" {if $student.admin_verify eq 0}checked{/if}> {$lang.admin_verify0}
+			<input type="radio" name="admin_verify" value="1" {if $student.admin_verify eq 1}checked{/if}> {$lang.admin_verify1}
+			<input type="radio" name="admin_verify" value="2" {if $student.admin_verify eq 2}checked{/if}> {$lang.admin_verify2}
+		</td>
+      </tr>	
+      <tr>
+        <td class="narrow-label">{$lang.admin_comment}</td>
+        <!-- <td><textarea name="admin_comment" cols="58" rows="3">{$student.admin_comment}</textarea></td> -->
+		<td><input type="text" name="admin_comment" size ="60" value="{$student.admin_comment}" /></td>
+      </tr>		  
+    </table>
+
+    <div class="button-div">
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$student.id}" />
+	  <input type="hidden" name="aux1" value="{$student.aux1}" />
+	  <input type="hidden" name="aux2" value="{$student.aux2}" />
+      <input type="submit" value="{$lang.button_submit}" class="button"  />
+      <input type="reset" value="{$lang.button_reset}" class="button" />
+	  <input type="button" value="{$lang.button_return}" class="button" onclick="history.back();"/>
+    </div>
+    </form>
+  </div>
+
+</div>
+<!-- end goods form -->
+<script language="JavaScript">
+
+var articleId = {$student.id|default:0};
+var elements  = document.forms['theForm'].elements;
+var sz        = new SelectZone(1, elements['source_select'], elements['target_select'], '');
+
+{literal}
+onload = function()
+{
+  // 开始检查订单
+  startCheckOrder();
+}
+
+document.getElementById("tabbar-div").onmouseover = function(e)
+{
+    var obj = Utils.srcElement(e);
+
+    if (obj.className == "tab-back")
+    {
+        obj.className = "tab-hover";
+    }
+}
+
+document.getElementById("tabbar-div").onmouseout = function(e)
+{
+    var obj = Utils.srcElement(e);
+
+    if (obj.className == "tab-hover")
+    {
+        obj.className = "tab-back";
+    }
+}
+
+document.getElementById("tabbar-div").onclick = function(e)
+{
+    var obj = Utils.srcElement(e);
+
+    if (obj.className == "tab-front")
+    {
+        return;
+    }
+    else
+    {
+        objTable = obj.id.substring(0, obj.id.lastIndexOf("-")) + "-table";
+
+        var tables = document.getElementsByTagName("table");
+        var spans  = document.getElementsByTagName("span");
+
+        for (i = 0; i < tables.length; i++)
+        {
+            if (tables[i].id == objTable)
+            {
+                tables[i].style.display = (Browser.isIE) ? "block" : "table";
+            }
+            else
+            {
+                tables[i].style.display = "none";
+            }
+        }
+        for (i = 0; spans.length; i++)
+        {
+            if (spans[i].className == "tab-front")
+            {
+                spans[i].className = "tab-back";
+                obj.className = "tab-front";
+                break;
+            }
+        }
+    }
+}
+
+function showNotice(objId)
+{
+    var obj = document.getElementById(objId);
+
+    if (obj)
+    {
+        if (obj.style.display != "block")
+        {
+            obj.style.display = "block";
+        }
+        else
+        {
+            obj.style.display = "none";
+        }
+    }
+}
+{/literal}
+
+
+</script>
+{include file="pagefooter.htm"}

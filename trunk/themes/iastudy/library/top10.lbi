@@ -1,0 +1,11 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $top_goods} -->
+<div class="title-02">
+    <div class="title">限时抢报</div><!-- 销售排行 -->
+    <ul>
+      <!-- {foreach name=top_goods from=$top_goods item=goods}-->
+      <li class="top10-li-{$smarty.foreach.top_goods.iteration}"> <a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name}</a></li>
+      <!--{/foreach}-->
+    </ul>
+</div>
+<!-- {/if} -->

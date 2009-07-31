@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" --><!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>{$page_title}</title>
+{* 包含脚本文件 *}{insert_scripts files='common.js'}
+<!-- {if $topic.css neq ''} -->
+<style type="text/css">
+{
+$topic.css
+}
+</style>
+<!-- {/if} -->
+</head><body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+ <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+<div id="outer_wrapper">
+  <div class="topic">
+    <h3>{$topic.title}</h3>
+    <div class="topic_intro"> {$topic.intro} </div>
+    <div class="good-list" style="margin-top:0px; border:none;">
+      <!-- {foreach from=$sort_goods_arr item=sort key=sort_name} -->
+      <div class="item_grid" style="padding-left:38px; border:none;">
+        <h3 style="padding-left:52px;">{$sort_name}</h3>
+        <!-- {foreach from=$sort item=goods} -->
+        <div class="item">
+          <p class="pic"><a href="{$goods.url}"><img src="{$goods.goods_thumb}" alt="{$goods.name|escape:html}" /></a></p>
+          <p class="name"><a href="{$goods.url}" title="{$goods.goods_name|escape:html}">{$goods.short_style_name}</a></p>
+          <p class="price">
+            <!-- {if $goods.promote_price neq ""} -->
+            {$lang.promote_price}<span class="goodsPrice">{$goods.promote_price}</span>
+            <!-- {else}-->
+            {$lang.shop_price}<span class="goodsPrice">{$goods.shop_price}</span>
+            <!--{/if}-->
+          </p>
+        </div>
+        <!-- {/foreach} -->
+      </div>
+      <!-- /itemGrid -->
+      <!-- {/foreach} -->
+      </div>
+  </div>
+  </div>
+  <!-- /globalModule -->
+  <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- /container -->
+</body>
+</html>

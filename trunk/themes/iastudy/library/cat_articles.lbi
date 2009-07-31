@@ -1,0 +1,12 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="title-03">
+  <div class="title">{$articles_cat.name|escape:html}</div>
+  <div class="more"><a href="{$articles_cat.url}">more</a></div>
+  <div class="box" style="padding-left:25px;">
+    <ul style="list-style-type:circle;">
+      <!--{foreach from=$articles item=article}-->
+      <li style="line-height:160%;"><a href="{$article.url}" title="{$article.title|escape:html}">{$article.short_title}</a> {$article.add_time}</li>
+      <!--{/foreach}-->
+    </ul>
+  </div>
+</div>

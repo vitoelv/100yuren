@@ -1,0 +1,771 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,shopping_flow.js'}
+</head>
+<body><!-- #BeginLibraryItem "/library/page_header.lbi" -->
+<a name="top"></a>
+<div id="header">
+<div id="logo-topnav">  <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+    <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} -->target="_blank"<!-- {/if} -->>{$nav.name}</a> |
+  <!-- {/foreach} --></div>
+  <div>
+    <div id="logo"><img src="library/images/logo.gif" alt="IAStudy" /></div>
+    <div id="top_nav">
+      <ul>
+    <li{if $navigator_list.config.index eq 1} id="cur"{/if}><a href="index.php"><span>{$lang.home}</span></a></li>
+    <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+    <li{if $nav.active eq 1} id="current"{/if}><a href="{$nav.url}" <!-- {if $nav.opennew eq 1} -->target="_blank"<!-- {/if} -->><span>{$nav.name}</span></a></li>
+    <!-- {/foreach} -->
+      </ul>
+    </div>
+  </div>
+  <div id="top-bg">
+    <div class="top-list"><!-- {if $searchkeywords} -->
+<span id="globalSearchKeywords">
+    <!-- {foreach from=$searchkeywords item=val} -->
+    <a href="search.php?keywords={$val|escape:url}">{$val}</a>
+    <!-- {/foreach} -->
+</span><!-- /globalSearchKeywords -->
+<!-- {/if} -->
+<img src="library/images/az-topnav-cart.gif" width="19" height="16" border="0" alt="课程书包" /><span id="ECS_CARTINFO">{insert_scripts files='transport.js'}{insert name='cart_info'}</span></div>
+    <div class="top-list">
+  <form id="searchForm" name="searchForm" method="get" action="library/search.php" onSubmit="return checkSearchForm()">
+        <span class="top-form14">{$lang.search_goods}</span>
+        <select name="category" id="category" class="vertical-middle">
+          <option value="0">{$lang.all_category}</option>
+      {$category_list}
+        </select>
+        <input name="keywords" class="textbox" type="text" id="keyword" value="{$search_keywords|escape}" />
+        <input type="image" name="imageField" src="library/images/btn_search.gif" class="btn-search" />
+        <a href="library/search.php?act=advanced_search">{$lang.advanced_search}</a>
+      </form>
+    </div>
+  </div>
+  </div><!-- #EndLibraryItem --><!-- #BeginLibraryItem "/library/ur_here.lbi" -->
+{insert_scripts files="transport.js,utils.js"}
+<div id="ur-here">
+    <div class="ur-here-left">{$lang.ur_here} {$ur_here}</div>
+    <div id="ECS_MEMBERZONE" class="ur-here-right"> {* IAStudy 提醒您：根据用户id来调用member_info.lbi显示不同的界面 *}{insert name="member_info"} </div></div><!-- #EndLibraryItem --><div id="outer_wrapper">
+  <div id="wrapper">
+    <div id="container">
+        <!-- {if $step eq "cart"} -->
+        <!-- 购物车内容 -->
+        <div class="title-04">课程列表</div>
+        <div class="flow-connet">
+          <form id="formCart" name="formCart" method="post" action="flow.php">
+            <table width="100%" border="1" cellpadding="0">
+              <tr>
+                <th>{$lang.goods_name}</th>
+                <!-- {if $show_marketprice} -->
+                <th>{$lang.market_prices}</th>
+                <!-- {/if} -->
+                <th>{$lang.shop_prices}</th>
+                <!--  <th>{$lang.savemoney}</th> -->
+                <th>{$lang.handle}</th>
+              </tr>
+              <!-- {foreach from=$goods_list item=goods} -->
+              <tr>
+                <td><a href="goods.php?id={$goods.goods_id}" target="_blank">{$goods.goods_name}</a>
+                  <!-- {if $goods.parent_id > 0} -->
+                  <span style="color:#FF0000">（{$lang.accessories}）</span>
+                  <!-- {elseif $goods.is_gift} -->
+                  <span style="color:#FF0000">（{$lang.largess}）</span>
+                  <!-- {/if} --></td>
+                <!-- {if $show_marketprice} -->
+                <td align="right">{$goods.market_price}</td>
+                <!-- {/if} -->
+                <td align="right">{$goods.goods_price}</td>
+                <!--  <td align="right">{$goods.save_money}</td> -->
+                <td align="center"><a href="javascript:if (confirm('{$lang.drop_goods_confirm}')) location.href='flow.php?step=drop_goods&amp;id={$goods.rec_id}'; ">{$lang.drop}</a>
+                  <!-- {if !$goods.is_gift && $goods.parent_id eq 0} -->
+                  <!-- {/if} -->
+                </td>
+              </tr>
+              <!-- {/foreach} -->
+            </table><br />
+
+            <input type="hidden" name="step" value="update_cart" />
+          </form>
+          <br />
+          <div class="continue"><a href="./"><img src="images/continue.gif" alt="继续选择课程" border="0" /></a>
+          <div class="checkout"><a href="flow.php?step=checkout"><img src="images/checkout.gif" alt="结算中心" border="0" /></a></div></div>
+          <div align="center">{$cart_gift_money}。</div>
+        </div>
+        <!-- {/if} -->
+
+
+
+        
+        <!-- {if $step eq "checkout"} -->
+        <!-- 开始订单确认界面 -->
+        <script language="JavaScript" type="text/javascript">
+	      	var flow_no_payment = "{$lang.flow_no_payment}";
+	      	var flow_no_shipping = "{$lang.flow_no_shipping}";
+		    var eval_user = false;
+			function select_user_type(type)
+			{
+			  	if (type)
+				{
+					document.getElementById('is_user').style.display = "";
+					document.getElementById('is_not_user').style.display = "none";
+				}
+				else 
+				{
+					document.getElementById('is_user').style.display = "none";
+					document.getElementById('is_not_user').style.display = "";
+				}			
+			}
+
+			function user_login()
+			{
+				var user_name = Utils.trim(document.getElementById('login_user_name').value);
+				var user_pass = Utils.trim(document.getElementById('login_user_pass').value);
+
+				var msg ='';
+				if (user_name.length == 0)
+				{
+				  msg += '- 请填写会员名称\n';
+				}
+				if (user_pass.length == 0)
+				{
+				  msg += '- 请输入您的登陆密码\n';
+				}
+
+				if (msg.length != 0)
+				{
+				    alert(msg);
+					return false;
+				}
+
+				var Response = function(result)
+				{
+					if (result.error)
+					{
+					  alert (result.content);
+					  eval_user = false;
+					  return false;
+					}
+					else
+					{
+					  select_user_type(1);
+					  eval_user = true;
+					  document.getElementById("is_user_login").innerHTML=result.content;
+					}
+				}
+
+				var captcha = '';
+				//alert(user_name);
+				Ajax.call('user.php?act=signin', 'username=' + user_name + '&password=' + encodeURIComponent(user_pass) + '&captcha=' + captcha, Response, "POST", "JSON");
+
+				return true;
+			}
+
+			function user_register_edit(action)
+			{
+			    eval_user = false;
+			    var user = new Object;
+			    //user.user_name = Utils.trim(document.getElementById('user_name').value);
+				user.true_name = Utils.trim(document.getElementById('true_name').value);
+				user.sex       = 0;
+				user.record    = Utils.trim(document.getElementById('record').value);
+				user.telephone = Utils.trim(document.getElementById('telephone').value);
+				user.mobile_phone = Utils.trim(document.getElementById('mobile_phone').value);
+				user.address   = Utils.trim(document.getElementById('address').value);
+				user.email     = Utils.trim(document.getElementById('email').value);
+				user.age       = Utils.trim(document.getElementById('age').value);
+				user.idcardno       = Utils.trim(document.getElementById('idcardno').value);
+				user.qq       = Utils.trim(document.getElementById('qq').value);
+
+				for (i = 0; i < document.signupForm.elements['sex'].length; i++)
+				{
+					if (document.signupForm.elements['sex'][i].checked)
+					{
+						 user.sex = document.signupForm.elements['sex'][i].value;
+					}
+				}
+
+				if (user.true_name.length == 0)
+				{
+				  alert('请填写您的真实姓名');
+					return false;
+				}
+				if (user.email.length > 0)
+				{
+					if (!Utils.isEmail(user.email))
+					{
+					  alert('请正确填写您的个人邮件帐户！');
+						return false;
+					}
+				}
+
+                if (user.mobile_phone.length == 0 && user.telephone.length ==0)
+				{
+				    alert('联系电话和手机不能都为空，请至少提供一项');
+					return false;
+				}
+				/*
+				var Response = function (result)
+				{
+				   if (result.error)
+					 {
+					   alert(result.message);
+					   return false;
+					 }
+					 else
+					 {
+					   alert(result.content);
+					   window.location.href = document.location.href + '#step2';
+					 }
+				}
+
+				if (action == 'insert')
+				{
+                  //alert(user.toJSONString());
+                  //return false;
+				  Ajax.call('flow.php?step=user_register', 'user=' + user.toJSONString(), Response, 'POST', 'JSON');
+				}
+				else
+				{
+				  Ajax.call('flow.php?step=user_update', 'user=' + user.toJSONString(), Response, 'POST', 'JSON');
+				}
+				*/
+				eval_user = true;
+				return true;
+			  }
+			  
+			function eval_user_input()
+			{
+				var user_select = 0;
+				var type = document.signupForm.user_type;
+				var len  = type.length;   
+				for(var   i   =   0;i<len;i++){   
+				   if(type[i].checked   ==   true){
+				   		user_select = type[i].value;  
+				   	}
+				}   
+			  	if (user_select==1)
+				{
+					user_login();
+				}
+				else 
+				{
+					user_register_edit("insert");
+				}
+				return eval_user;			
+			}			  
+		  </script>        
+          
+  <p><img alt="报名流程" src="images/lc.jpg"/></p>
+ <form id="signupForm" name="signupForm" method="post" action="flow.php" onsubmit="return eval_user_input();">
+  <div class="ddlc">
+    <div class="kuang"><img height="6" width="983" src="images/kuang_top.gif"/></div>
+    <div class="kuang_con">
+     <!-- {foreach from=$goods_list item=goods} -->    
+      <div class="lc1">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tbody><tr>
+            <td width="200" valign="middle">
+              <div align="center"><img height="100" width="22" src="images/bt_01.gif"/></div>
+            </td>
+            <td colspan="3">
+	            <table width="100%" style="width: 640px;"><tbody>
+					<tr>
+					    <td width="250" class="childclasslist_title"><a href="goods.php?id={$goods.goods_id}" target="_blank">{$goods.goods_name}</a>
+					      <input type="hidden" name="course_id" value="{$goods.goods_id}" />
+					    </td>
+					    <td>{$lang.brand}：<a href="{$goods.goods_brand_url}">{$goods.brand_name|escape:html}</a></td>
+					    <td align="right"><a href="javascript:if (confirm('{$lang.drop_goods_confirm}')) location.href='flow.php?step=drop_goods&amp;id={$goods.rec_id}'; ">{$lang.drop}</a></td>
+					</tr>
+					<tr>
+						<td>{$lang.market_prices}：{$goods.formated_market_price}</td>
+						<td>{if $gb_deposit}{$lang.deposit}{else}{$lang.shop_prices}{/if}：{$goods.formated_goods_price}</td>
+						<td><!-- {if $goods.save_money} -->
+							<strong>{$lang.course_save_money_short}: ￥</strong><span class="goods-price">{$goods.save_money}</span>
+							<!-- {/if} -->
+						</td>
+					</tr>									
+					<tr>
+						<td>{$lang.course_start_date}：{$goods.course_start_date}</td>
+						<td colspan="2">{$lang.course_start_time}：{$goods.course_start_time}</td>
+					</tr>
+					<tr>
+						<td colspan="3">{$lang.course_address}：{$goods.course_address} </td>
+					</tr>
+	            </tbody></table>
+            </td>
+          </tr>
+        </tbody></table>
+      </div>
+     <!-- {/foreach} -->	 
+    </div>
+    <div class="kuang"><img height="25" width="983" src="images/kuang_bot.gif"/></div>
+  </div>          
+          
+		<!-- 用户注册Start -->
+  <a name="step2">
+  <div class="ddlc">
+    <div class="kuang"><img src="images/kuang_top.gif" width="983" height="6" /></div>
+    <div class="kuang_con">
+      <div class="lc2">
+			  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="145" valign="middle">
+						  <div align="center"><img src="images/bt_02.gif" width="22" height="100" /></div>
+						</td>
+					
+		                <!-- {if $user_login eq "1"} -->
+						<td valign="top"> 
+							<div id="is_user_login" style="display:login;">
+							  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="width:700px;">
+				                <tr>
+									<td> 
+									  <input name="user_type" id="user_type" type="hidden"  value="1" />
+									  {$lang.hello} <strong>{$user_name}</strong> {$lang.welcome_user}！
+									</td>
+				                </tr>
+							  </table>
+							</div>														
+						</td>
+		                
+		                <!-- {else} -->							
+						
+						<td valign="top">
+						  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="width:700px;">
+							  <tr>
+				                  <td width="50%">
+				                    <input name="user_type" id="user_type" type="radio" onclick="select_user_type(1)" value="1" />&nbsp;我已是学习网会员
+				                  </td>
+				                  <td width="50%">
+				                    <input name="user_type" id="user_type" type="radio" onclick="select_user_type(0)" value="0" checked="checked" />&nbsp;非会员直接报名
+				                  </td>
+							  </tr>
+						  </table>
+						<div id="is_user" style="display:none;">
+						  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="width:700px;">
+			                <tr>
+								<td width="80" style="color:red;">用户名：</td>
+								<td width="200">
+								  <input type="text" name="login_user_name" class="inp" style="width:180px;" />
+								</td>
+								<td width="80" style="color:red;">密&nbsp;码：</td>
+								<td width="200">
+								  <input type="password" name="login_user_pass" class="inp" style="width:180px;" />
+								</td>
+								<td>
+								  <label>
+								  <input type="button" value="登陆" onclick="user_login()" />
+								  </label>
+								</td>
+			                </tr>
+						  </table>
+						</div>
+						
+						<div id="is_user_login" style="display:login;">
+						  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="width:700px;">
+			                <tr>
+								<td>
+								  <label id="userinfo">
+								   
+								  </label>
+								</td>
+			                </tr>
+						  </table>
+						</div>						
+
+						<div id="is_not_user" style="display:;">
+						  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="width:700px;">
+			                <tr>
+			                  <td width="80" style="color:red;"><span class="STYLE2">真实姓名：</span></td>
+			                  <td width="200">
+			                    <input name="true_name" type="text" class="inp2" id="true_name" value="" /><span class="STYLE1">(必填)</span>
+			                  </td>
+			                  <td width="80" style="color:red;">性&nbsp;别：</td>
+			                  <td width="250">
+			                    <label>
+								<input name="sex" type="radio" value="0" checked />保密
+								<input name="sex" type="radio" value="1"  />男
+								<input name="sex" type="radio" value="2"  />女
+			                    </label>
+			                  </td>
+			                </tr>
+			                <tr>
+			                  <td style="color:red;"><span class="STYLE2">手&nbsp;机：</span></td>
+			                  <td>
+			                    <input name="mobile_phone" type="text" class="inp2" id="mobile_phone" value="" />
+			                    <span class="STYLE1">(必填)</span></td>	
+			                  <td style="color:red;"><span class="STYLE2">联系电话：</span></td>
+			                  <td>
+			                    <label></label>
+			                    <label>
+			                    <input name="telephone" type="text" class="inp2" id="telephone" value="" />
+			                    </label>
+			                    <span class="STYLE1">(必填! 含电话区号)</span> 
+			                  </td>
+			                </tr>
+			                <tr>
+			                  <td style="color:red;"><span class="STYLE2">身份证号码：</span></td>
+			                  <td>
+			                    <input name="idcardno" type="text" class="inp2" id="idcardno" value="" />
+			                  </td>
+			                  <td style="color:red;"><span class="STYLE2">电子邮件：</span></td>
+			                  <td>
+			                    <input name="email" type="text" class="inp2" id="email" value="" />
+			                  </td>
+			                </tr>
+			                <tr>
+			                  <td><span style="color:#FF0000;">通信地址：</span></td>
+			                  <td colspan="3">
+			                    <input name="address" type="text" class="inp" id="address" value="" />
+			                    	（含邮编，请准确填写以便于邮寄资料和入学通知书等）
+			                  </td>
+			                </tr>			                
+			                <tr>
+			                  <td>年&nbsp;龄：</td>
+			                  <td>
+			                    <input name="age" type="text" class="inp2" id="age" value="" />
+			                  </td>
+			                  <td>教育程度：</td>
+			                  <td>
+			                    <input name="record" type="text" class="inp2" id="record" value="" />
+			                  </td>
+			                </tr>
+			                <tr>
+			                  <td>QQ：</td>
+			                  <td>
+			                    <input name="qq" type="text" class="inp2" id="qq" value="" />
+			                  </td>
+			                  <td></td>
+			                  <td>
+			                    
+			                  </td>
+			                </tr>			                
+						  </table>
+						</div>
+						</td>
+						<!-- {/if} -->	
+					</tr>
+				</table>
+      </div>
+    </div>
+    <div class="kuang"><img src="images/kuang_bot.gif" width="983" height="25" /></div>
+  </div>
+        
+  <div class="ddlc">
+    <div class="kuang"><img src="images/kuang_top.gif" width="983" height="6" /></div>
+    <div class="kuang_con">
+      <div class="lc3">
+			  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="145" valign="middle">
+						  <div align="center"><img src="images/bt_03.gif" width="22" height="100" /></div>
+						</td>
+						<td valign="top"> 
+						  <div>
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					            <tr>
+					              <td><input type="radio" name="payment" value="3" checked="checked"><b>&nbsp;到校付款</b></td>
+					              <td>
+					                	入学报到时付款。请与咨询老师沟通确保已预报名成功并已妥善安排接待事宜!
+					              </td>
+					              <td></td>
+					            </tr>
+					            <tr>
+					              <td><input type="radio" name="payment" value="2" ><b>上门收款</b></td>
+					              <td>
+					                	开通城市：北京,付款区域：北京五环内用户报名免费上门办理入学手续!
+					              </td>
+					              <td></td>
+					            </tr>
+					            <tr>
+					              <td width="20%"><input type="radio" name="payment" value="1" ><b>&nbsp;网吧预付款</b></td>
+					              <td width="50%">
+					                	与网吧联系填写报名表并在上网网吧预付50元报名费，并请在简短附言注明，招生学校将据此邮寄入学通知书，余款在入学报到时在学校交清!
+					              </td>
+					              <td width="30%"></td>
+					            </tr>
+					            <tr>
+					              <td><span style="color:#FF0000;">&nbsp;简短附言：</span></td>
+					              <td>
+					                <textarea name="postscript" class="lc_text2" id="postscript"></textarea>
+					              </td>
+					              <td>如果需要附加报名信息，或需要我们帮您安排住宿，需要由他人代付款及对回访时间有要求等，请在此注明。</td>
+					            </tr>
+							</table> 	
+				    	  </div>															
+						</td> 
+					</tr>	
+			  </table>										       
+
+      </div>
+    </div>
+    <div class="kuang"><img src="images/kuang_bot.gif" width="983" height="25" /></div>
+  </div>
+  <div class="baoming">
+	 <input type="hidden" name="step" value="done2" />
+	 <input name="" type="image" src="images/bm.gif"/>
+	</div>
+ </form>
+ 
+</div>
+		
+		<!-- 用户注册End -->
+        <!-- {/if} -->
+        
+        
+        
+        
+        <!-- {if $step eq "done"} -->
+        <!-- 订单提交成功 -->
+        <div class="flow-succeed">
+          <p style="font-size: 14px;">{$lang.remember_order_number}: <strong style="color:red">{$order.order_sn}</strong>。 </p>
+          <table width="80%" border="0" align="center">
+            <tr>
+              <td align="center">{$lang.select_shipping}: <strong>{$order.shipping_name}</strong>，{$lang.select_payment}: <strong>{$order.pay_name}</strong>。{$lang.order_amount}: <strong>{$total.amount_formated}</strong></td>
+            </tr>
+            <tr>
+              <td align="center">{$order.pay_desc}</td>
+            </tr>
+            <!-- {if $pay_online} -->
+            <!-- 如果是线上支付则显示支付按钮 -->
+            <tr>
+              <td align="center">{$pay_online}</td>
+            </tr>
+            <!-- {/if} -->
+          </table>
+          <p>{$order_submit_back}。</p>
+        </div>
+        <!-- {/if} -->
+        <!-- {if $step eq "login"} -->
+        {insert_scripts files="utils.js"}
+        <script type="text/javascript">
+      {foreach from=$lang.flow_login_register item=item key=key}
+        var {$key} = "{$item}";
+      {/foreach}
+
+      {literal}
+      function checkLoginForm(frm) {
+        if (Utils.isEmpty(frm.elements['username'].value)) {
+          alert(username_not_null);
+          return false;
+        }
+
+        if (Utils.isEmpty(frm.elements['password'].value)) {
+          alert(password_not_null);
+          return false;
+        }
+
+        return true;
+      }
+
+      function checkSignupForm(frm) {
+        if (Utils.isEmpty(frm.elements['username'].value)) {
+          alert(username_not_null);
+          return false;
+        }
+
+        if (Utils.trim(frm.elements['username'].value).match(/^\s*$|^c:\\con\\con$|[%,\*\"\s\t\<\>\&]/))
+        {
+          alert(username_invalid);
+          return false;
+        }
+
+        if (Utils.isEmpty(frm.elements['email'].value)) {
+          alert(email_not_null);
+          return false;
+        }
+
+        if (!Utils.isEmail(frm.elements['email'].value)) {
+          alert(email_invalid);
+          return false;
+        }
+
+        if (Utils.isEmpty(frm.elements['password'].value)) {
+          alert(password_not_null);
+          return false;
+        }
+
+        if (frm.elements['password'].value != frm.elements['confirm_password'].value) {
+          alert(password_not_same);
+          return false;
+        }
+        return true;
+      }
+      {/literal}
+      </script>
+        <!-- 开始用户登录注册界面 -->
+        <table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="50%" valign="top"><form action="flow.php?step=login" method="post" name="loginForm" id="loginForm" onsubmit="return checkLoginForm(this)">
+                <div style="font-size:14px; font-weight:bold; padding:5px 0 5px 30px; border:1px #eee solid; margin-bottom:5px; margin-top:5px; margin-right:10px;">会员登录</div>
+                <br />
+                <table width="90%"  border="0" align="center" cellpadding="1" cellspacing="3">
+                  <tr>
+                    <td><div align="right"><strong>{$lang.username}</strong></div></td>
+                    <td><input name="username" type="text" id="username" /></td>
+                  </tr>
+                  <tr>
+                    <td><div align="right"><strong>{$lang.password}</strong></div></td>
+                    <td><input name="password" type="password" id="password" /></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td><input type="submit" name="login" value="{$lang.forthwith_login}" />
+                      <!-- {if $anonymous_buy eq 1} 是否允许未登录用户购物 -->
+                      <input type="button" value="{$lang.direct_shopping}" onclick="location.href='flow.php?step=consignee&amp;direct_shopping=1'" />
+                      <!-- {/if} -->
+                      <input name="act" type="hidden" value="signin" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td><a href="user.php?act=get_password">{$lang.forgot_password}</a></td>
+                  </tr>
+                </table>
+              </form></td>
+            <td valign="top" style="border-left: 1px solid #DADADA;"><form action="flow.php?step=login" method="post" name="registerForm" id="registerForm" onsubmit="return checkSignupForm(this)">
+                <div style="font-size:14px; font-weight:bold; padding:5px 0 5px 30px; border:1px #eee solid; margin-bottom:5px; margin-top:5px; margin-left:10px;">会员注册</div>
+                <br />
+                <table width="90%"  border="0" align="center" cellpadding="1" cellspacing="3">
+                  <tr>
+                    <td><div align="right"><strong>{$lang.username}</strong></div></td>
+                    <td><input name="username" type="text" id="username" /></td>
+                  </tr>
+                  <tr>
+                    <td><div align="right"><strong>{$lang.email_address}</strong></div></td>
+                    <td><input name="email" type="text" id="email" /></td>
+                  </tr>
+                  <tr>
+                    <td><div align="right"><strong>{$lang.password}</strong></div></td>
+                    <td><input name="password" type="password" id="password" /></td>
+                  </tr>
+                  <tr>
+                    <td><div align="right"><strong>{$lang.confirm_password}</strong></div></td>
+                    <td><input name="comfirm_password" type="password" id="comfirm_password" /></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td><input type="submit" name="register" value="{$lang.forthwith_register}" />
+                      <input name="act" type="hidden" value="signup" />
+                    </td>
+                  </tr>
+                </table>
+              </form></td>
+          </tr>
+        </table>
+        <!-- 结束用户登录注册界面 -->
+        <!-- {/if} -->
+        <div class="hack"></div>
+      </div>
+    </div>
+    <div class="clearing">&nbsp;</div>
+  </div>
+</div>
+
+<!-- #BeginLibraryItem "/library/help.lbi" -->
+<div id="help">
+<!--{if $helps}-->
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <!-- {foreach from=$helps item=help_cat} -->
+    <td class="cat-name"><span>{$help_cat.cat_name}</span></td>
+    <!-- {/foreach} -->
+  </tr>
+  <tr>
+    <!-- {foreach from=$helps item=help_cat} -->
+    <td valign="top">
+    <ul>
+        <!-- {foreach from=$help_cat.article item=item} -->
+        <li><a href="{$item.url}" title="{$item.title|escape:html}">{$item.short_title}</a></li>
+        <!-- {/foreach} -->
+      </ul></td>
+    <!-- {/foreach} -->
+  </tr>
+</table>
+<!--{/if}-->
+</div><!-- #EndLibraryItem --><!--{if $img_links  or $txt_links }-->
+<div id="links">
+  <!-- {if $img_links} -->
+  <div style="padding:3px;">
+    <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
+    <span style="width: 100px; text-align: center"> <a href="{$link.url}" target="_blank" title="{$link.name}"><img src="{$link.logo}" width="88" height="31" alt="{$link.name}" border="0" /></a> </span>
+    <!--结束图片类型的友情链接{/foreach}-->
+  </div>
+  <!-- {/if} -->
+  <!-- {if $txt_links} -->
+  <div style="padding:3px;">
+    <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+    <span style="width: 100px; text-align: center"> [<a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a>] </span>
+    <!--结束文字类型的友情链接{/foreach}-->
+  </div>
+  <!-- {/if} -->
+</div>
+<!--{/if}--><!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+<div id="footer-article">
+  <!-- {if $navigator_list.bottom} -->
+    <!-- {foreach name=nav_bottom_list from=$navigator_list.bottom item=nav} -->
+    <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a> 
+    <!-- {if !$smarty.foreach.nav_bottom_list.last} -->
+    |
+    <!-- {/if} -->
+  <!-- {/foreach} -->
+  <!-- {/if} --> </div>
+<div id="footer-top"><a href="#top"><img src="images/top.gif" alt="top" border="0" /></a></div>
+<div id="footer"> <div>Copyright {$copyright}</div>
+  <!-- 客服电话{if $service_phone} -->
+  Tel: {$service_phone}
+  <!-- 结束客服电话{/if} -->
+  <!-- QQ 号码 {foreach from=$qq item=im} -->
+  <!-- {if $im} -->
+  <a href="http://wpa.qq.com/msgrd?V=1&amp;Uin={$im}&amp;Site={$shop_name}&amp;Menu=yes" target="_blank"><img src="http://wpa.qq.com/pa?p=1:{$im}:4" height="16" border="0" alt="QQ" /> {$im}</a>
+  <!-- {/if} -->
+  <!-- {/foreach} 结束QQ号码 -->
+  <!-- 淘宝旺旺 {foreach from=$ww item=im} -->
+  <!-- {if $im} -->
+  <a href="http://amos1.taobao.com/msg.ww?v=2&amp;uid={$im|escape:url}&amp;s=2" target="_blank"><img src="http://amos1.taobao.com/online.ww?v=2&amp;uid={$im|escape:url}&amp;s=2" width="16" height="16" border="0" alt="淘宝旺旺" /> {$im}</a>
+  <!-- {/if} -->
+  <!--{/foreach} 结束淘宝旺旺 -->
+  <!-- Yahoo Messenger {foreach from=$ym item=im} -->
+  <!-- {if $im} -->
+  <a href="http://edit.yahoo.com/config/send_webmesg?.target={$im}n&amp;.src=pg" target="_blank"><img src="library/images/yahoo.gif" width="18" height="17" border="0" alt="Yahoo Messenger" /> {$im}</a>
+  <!-- {/if} -->
+  <!-- {/foreach} 结束Yahoo Messenger -->
+  <!-- MSN Messenger {foreach from=$msn item=im} -->
+  <!-- {if $im} -->
+  <img src="library/images/msn.gif" width="18" height="17" border="0" alt="MSN" /> {$im}
+  <!-- {/if} -->
+  <!-- {/foreach} 结束MSN Messenger -->
+  <!-- Skype {foreach from=$skype item=im} -->
+  <!-- {if $im} -->
+  <img src="http://mystatus.skype.com/smallclassic/{$im|escape:url}" alt="Skype" /><a href="skype:{$im|escape:url}?call">{$im}</a>
+  <!-- {/if} -->
+  <!-- {/foreach} -->
+  <div>{$shop_address} {$shop_postcode} </div>
+  <!-- ICP 证书{if $icp_number} -->
+  <div> {$lang.icp_number}:<a href="http://www.miibeian.gov.cn/" target="_blank">{$icp_number}</a> </div>
+  <!-- 结束ICP 证书{/if} -->
+  {insert name='query_info'}<br />
+  <a href="http://www.iastudy.com" target="_blank" style="font-size:10px">Powered by <strong><span style="color: #3366FF; font-size:10px;">IASTUDY</span> <span style="color: #FF9966; font-size:10px;">{$ecs_version}</span></strong></a><br />
+</div>
+{if $stats_code}
+<div align="center">{$stats_code}</div>
+{/if}
+<noscript>
+<iframe src="*.htm"></iframe>
+</noscript>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<!-- #EndLibraryItem --></body>
+</html>

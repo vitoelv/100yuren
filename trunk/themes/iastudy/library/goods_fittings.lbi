@@ -1,0 +1,17 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $fittings} -->
+ <div class="goods-title"><img src="../images/subtitle2.gif"/>&nbsp;相关资源</div>
+    <ul class="product-list">
+      <!-- {foreach from=$fittings item=goods} -->
+      <li>
+        <div class="photo"><a href="{$goods.url}" target="_blank"><img src="{$goods.goods_thumb}" alt="{$goods.name|escape:html}" width="84" height="84" /></a></div>
+        <div class="info">
+          <span class="name"> <a href="{$goods.url}" target="_blank">{$goods.short_name|escape:html}</a></span>
+          <div class="price" style=" line-height:40px;"> {$lang.fittings_price}
+            <span class="goods-price">{$goods.fittings_price}</span> </div>
+            <p><a href="javascript:addToCart({$goods.goods_id},{$goods_id})">{$lang.btn_add_to_cart}</a></p>
+        </div>
+      </li>
+      <!--{/foreach}-->
+    </ul>
+<!--{/if}-->

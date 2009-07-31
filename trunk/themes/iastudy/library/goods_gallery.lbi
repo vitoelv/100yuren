@@ -1,0 +1,9 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--{if $pictures}-->
+<div class="title-02">
+  <div class="title">课程展区</div>
+  <!-- {foreach from=$pictures item=picture}-->
+  <div align="center" style="margin-bottom:6px;"><span><a href="gallery.php?id={$id}&amp;img={$picture.img_id}" target="_blank"><img src="{$picture.thumb_url}" alt="{$goods.goods_name}" border="0" /></a></span></div>
+  <!--{/foreach}-->
+</div>
+<!--{/if} -->

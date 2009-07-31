@@ -1,0 +1,11 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $goods_article_list} -->
+        <div class="goods-title"><img src="../images/subtitle2.gif"/>&nbsp;相关文章</div>
+<div class="a-cat-div" style="border:0px;">
+  <ul>
+    <!-- {foreach from=$goods_article_list item=article} 相关文章 -->
+    <li><span>{$article.add_time}</span> <a href="{$article.url}">{$article.title}</a></li>
+    <!--{/foreach}-->
+  </ul>
+</div>
+<!--{/if}-->

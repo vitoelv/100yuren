@@ -1,0 +1,30 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $best_goods} -->
+<div class="title-03">
+	<div class="title">{$lang.recommend_best}<!--精品课程--></div>
+	<div class="more"><a href="search.php?intro=best">more...</a> </div>
+	<div class="box">
+		<ul class="product-list">
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+		  <tr>
+			<th align="left" width="35%">{$lang.goods_name}</th><!--课程名称-->
+			<th align="left" width="25%">{$lang.brand}</th><!--授课学校-->			
+			<th align="center" width="18%">{$lang.shop_prices}</th><!--优惠价-->
+			<th align="center" width="9%">{$lang.course_detail}</th><!--详情-->
+			<th align="center" width="12%">{$lang.course_sign_up}</th><!--在线报名-->
+		  </tr>		
+		  <!--{foreach from=$best_goods item=goods}-->
+		  <tr bgcolor="#ffffff" onMouseOver="this.style.background='#E7FEEA'" onmouseout="this.style.background='#ffffff'">
+			<td align="left"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.name|escape:html}</a></td>
+			<td align="left"><a href="{$goods.goods_brand_url}">{$goods.brand_name|escape:html}</a></td>			
+			<td align="center"><span class="goods-price">{$goods.shop_price}</span></td>
+			<td align="center"><div align="center"><span class="act"><a href="{$goods.url}" style="color:blue">详情</a></span></div></td>
+			<td align="center"><div align="center"><span class="act"><a href="javascript:addToCart({$goods.id})" style="color:blue">报名</a></span></div></td>
+			<!-- <a href="javascript:addToCart({$goods.id})" style="color:red"><img src="images/add_cart.gif" alt="报名" width="71" height="21" border="0" /></a>  --> 
+		  </tr>		  
+		  <!--{/foreach}-->
+		</table>  
+		</ul>
+	</div>
+</div>
+<!-- {/if} -->
