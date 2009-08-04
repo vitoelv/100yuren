@@ -615,7 +615,28 @@ fx.sineInOut = function(pos){
     
         {/literal}
 </script>
-<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/library/top10.lbi" -->
+<!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/history.lbi" -->
+<div class="title-02">
+    <div class="title">浏览历史</div>
+        <ul style="padding-left:20px; list-style-type:circle;">
+    {insert name="history"}
+  </ul>
+</div>
+
+<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/library/goods_related.lbi" -->
+<!-- {if $related_goods} -->
+<div class="title-02">
+    <div class="title">相关课程</div>
+              <ul style="padding-left:23px; list-style-type:circle;">
+    <!--{foreach from=$related_goods item=goods}-->
+    <li> <a href="{$goods.url}" title="<!-- {if $goods.promote_price neq 0} -->{$lang.promote_price}{$goods.formated_promote_price}<!-- {else} -->{$lang.shop_price}{$goods.shop_price}<!-- {/if} --> ">{$goods.goods_name}</a> </li>
+    <!--{/foreach}-->
+</ul>
+          </div>
+          <!-- {/if} -->
+<!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/top10.lbi" -->
 <!-- {if $top_goods} -->
 <div class="title-02">
     <div class="title">报名冠军</div>
@@ -704,26 +725,8 @@ window.onload = function() {
   </div>
 </div>
 <!-- {/if} -->
-<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/library/history.lbi" -->
-<div class="title-02">
-    <div class="title">浏览历史</div>
-        <ul style="padding-left:20px; list-style-type:circle;">
-    {insert name="history"}
-  </ul>
-</div>
-
-<!-- #EndLibraryItem --><!-- #BeginLibraryItem "/library/goods_related.lbi" -->
-<!-- {if $related_goods} -->
-<div class="title-02">
-    <div class="title">相关课程</div>
-              <ul style="padding-left:23px; list-style-type:circle;">
-    <!--{foreach from=$related_goods item=goods}-->
-    <li> <a href="{$goods.url}" title="<!-- {if $goods.promote_price neq 0} -->{$lang.promote_price}{$goods.formated_promote_price}<!-- {else} -->{$lang.shop_price}{$goods.shop_price}<!-- {/if} --> ">{$goods.goods_name}</a> </li>
-    <!--{/foreach}-->
-</ul>
-          </div>
-          <!-- {/if} -->
-<!-- #EndLibraryItem --><!-- TemplateEndEditable --></div>
+<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --></div>
     <div class="clearing">&nbsp;</div>
   </div>
 </div>

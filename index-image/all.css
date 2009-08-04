@@ -1,7 +1,7 @@
 .w980{width:980px; margin:0px auto 0px}
-.flashbox {MARGIN-BOTTOM: 0px; OVERFLOW: hidden; POSITION: relative; HEIGHT: 254px}
+.flashbox {MARGIN-BOTTOM: 0px;  POSITION: relative; HEIGHT: 254px; }
 .flashbox .pic {BORDER-RIGHT: #FFB981 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #FFB981 1px solid; PADDING-LEFT: 1px; LEFT: 0px; PADDING-BOTTOM: 1px; BORDER-LEFT: #FFB981 1px solid; WIDTH: 450px; PADDING-TOP: 1px; BORDER-BOTTOM: #FFB981 1px solid; POSITION: absolute; TOP: 0px; HEIGHT: 250px}
-.flashbox UL {LEFT: 460px; WIDTH: 300px; POSITION: absolute; TOP: 0px}
+.flashbox UL {LEFT: 455px; WIDTH: 250px; POSITION: absolute; TOP: 0px; }
 .flashbox LI {MARGIN-BOTTOM: 1px; OVERFLOW: hidden; LINE-HEIGHT: 24px; HEIGHT: 50px}
 .flashbox LI A {PADDING-RIGHT: 5px; DISPLAY: block; PADDING-LEFT: 5px; BACKGROUND: #e8e9ea; PADDING-BOTTOM: 0px; COLOR: #333; PADDING-TOP: 10px; POSITION: relative; HEIGHT: 40px}
 .flashbox LI.selected A {BACKGROUND: url(index_icon.gif) repeat-x; COLOR: #333; TEXT-DECORATION: none}
@@ -185,10 +185,7 @@
 	text-decoration: none;
 }
 .leftlist a:hover{
-	font-family: "宋体";
-	font-size: 12px;
-	line-height: 26px;
-	color: #000000;
+	color: #FF0000;
 }
 .leftlist a:visited{
 	font-family: "宋体";
@@ -204,42 +201,11 @@
 	color: #000000;
 	padding-left: 2px;
 }
-.leftlist2 a{
-	font-family: "宋体";
-	font-size: 12px;
-	line-height: 20px;
-	color: #000000;
-	text-decoration: none;
-}
 .leftlist2 a:hover{
-	font-family: "宋体";
-	font-size: 12px;
-	line-height: 20px;
-	color: #000000;
-}
-.leftlist2 a:visited{
-	font-family: "宋体";
-	font-size: 12px;
-	line-height: 20px;
-	color: #000000;
+	color: #0000FF;
+	text-decoration: none;
 }
 
-.newpb a:hover{
-	color:#333333;
-	font-size:12px;
-	background-position: left;
-	font-family: "新宋体";
-	line-height: 20px;
-	text-decoration: none;
-}
-.newpb a:visited{
-	color:#333333;
-	background-position: left;
-	text-decoration: none;
-	font-family: "宋体";
-	font-size: 12px;
-	line-height: 26px;
-}
 .leftbt,leftbt a:hover,leftbt a:visited{
 	font-family: "宋体";
 	font-size: 12px;
@@ -258,6 +224,7 @@
 	padding-left: 18px;
 	text-decoration: none;
 }
+
 .lefttd {
 	padding-left: 36px;
 }

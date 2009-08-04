@@ -1,9 +1,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <a name="top"></a>
 <div id="header">
-<div id="logo-topnav">  <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
-    <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} -->target="_blank"<!-- {/if} -->>{$nav.name}</a> |
-  <!-- {/foreach} --></div>
+<div id="logo-topnav">  
+		<a href="http://www.jiajiajk.com/" target="_blank"><span id="reward"><strong>要上大学了，赶紧登录佳家健康网(www.jiajiajk.com)，买件礼品谢师恩! </strong></span></a>
+		<script language="JavaScript1.1" type="text/javascript"> 
+		if (navigator.appName.indexOf('Netscape') == '-1') 
+		{ 
+			var colors = ["666666","ff6600"]; 
+			var nextcolor = 0;
+
+			function changecolor() 
+			{ 
+			document.all.reward.style.color = colors[nextcolor++]; 
+			nextcolor = nextcolor % colors.length; 
+			} 
+			setInterval("changecolor()", 600); 
+		} 
+		</script>
+  </div>
   <div>
     <div id="logo"><img src="images/logo.gif" alt="IAStudy" /></div>
     <div id="top_nav">

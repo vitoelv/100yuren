@@ -223,6 +223,17 @@
 											<li class="lv_x" style="padding-top:8px;">
 												<strong>{$lang.goods_rank}</strong><img src="images/stars{$goods.comment_rank}.gif" width="64" height="12" alt="comment rank {$goods.comment_rank}" />
 											</li>
+											
+											<!-- {if $goods.brand_type=="0"}-->
+												<li class="bt_x"><a href="{$goods.goods_brand_url}"><img src="images/school_major.gif" alt="" border="0" /></a></li> 	<!-- 专业 -->								                
+											<!-- {else} -->
+												<li class="bt_x"><a href="{$goods.goods_brand_url}"><img src="images/course_list.gif" alt="" border="0" /></a></li> 	<!-- 课程 -->	 
+											<!--{/if}-->											
+											<!-- {if $goods.brand_type=="0"}-->
+												<li class="bt_x"><a href="{$goods.site_url}" target="_blank"><img src="images/school_website.gif" alt="" border="0" /></a></li> 	<!-- 专业 -->								                
+											<!-- {else} -->
+												<li class="bt_x"><a href="{$goods.goods_brand_url}"><img src="images/school_detail.gif" alt="" border="0" /></a></li>  	<!-- 课程 -->	 
+											<!--{/if}-->											
 											<li class="bt_x">{$lang.course_signup_tel}：{$lang.course_signup_phone}</li> <!-- 报名电话：010-69799625 -->
 										</ul>
 									  </td></tr>
@@ -239,7 +250,11 @@
                     <a href="javascript:addToCart({$goods.goods_id})"><img src="images/add_cart.gif" alt="" width="71" height="21" border="0" /></a> 
                     <a href="javascript:collect({$goods.goods_id})"><img src="images/collect.gif" alt="" border="0" /></a>
                     <a href="tencent://message/?uin=1171196009&Site=www.iastudy.com&Menu=yes" target="_blank"><img src="images/onlinekf.gif" alt="" border="0" /></a>  
-                    <a href="{$goods.goods_brand_url}"><img src="images/school_detail.gif" alt="" border="0" /></a>                   
+					<!-- {if $goods.brand_type=="0"}-->
+						<a href="{$goods.site_url}" target="_blank"><img src="images/school_detail.gif" alt="" border="0" /></a> 	<!-- 专业 -->								                
+					<!-- {else} -->
+						<a href="{$goods.goods_brand_url}"><img src="images/school_detail.gif" alt="" border="0" /></a>  	<!-- 课程 -->	 
+					<!--{/if}-->					
                     <!-- {if $affiliate.on} -->
               <a href="user.php?act=affiliate&amp;goodsid={$goods.goods_id}"><img src="images/btn_recommend.gif" alt="" /></a>
               <!-- {/if} -->
