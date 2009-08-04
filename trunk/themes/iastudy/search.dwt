@@ -171,9 +171,10 @@
 					            <td align="right" width="25%"><a href="javascript:collect({$goods.goods_id})"><img src="images/collect.gif" alt="收藏" border="0" /></a></td>
 					          </tr>
 					          <tr>
-					            <td>【{$lang.course_start_date}】{$goods.course_start_date}</td>
+					            <!-- <td>【{$lang.course_start_date}】{$goods.course_start_date}</td> -->
 					            <td>【{$lang.course_market_price}】<span class="goods-price">{$goods.market_price}</span> </td>
 					            <td> 【<strong>{$lang.course_save_money_short}</strong>】<span class="goods-price">{$goods.save_money}</span> </td>
+								<td align="right" width="25%"><a href="{$lang.QQ}" target="_blank"><img src="images/qq.gif" alt="QQ咨询，QQ号:1109811037" border="0" /></a></td>
 					          </tr>
 					        </tbody>
 					      </table></td>
