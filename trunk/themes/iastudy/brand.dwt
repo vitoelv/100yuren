@@ -614,6 +614,7 @@ fx.sineInOut = function(pos){
         <div id="main">
           <div class="title-03">
             <div class="title">{$brand.brand_name}</div>
+			<div class="right"><!-- {if $brand.brand_type=="0"}--><a href="{$brand.site_url}" target="_blank"><img src="images/school_website.gif" alt="" border="0" /></a> <!-- {else} --><!--{/if}-->	</div>			
             <div class="box">
               <table width="100%" border="0">
                 <tr>
