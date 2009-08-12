@@ -247,6 +247,8 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
     $smarty->assign('ur_here',          $position['ur_here']);  // 当前位置
 
     $smarty->assign('categories',       get_categories_tree($cat_id)); // 分类树
+    $smarty->assign('current_categories',       cur_categories_tree($cat_id)); // 当前分类下的子分类树
+    
     $smarty->assign('helps',            get_shop_help());              // 网店帮助
     $smarty->assign('top_goods',        get_top10());                  // 销售排行
     $smarty->assign('show_marketprice', $_CFG['show_marketprice']);

@@ -84,6 +84,54 @@ function get_categories_tree($cat_id = 0)
     return $cat_arr;
 }
 
+
+/**
+ * 获得当前分类下的子分类
+ *
+ * @access  public
+ * @param   integer     $cat_id     分类编号
+ * @return  array
+ */
+function cur_categories_tree($cat_id = 0)
+{
+	$has_tree = false;
+    /*
+     判断当前分类中全是是否是底级分类，
+     如果是取出底级分类上级分类，
+     如果不是取当前分类及其下的子分类
+    */
+
+   /* 获取当前分类及其子分类 */
+   $sql = 'SELECT a.cat_id, a.cat_name, a.sort_order AS parent_order, a.cat_id, a.is_show,' .
+               'b.cat_id AS child_id, b.cat_name AS child_name, b.sort_order AS child_order ' .
+           'FROM ' . $GLOBALS['ecs']->table('category') . ' AS a ' .
+           'LEFT JOIN ' . $GLOBALS['ecs']->table('category') . ' AS b ON b.parent_id = a.cat_id AND b.is_show = 1 ' .
+           "WHERE  a.cat_id = '$cat_id' ORDER BY parent_order ASC, a.cat_id ASC, child_order ASC";
+    
+    $res = $GLOBALS['db']->getAll($sql);
+
+    $cat_arr = array();
+    foreach ($res AS $row)
+    {
+        if ($row['is_show'])
+        {
+            $cat_arr[$row['cat_id']]['id']   = $row['cat_id'];
+            $cat_arr[$row['cat_id']]['name'] = $row['cat_name'];
+            $cat_arr[$row['cat_id']]['url']  = build_uri('category', array('cid' => $row['cat_id']), $row['cat_name']);
+
+            if ($row['child_id'] != NULL)
+            {
+                $cat_arr[$row['cat_id']]['children'][$row['child_id']]['id']   = $row['child_id'];
+                $cat_arr[$row['cat_id']]['children'][$row['child_id']]['name'] = $row['child_name'];
+                $cat_arr[$row['cat_id']]['children'][$row['child_id']]['url']  = build_uri('category', array('cid' => $row['child_id']), $row['child_name']);
+                $has_tree = true;
+            }
+        }
+    }
+    $cat_arr['has_tree'] = $has_tree;
+    return $cat_arr;
+}
+
 /**
  * 调用当前分类的销售排行榜
  *
