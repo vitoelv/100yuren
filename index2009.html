@@ -1,0 +1,954 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="Generator" content="iastudy" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Keywords" content="学习，培训，招生" />
+  <meta name="Description" content="提供计算机，外语，成考自考，考研，在职研究生，高校招生，专业培训，出国资讯等各类服务" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="animated_favicon.gif" type="image/gif" />
+  <link rel="alternate" type="application/rss+xml" title="RSS|百年育人网--联手京城名校，缔造属于你的学习平台 - Powered by iastudy.com" href="feed.php" />
+  <link href="themes/iastudy/style.css" rel="stylesheet" type="text/css" />
+  <link href="index-image/all.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="tabAccordion/css/tabAccordion.css" />
+  <link rel="stylesheet" type="text/css" href="index-image/ddtabmenu/ddcolortabs.css" />
+
+
+  <title>百年育人网 - 十年育树，百年育人: 联手京城名校，缔造属于你的学习平台</title>
+  
+  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript" src="index-image/prototype.js"></script>
+  <script type="text/javascript" src="index-image/index.js"></script>
+	<script type="text/javascript" src="tabAccordion/scripts/prototype.lite.js"></script>
+	<script type="text/javascript" src="tabAccordion/scripts/moo.fx.js"></script>
+	<script type="text/javascript" src="tabAccordion/scripts/moo.fx.pack.js"></script>	
+	<script type="text/javascript" src="tabAccordion/scripts/index-app.js"></script>
+	
+	<script type="text/javascript" src="index-image/ddtabmenu/ddtabmenu.js"></script>
+
+	<script type="text/javascript">
+		//SYNTAX: ddtabmenu.definemenu("tab_menu_id", integer OR "auto")
+		ddtabmenu.definemenu("ddtabs1", 1) 
+	</script>	
+		
+</head>
+
+<body id="index">
+<a name="top"></a>
+
+<div id="header">
+  <div id="logo-topnav">      	
+		<a href="http://www.jiajiajk.com/" target="_blank"><span id="reward"><strong>要上大学了，赶紧登录佳家健康网(www.jiajiajk.com)，买件礼品谢师恩! </strong></span></a>
+		<script language="JavaScript1.1" type="text/javascript"> 
+		if (navigator.appName.indexOf('Netscape') == '-1') 
+		{ 
+			var colors = ["666666","ff6600"]; 
+			var nextcolor = 0;
+
+			function changecolor() 
+			{ 
+			document.all.reward.style.color = colors[nextcolor++]; 
+			nextcolor = nextcolor % colors.length; 
+			} 
+			setInterval("changecolor()", 600); 
+		} 
+		</script>	
+  </div>
+  <div>
+    <div id="logo"><img src="themes/iastudy/images/logo.gif" alt="IAStudy" /></div>
+    <div id="top_nav">
+      <ul>
+		<li id="cur"><a href="index.php"><span>首页</span></a></li>
+        <li><a href="category.php?id=1" ><span>计算机(IT)</span></a></li>
+        <li><a href="category.php?id=2" ><span>外语</span></a></li>
+
+        <li><a href="category.php?id=4" ><span>成教/自考</span></a></li>
+        <li><a href="category.php?id=5" ><span>考研/在职研</span></a></li>
+        <li><a href="category.php?id=6" ><span>专业培训</span></a></li>
+        <li><a href="category.php?id=7" ><span>出国</span></a></li>
+        <li><a href="category.php?id=15" ><span>高校招生</span></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="top-bg-index">
+	<div class="to-bg2">
+		<div class="top-list">
+		  <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()">
+			<span class="top-form14">课程搜索</span>
+
+			<select name="category" id="category" class="vertical-middle">
+				<option value="0">所有分类</option>
+				<option value="6" >专业培训</option><option value="37" >&nbsp;&nbsp;&nbsp;&nbsp;司法考试</option><option value="2" >外语</option><option value="12" >&nbsp;&nbsp;&nbsp;&nbsp;俄语</option><option value="40" >&nbsp;&nbsp;&nbsp;&nbsp;日语</option><option value="11" >&nbsp;&nbsp;&nbsp;&nbsp;英语</option><option value="14" >&nbsp;&nbsp;&nbsp;&nbsp;法语</option><option value="39" >&nbsp;&nbsp;&nbsp;&nbsp;韩语</option><option value="13" >&nbsp;&nbsp;&nbsp;&nbsp;西班牙语</option><option value="5" >考研/在职研</option><option value="1" >计算机(IT)</option><option value="29" >&nbsp;&nbsp;&nbsp;&nbsp;数据库</option><option value="9" >&nbsp;&nbsp;&nbsp;&nbsp;软件开发/软件工程</option><option value="8" >&nbsp;&nbsp;&nbsp;&nbsp;平面/网页设计</option><option value="10" >&nbsp;&nbsp;&nbsp;&nbsp;网络/通信</option><option value="4" >成教/自考</option><option value="7" >出国</option><option value="15" >高校招生</option><option value="38" >&nbsp;&nbsp;&nbsp;&nbsp;北京邮电大学</option><option value="16" >&nbsp;&nbsp;&nbsp;&nbsp;国内职业教育</option><option value="19" >&nbsp;&nbsp;&nbsp;&nbsp;北京金融学院</option><option value="18" >&nbsp;&nbsp;&nbsp;&nbsp;北京建设大学</option><option value="30" >&nbsp;&nbsp;&nbsp;&nbsp;北京培黎职业学院</option><option value="45" >&nbsp;&nbsp;&nbsp;&nbsp;北大资源学院</option><option value="17" >&nbsp;&nbsp;&nbsp;&nbsp;国际项目</option>
+			</select>
+			<input name="keywords" class="textbox" type="text" id="keyword" value="" />
+			<input type="image" name="imageField" src="themes/iastudy/images/btn_search.gif" class="btn-search" />
+			<a href="search.php?act=advanced_search">高级搜索</a>
+		  </form>
+		</div>
+	</div>
+</div>	
+<script type="text/javascript" src="js/utils.js"></script>
+<div id="ur-here">
+	<div class="ur-here2">
+		<div class="ur-here-left">当前位置: <a href=".">首页</a></div>
+		<div id="ECS_MEMBERZONE" class="ur-here-right"> <div> <a href="user.php?act=login">会员登录</a> | <a href="user.php?act=register">注册新会员</a> | <a href="user.php?act=get_password">您忘记密码了吗？</a> </div>
+		</div>
+	</div>
+</div>
+
+
+<!--内容-->
+<div class=w980> <!--start of content-->
+
+<table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="280" height="255" valign="top">
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="tuijia">
+		  <tr>
+			<td height="26" class="leftbt">精品推荐</td>
+			<td align="right" class="leftbt"><a href="search.php?intro=best">more...</a><img src="index-image/morn.gif" width="3" height="5" /></td>
+		  </tr>
+  
+		  <tr>
+			<td colspan="2" class="leftlist2" ><a href="goods.php?id=131" title="国际商务管理（HND）">国际商务管理（国内3年国外2年,本硕连读）</a></td>
+		  </tr>
+		  <tr>
+			<td colspan="2" class="leftlist2" ><a href="goods.php?id=130" title="国际酒店管理（HND）">国际酒店管理（国内3年国外2年,本硕连读）</a></td>
+		  </tr>
+		  <tr>
+			<td colspan="2" class="leftlist2" ><a href="goods.php?id=129" title="国际旅游管理（HND）">国际旅游管理（国内3年国外2年,本硕连读）</a></td>
+		  </tr>
+		  <tr>
+			<td colspan="2" class="leftlist2" ><a href="goods.php?id=26" title="国际软件工程师Java就业班">国际软件工程师Java就业班</a></td>
+		  </tr>	  
+		  <tr>
+			<td colspan="2" class="leftlist2" ><a href="goods.php?id=188" title="物业管理专业">物业管理专业(保分配)</a></td>
+		  </tr>
+		  <tr>
+			<td colspan="2" class="leftlist2" ><a href="goods.php?id=251" title="中英合作采购与供应管理">中英合作采购与供应管理</a></td>
+		  </tr>			  
+		  <tr>
+			<td colspan="2" class="leftlist2" ><a href="goods.php?id=14" title="精品市场营销专业">精品市场营销专业(专本科3年，德国实习1年)</a></td>
+		  </tr>
+		  <tr>
+			<td colspan="2" class="leftlist2" ><a href="goods.php?id=14" title="精品工商企业管理专业">工商企业管理专业(专本科3年，德国实习1年)</a></td>
+		  </tr>
+		</table>  	
+	</td>
+    <td width="700" valign="top">
+				<div class=flashbox>
+					<div id=SwitchBigPic>
+						<div><A title=北大资源学院HND专业 href="category.php?id=15&brand=18" blockid="1791"><IMG class=pic alt=北大资源学院HND专业 src="index-image/header-image/pkuhnd2.gif"></A></div>
+						<div><A title=国际软件工程师保就业班 href="category.php?id=9&brand=9" blockid="1791" ><IMG class=pic alt=国际软件工程师保就业班 src="index-image/header-image/tarena2.gif" ></A></div>
+						<div><A title=司法、自学、MBA考试签协议保过班 href="category.php?id=6&brand=8" blockid="1791" ><IMG class=pic alt=新九州特色培训 src="index-image/header-image/jiuzhou2.gif"></A></div>
+						<div><A title=青年学院精品市场营销 href="category.php?id=15&brand=14" blockid="1791" ><IMG class=pic alt=青年学院精品市场营销 src="index-image/header-image/iyu2.gif"></A></div>
+						<div><A title="北邮国际、国内专业" href="category.php?id=15&brand=10" blockid="1791"><IMG class=pic alt="北邮国际、国内专业" src="index-image/header-image/bupt2.gif"></A></div>
+					</div> <!-- End of SwitchBigPic -->
+					<UL id=SwitchNav>
+						<LI><A href="category.php?id=15&brand=18" blockid="1791"><STRONG>北大资源学院HND专业</STRONG>国内3年，国外2年，本硕连读</A> </LI>
+						<LI><A href="category.php?id=9&brand=9" blockid="1791"><STRONG>国际软件工程师保就业班</STRONG>培养IT精英，就业国际名企</A></LI>
+						<LI><A href="category.php?id=6&brand=8" blockid="1791"><STRONG>新九州特色培训</STRONG>司法、自学、MBA考试签协议保过班</A> </LI>
+						<LI><A href="category.php?id=15&brand=14" blockid="1791"><STRONG>青年学院精品市场营销</STRONG>国内学习3年，德国实习1年</A> </LI>
+						<LI><A href="category.php?id=15&brand=10" blockid="1791"><STRONG>北邮国际、国内专业</STRONG>就读国内名校，国际、国内专业任选</A> </LI>
+					</UL>
+				</div> <!-- End of flashbox -->
+				<SCRIPT>
+						var bigswitch = new SwitchPic(
+							{
+								bigpic:"SwitchBigPic",
+								switchnav:"SwitchNav",
+								selectstyle:"selected",
+								objname:"bigswitch"
+							}
+						) ;
+						bigswitch.goSwitch(bigswitch,0);
+						bigswitch.autoSwitchTimer = setTimeout("bigswitch.autoSwitch(bigswitch) ;", 3000);
+				</SCRIPT> 
+	</td>
+  </tr>
+</table>
+
+<!-- Content Center -->
+<!-- preserved -->
+<table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="80%" valign="top">
+	<td>
+	<td width="20%" valign="top"></td>
+  </tr>
+</table>
+<!-- preserved -->
+
+<table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="280" rowspan="6" valign="top">
+     <table width="280" border="0" cellpadding="0" cellspacing="0" class="tuijia">
+      <tr>
+        <td height="26" colspan="2" class="leftbt">专业/课程导航</td>
+        <td width="95" align="right" class="leftbt"><a href="#">more...</a><img src="index-image/morn.gif" width="3" height="5" /></td>
+      </tr>
+      <tr>
+        <td height="5" colspan="3"></td>
+      </tr>
+      <tr>
+        <td colspan="3" >
+			 <table width="100" border="0" class="leftan">
+			  <tr>
+				<td>高校招生</td>
+			  </tr>
+			 </table>
+		</td>
+      </tr>
+      <tr>
+        <td width="30%" height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=354">经济类</a></td>
+        <td width="30%" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=355">计算机类</a></td>
+        <td width="40%" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=356">艺术类</a></td>
+      </tr>
+      <tr>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=357">外语类</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=358">新闻传媒</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=359">建筑类</a></td>
+      </tr>
+      <tr>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=360">管理类</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=7">环境工程</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=7">机电工程</a></td>
+      </tr>   
+      <tr>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=362">法律</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=363">游戏动漫</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=364">通信技术</a></td>
+      </tr>       
+      <tr>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=365">旅游</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=366">服装</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=367">物流</a></td>
+      </tr>                     
+      <tr>
+        <td colspan="3" >
+			 <table width="100" border="0" class="leftan">
+			  <tr>
+				<td>计算机(IT)</td>
+			  </tr>
+			 </table>
+		</td>
+      </tr>
+      <tr>
+        <td width="30%" height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=9">软件开发</a></td>
+        <td width="30%" height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=9">软件工程</a></td>
+        <td width="40%" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=29">数据库</a></td>
+      </tr>
+      <tr>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=315">厂商认证</a></td>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=302">软件测试</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=303">I T 就业</a></td>
+      </tr>       
+      <tr>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=8">平面设计</a></td>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=8">网页设计</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=308">动画动漫</a></td>
+      </tr>
+      <tr>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=10">网络/通信</a></td>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=306">手机开发</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=307">游戏开发</a></td>
+      </tr>
+      <tr>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=320">影视制作</a></td>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=319">硬件维修</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=309" title="计算机辅助设计">CAD/CAM</a></td>
+      </tr>
+      <tr>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=310">等级考试</a></td>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=318">通信技术</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=317">网络技术</a></td>
+      </tr>
+
+      <tr>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=311">C++/C#</a></td>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=312">Linux/Unix</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=313">嵌入式培训</a></td>
+      </tr>            
+      <tr>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=314">J2EE培训</a></td>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=315">JAVA认证</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=316">.Net培训</a></td>
+      </tr>            
+
+      <tr>
+        <td colspan="3" >
+			 <table width="100" border="0" class="leftan">
+			  <tr>
+				<td>外语</td>
+			  </tr>
+			 </table>
+		</td>
+      </tr>
+      <tr>
+        <td width="30%" height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=357">英语专业</a></td>
+        <td width="30%" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=40">日语专业</a></td>
+        <td width="40%" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=39">韩语专业</a></td>
+      </tr>
+      <tr>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=334">雅思</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=334">托福</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=321">四六级</a></td>
+      </tr>
+      <tr>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=323">口语</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=328">新概念</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=11">商务英语</a></td>
+      </tr>
+
+      <tr>
+        <td colspan="3" >
+			 <table width="100" border="0" class="leftan">
+			  <tr>
+				<td>专业培训</td>
+			  </tr>
+			 </table>
+		</td>
+      </tr>
+      <tr>
+        <td width="30%" height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=37">司法考试</a></td>
+        <td width="30%" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=37">公务员</a></td>
+        <td width="40%" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=369">人力资源</a></td>
+      </tr>
+      <tr>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=370">物业管理</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=368">文秘</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=170">会计培训</a></td>
+      </tr>
+
+      <tr>
+        <td colspan="3" >
+			<table width="100" border="0" class="leftan">
+			  <tr>
+				<td>学历教育</td>
+			  </tr>
+			</table>
+		</td>
+      </tr>
+      <tr>
+        <td width="30%" height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=5">考研</a></td>
+        <td width="30%" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=5">MBA</a></td>
+        <td width="40%" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=5">在职研究生</a></td>
+      </tr>
+      <tr>
+        <td height="20" class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=4">成人高考</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=4">自学考试</a></td>
+        <td class="leftlist"><img src="index-image/redjian.gif" width="3" height="5" vspace="3" />&nbsp;<a href="category.php?id=6">出国留学</a></td>
+      </tr>
+
+     </table>
+    </td>
+    <td width="410" valign="top"><table width="405" height="350" border="0" align="center" cellpadding="0" cellspacing="0" class="tuijia">
+      <tr>
+        <td height="24" colspan="2" class="leftbt">招生/培训/职业</td>
+      </tr>
+      <tr>
+        <td rowspan="4"><table border="0" align="center" class="imgtb">
+          <tr>
+            <td width="99"><a href="category.php?id=15"><img src="index-image/gaoxiao.jpg" width="96" height="84" border="0" /></a></td>
+          </tr>
+        </table></td>
+        <td class="newpb"><img src="index-image/lefthuij.gif" width="3" height="5" /><a href="goods.php?id=188">高校保分配物业管理专业</a></td>
+      </tr>
+      <tr>
+        <td class="newpb"><img src="index-image/lefthuij.gif" width="3" height="5" /><a href="#">软件架构与研发管理工程硕士</a></td>
+        </tr>	  
+      <tr>
+        <td class="newpb"><img src="index-image/lefthuij.gif" width="3" height="5" /><a href="goods.php?id=27">软件工程</a></td>
+        </tr>	
+      <tr>
+        <td class="newpb"><img src="index-image/lefthuij.gif" width="3" height="5" /><a href="goods.php?id=27">Java软件开发</a></td>
+        </tr>
+      <tr>
+        <td rowspan="4"><table border="0" align="center" class="imgtb">
+          <tr>
+            <td width="99"><a href="category.php?id=7"><img src="index-image/HND.gif" width="96" height="84" border="0" /></a></td>
+          </tr>
+        </table></td>
+        <td class="newpb"><img src="index-image/lefthuij.gif" width="3" height="5" /><a href="goods.php?id=69">2009年司法考试协议保过班</a></td>
+      </tr>
+      <tr>
+        <td class="newpb"><img src="index-image/lefthuij.gif" width="3" height="5" /><a href="#">英语口语班</a></td>
+        </tr>
+      <tr>
+        <td class="newpb"><img src="index-image/lefthuij.gif" width="3" height="5" /><a href="goods.php?id=162">高级网络工程师</a></td>
+        </tr>
+      <tr>
+        <td class="newpb"><img src="index-image/lefthuij.gif" width="3" height="5" /><a href="#">四级特训保过班</a></td>
+        </tr>		
+		
+      <tr>
+        <td rowspan="4"><table border="0" align="center" class="imgtb">
+          <tr>
+            <td width="99"><a href="category.php?id=6"><img src="index-image/zhiye.jpg" width="96" height="84" border="0" /></a></td>
+          </tr>
+        </table></td>
+        <td class="newpb"><img src="index-image/lefthuij.gif" width="3" height="5" /><a href="goods.php?id=28">C+E国际软件工程师测试班</a></td>
+      </tr>
+      <tr>
+        <td class="newpb"><img src="index-image/lefthuij.gif" width="3" height="5" /><a href="goods.php?id=33">ORACLE 9i OCP证书/经验培训班</a></td>
+        </tr>
+      <tr>
+        <td class="newpb"><img src="index-image/lefthuij.gif" width="3" height="5" /><a href="goods.php?id=27">C+E国际软件工程师C++就业班</a></td>
+        </tr>
+      <tr>
+        <td class="newpb"><img src="index-image/lefthuij.gif" width="3" height="5" /><a href="goods.php?id=26">C+E国际软件工程师Java就业班</a></td>
+      </tr>	  
+    </table></td>
+    <td width="300" align="center" valign="top"><table width="295" height="350" border="0" cellpadding="0" cellspacing="0" class="tuijia" align="left">
+      <tr>
+        <td width="295" height="24" align="left" class="leftbt">本月焦点关注</td>
+      </tr>
+      <tr>
+        <td class="newpb" align="left"><a href="article.php?id=12">就业能力排行榜</a></td>
+      </tr>
+      <tr>
+        <td class="newpb" align="left"><a href="article.php?id=13">自考生热衷的三大热门专业解析</a></td>
+      </tr>
+      <tr>
+        <td class="newpb" align="left"><a href="article.php?id=13">企业面临的四类IT风险详解</a></td>
+      </tr>
+      <tr>
+        <td class="newpb" align="left"><a href="article.php?id=4">Linux操作系统防范攻击的几个实用技巧</a></td>
+      </tr>
+      <tr>
+        <td class="newpb" align="left"><a href="article.php?id=5">在北京求学有哪些优势？</a></td>
+      </tr>
+      <tr>
+        <td class="newpb" align="left"><a href="article.php?id=1">教育部:公办高中禁办复读班 维护教育公平</a></td>
+      </tr>
+      <tr>
+        <td class="newpb" align="left"><a href="article.php?id=3">外企软件工程师和软件工程硕士有什么区别？</a></td>
+      </tr>
+      <tr>
+        <td class="newpb" align="left"><a href="article.php?id=3">呼叫中心管理系统八大趋势 </a></td>
+      </tr>
+      <tr>
+        <td class="newpb" align="left"><a href="article.php?id=15">2009年最新高考落榜生的八大出路</a></td>
+      </tr>
+      <tr>
+        <td class="newpb" align="left"><a href="article.php?id=14">关于2009年度会计专业技术资格</a></td>
+      </tr>
+      <tr height="30">
+        <td class="newpb" align="left"><a href="article.php?id=13">火热泪盈眶暑期培训，冰点价格呈现！</a></td>
+      </tr>     
+      <tr height="20">
+		<td style="text-align:right;">&nbsp;<a href="search.php?category=15">更多...</a></td>
+      </tr> 	  
+    </table></td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top">
+	
+	<!--  START1 -->
+<div id="ddtabs1" class="ddcolortabs">
+	<ul>
+		<li><a href="#tabcontent1" rel="tabcontent1"><span>游戏动漫</span></a></li>
+		<li><a href="#tabcontent2" rel="tabcontent2"><span>金融会计</span></a></li>
+		<li><a href="#tabcontent3" rel="tabcontent3"><span>艺术设计</span></a></li>
+		<li><a href="#tabcontent4" rel="tabcontent4"><span>旅游管理</span></a></li>
+		<li><a href="#tabcontent5" rel="tabcontent5"><span>特色专业</span></a></li>
+		<li><a href="#tabcontent6" rel="tabcontent6"><span>工商管理</span></a></li>
+		<li><a href="#tabcontent7" rel="tabcontent7"><span>国际招生</span></a></li>
+	</ul>
+</div>
+<div class="ddcolortabsline">&nbsp;</div>
+
+<DIV class="tabcontainer">
+		<!--Start Tabcontent 1 游戏动漫 -->
+		<div id="tabcontent1" class="tabcontent">
+		  <table>
+			  <tr class="table-left">
+				<td align="left" width="30%"><a href="goods.php?id=195">[北京城市学院] 数字动漫</a></td>
+				<td align="left" width="33%"><a href="goods.php?id=266">[北京邮电大学] 手机游戏软件开发</a></td>
+				<td align="left" width="37%"><a href="goods.php?id=273">[北京应用技术大学] 影视动漫艺术设计</a></td>
+			  </tr>	
+			  <tr class="table-left">
+				<td align="left" width="30%"><a href="goods.php?id=273">[北京建设大学] 动画艺术</a></td>
+				<td align="left" width="33%"><a href="goods.php?id=259">[北京文理研修学院] 游戏动漫设计</a></td>
+				<td align="left" width="37%"><a href="goods.php?id=174">[北京邮电大学] 数字媒体艺术设计</a></td>
+			  </tr>				  
+		  </table>			  
+		</div>
+		<!--End Tabcontent 1-->
+		<!--Start Tabcontent 2  金融会计-->
+		<div id="tabcontent2" class="tabcontent">
+		  <table>
+			  <tr class="table-left">
+				<td align="left" width="33%"><a href="goods.php?id=116">[北京金融学院] 金融与保险</a></td>
+				<td align="left" width="33%"><a href="goods.php?id=115">[北京金融学院] 金融理财规划</a></td>
+				<td align="left" width="34%"><a href="goods.php?id=73">[北京建设大学] 金融管理(中英合作)</a></td>
+			  </tr>	
+			  <tr class="table-left">
+				<td align="left" width="33%"><a href="goods.php?id=250">[北京文理研修学院] 会计</a></td>
+				<td align="left" width="33%"><a href="goods.php?id=15">[北京城市学院] 会计</a></td>
+				<td align="left" width="34%"><a href="goods.php?id=42">[北京培黎职业学院] 财税</a></td>
+			  </tr>	
+		  </table>		
+		</div>
+		<!--End Tabcontent 2 -->
+		
+		<!--Start Tabcontent 3  艺术设计-->
+		<div id="tabcontent3" class="tabcontent">
+		  <table>
+			  <tr class="table-left">
+				<td align="left" width="30%"><a href="goods.php?id=38">[北京建设大学] 服装艺术设计</a></td>
+				<td align="left" width="34%"><a href="goods.php?id=153">[北大资源学院] 播音主持与表演</a></td>
+				<td align="left" width="37%"><a href="goods.php?id=65">[北京培黎职业学院] 环境艺术设计</a></td>				
+			  </tr>	
+			  <tr class="table-left">
+			    <td align="left" width="30%"><a href="goods.php?id=361">[北京城市学院] 影视美术设计</a></td>
+				<td align="left" width="34%"><a href="goods.php?id=272">[北京应用技术大学] 平面艺术设计</a></td>			
+				<td align="left" width="37%"><a href="goods.php?id=9">[北京国际青年研修学院] 艺术设计</a></td>
+			  </tr>				  
+		  </table>		
+		</div>
+		<!--End Tabcontent 3 -->
+
+		<!--Start Tabcontent 4 旅游管理-->
+		<div id="tabcontent4" class="tabcontent">
+		  <table>
+			  <tr class="table-left">
+				<td align="left" width="30%"><a href="goods.php?id=107">[北京建设大学] 英文导游</a></td>
+				<td align="left" width="33%"><a href="brand.php?id=15">[北京城市学院] 中文导游</a></td>
+				<td align="left" width="37%"><a href="goods.php?id=254">[北京文理研修学院] 民航服务与管理</a></td>
+			  </tr>	
+			  <tr class="table-left">
+				<td align="left" width="30%"><a href="goods.php?id=56">[北京培黎职业学院] 酒店管理</a></td>
+				<td align="left" width="33%"><a href="goods.php?id=378">[北京建设大学] 饭店管理</a></td>
+				<td align="left" width="37%"><a href="goods.php?id=129">[北大资源学院] 国际旅游管理</a></td>
+			  </tr>				  
+		  </table>		
+		</div>
+		<!--End Tabcontent 4-->
+
+		<!--Start Tabcontent 5  特色专业-->
+		<div id="tabcontent5" class="tabcontent">
+		  <table>
+			  <tr class="table-left">
+				<td align="left" width="30%"><a href="goods.php?id=157">[北大资源学院] 文物鉴定</a></td>
+				<td align="left" width="33%"><a href="brand.php?id=16">[北京应用技术大学] 软件测试工程</a></td>
+				<td align="left" width="37%"><a href="goods.php?id=188">[北京国际青年研修学院] 保就业物业管理</a></td>
+			  </tr>	
+			  <tr class="table-left">
+				<td align="left" width="30%"><a href="goods.php?id=76">[北京培黎职业学院] 学前教育</a></td>
+				<td align="left" width="33%"><a href="goods.php?id=115">[北京金融学院 ] 金融理财规划</a></td>
+				<td align="left" width="37%"><a href="goods.php?id=255">[北京文理研修学院] 海乘服务与管理</a></td>
+			  </tr>				  
+		  </table>		
+		</div>
+		<!--End Tabcontent 5-->	
+		<!--Start Tabcontent 6  工商管理-->
+		<div id="tabcontent6" class="tabcontent">
+		  <table>
+			  <tr class="table-left">
+				<td align="left" width="30%"><a href="goods.php?id=47">[北京培黎职业学院] 电子商务</a></td>
+				<td align="left" width="35%"><a href="goods.php?id=103">[北京建设大学] 行政管理</a></td>
+				<td align="left" width="36%"><a href="brand.php?id=373">[北京应用技术大学] 工商企业管理</a></td>
+			  </tr>	
+			  <tr class="table-left">
+				<td align="left" width="30%"><a href="goods.php?id=125">[北京金融学院 ] 工商企业管理</a></td>				
+				<td align="left" width="35%"><a href="goods.php?id=172">[北京邮电大学] 国际工商企业管理</a></td>
+				<td align="left" width="36%"><a href="goods.php?id=137">[北大资源学院] 国际人力资源管理</a></td>
+			  </tr>				  
+		  </table>		
+		</div>		
+		<!--End Tabcontent 6-->	
+		<!--Start Tabcontent 7  国际招生-->
+		<div id="tabcontent7" class="tabcontent">
+		  <table>
+			  <tr class="table-left">
+				<td align="left" width="30%"><a href="goods.php?id=173">[北京邮电大学] 计算机</a></td>
+				<td align="left" width="33%"><a href="brand.php?id=175">[北京邮电大学] 通讯与电子工程</a></td>
+				<td align="left" width="37%"><a href="goods.php?id=185">[北京国际青年研修学院] 工商企业管理</a></td>
+			  </tr>	
+			  <tr class="table-left">
+				<td align="left" width="30%"><a href="goods.php?id=129">[北大资源学院] 国际旅游管理</a></td>
+				<td align="left" width="33%"><a href="goods.php?id=131">[北大资源学院 ] 国际商务管理</a></td>
+				<td align="left" width="37%"><a href="goods.php?id=14">[北京国际青年研修学院] 精品市场营销</a></td>
+			  </tr>				  
+		  </table>		
+		</div>		
+		<!--End Tabcontent 7-->			
+</DIV>
+		
+	<!-- END -->	
+	
+	</td>
+  </tr>
+  
+  <!-- START OF COURSE LIST-->
+  <tr>
+    <td colspan="2" valign="top">
+         <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" >
+          <tr>
+            <td width="100%">
+            	<!--  Start inner TAB -->
+
+					<div id="index-content">  
+
+						<h3 class="index-tab" title="热门招生"><div class="tabtxt"><a href="#first"></a><a name="first">热门招生</a></div></h3>
+						<div class="index-tab"><h3 class="tabtxt" title="计算机教育"><a href="#second"></a><a name="second">计算机教育</a></h3></div>
+						<div class="index-tab"><h3 class="tabtxt" title="自考成考"><a href="category.php?id=4">成考自考</a></h3></div>
+						<div class="index-tab"><h3 class="tabtxt" title="出国留学"><a href="category.php?id=2">外语培训</a></h3></div>
+						<div class="index-tab"><h3 class="tabtxt" title="出国留学"><a href="category.php?id=7">出国留学</a></h3></div>
+						<div class="index-tab"><h3 class="tabtxt" title="就业培训"><a href="category.php?id=6">就业培训</a></h3></div>
+						<div class="boxholder">
+							<div class="index-box">
+								<p>
+									<table>
+										  <tr>
+										    <th width="25%">招生院校</th>
+										    <th width="25%">专业名称</th>
+										    <th width="15%">查看详情</th>
+											<th rowspan="9" height="100%" width="35%" align="right"><a href="category.php?id=15"><img height="100%" width="100%" border="0" src="index-image/baoming.gif"/></a></th>    
+										  </tr>
+										  <tr class="table-left">
+										    <td align="left"><a href="brand.php?id=10">北京邮电大学</a></td>
+										    <td align="left"><a href="goods.php?id=175" title="通讯与电子工程">通讯与电子工程</a></td>
+											<td align="center"><a href="goods.php?id=175" title="通讯与电子工程">招生简章</a></td>
+										  </tr>	
+										  <tr class="table-left">
+										    <td align="left"><a href="brand.php?id=18">北大资源学院 </a></td>
+										    <td align="left"><a href="goods.php?id=145" title="医疗器械应用">医疗器械应用</a></td>
+											<td align="center"><a href="goods.php?id=145" title="医疗器械应用">招生简章</a></td>
+										  </tr>										  <tr class="table-left">
+										    <td align="left"><a href="brand.php?id=13">北京应用技术大学</a></td>
+										    <td align="left"><a href="goods.php?id=187" title="计算机软件工程">计算机软件工程</a></td>
+											<td align="center"><a href="goods.php?id=187" title="计算机软件工程">招生简章</a></td>
+										  </tr>
+										  <tr class="table-left">
+										    <td align="left"><a href="brand.php?id=14">北京国际青年研修学院</a></td>
+										    <td align="left"><a href="goods.php?id=188" title="保就业物业管理">物业管理(保就业)</a></td>
+											<td align="center"><a href="goods.php?id=188" title="保就业物业管理">招生简章</a></td>
+										  </tr>
+										  <tr class="table-left">
+										    <td align="left"><a href="brand.php?id=4">北京金融学院</a></td>
+										    <td align="left"><a href="goods.php?id=120" title="会计与审计">会计与审计</a></td>
+											<td align="center"><a href="goods.php?id=120" title="会计与审计">招生简章</a></td>
+										  </tr>
+										  <tr class="table-left">
+										    <td align="left"><a href="brand.php?id=14">北京金融学院</a></td>
+										    <td align="left"><a href="goods.php?id=122" title="中英合作金融管理">中英合作金融管理</a></td>
+											<td align="center"><a href="goods.php?id=122" title="中英合作金融管理">招生简章</a></td>
+										  </tr>		
+										  <tr class="table-left">
+										    <td align="left"><a href="brand.php?id=16">北京培黎职业学院</a></td>
+										    <td align="left"><a href="goods.php?id=96" title="中医">中医</a></td>
+											<td align="center"><a href="goods.php?id=96" title="中医">招生简章</a></td>
+										  </tr>											  
+										  <tr class="table-left">
+										    <td align="left"><a href="brand.php?id=12">北京建设大学</a></td>
+										    <td align="left"><a href="goods.php?id=59" title="房地产营销与策划">房地产营销与策划</a></td>
+											<td align="center"><a href="goods.php?id=59" title="房地产营销与策划">招生简章</a></td>
+										  </tr>											  
+										  <tr>
+										    <td colspan="3" style="text-align:right;">&nbsp;<a href="search.php?category=15">更多...</a></td>
+										  </tr>
+									</table>	
+									<table>	
+										  <tr>
+										    <td></td>
+										  </tr>	
+									</table>											  
+								</p>
+							</div>
+							<div class="index-box">
+								<p><!-- second -->
+									<table>
+										  <tr>
+										    <th>学校名称</th>
+										    <th>课程名称</th>
+										    <th>查看详情</th>
+											<th rowspan="9" height="100%" align="right"><a href="category.php?id=15"><img height="100%" width="100%" border="0" src="index-image/baoming.gif"/></a></th>    											
+										  </tr>
+										  <tr class="table-left">
+										    <td align="left"><a href="brand.php?id=11">北京理工大学百事特学校</a></td>
+										    <td align="left"><a href="goods.php?id=171" title="NET企业用应开发暑期速成班">NET企业用应开发暑期速成班</a></td>
+											<td align="center"><a href="goods.php?id=171" title="NET企业用应开发暑期速成班">详细介绍</a></td>
+										  </tr>	
+										  <tr class="table-left">
+										    <td align="left"><a href="brand.php?id=11">北京理工大学百事特学校 </a></td>
+										    <td align="left"><a href="goods.php?id=169" title="平面设计师暑期速成班">平面设计师暑期速成班</a></td>
+											<td align="center"><a href="goods.php?id=169" title="平面设计师暑期速成班">详细介绍</a></td>
+										  </tr>										  <tr class="table-left">
+										    <td align="left"><a href="brand.php?id=9">达内外企IT培训</a></td>
+										    <td align="left"><a href="goods.php?id=33" title="ORACLE 9i OCP证书/经验培训班">ORACLE 9i OCP证书/经验培训班</a></td>
+											<td align="center"><a href="goods.php?id=33" title="ORACLE 9i OCP证书/经验培训班">详细介绍</a></td>
+										  </tr>
+										  <tr class="table-left">
+										    <td align="left"><a href="brand.php?id=9">达内外企IT培训</a></td>
+										    <td align="left"><a href="goods.php?id=28" title="C+E国际软件工程师测试班">C+E国际软件工程师测试班</a></td>
+											<td align="center"><a href="goods.php?id=28" title="C+E国际软件工程师测试班">详细介绍</a></td>
+										  </tr>
+										  <tr class="table-left">
+										    <td align="left"><a href="brand.php?id=9">达内外企IT培训</a></td>
+										    <td align="left"><a href="goods.php?id=27" title="C+E国际软件工程师C++就业班">C+E国际软件工程师C++就业班</a></td>
+											<td align="center"><a href="goods.php?id=27" title="C+E国际软件工程师C++就业班">详细介绍</a></td>
+										  </tr>
+										  <tr class="table-left">
+										    <td align="left"><a href="brand.php?id=9">达内外企IT培训</a></td>
+										    <td align="left"><a href="goods.php?id=26" title="C+E国际软件工程师Java就业培训班">C+E国际软件工程师Java就业培训班</a></td>
+											<td align="center"><a href="goods.php?id=26" title="C+E国际软件工程师Java就业培训班">详细介绍</a></td>
+										  </tr>		
+										  <tr class="table-left">
+										    <td align="left"><a href="brand.php?id=11">北京理工大学百事特学校</a></td>
+										    <td align="left"><a href="goods.php?id=170" title="Flex开发暑期速成班">Flex开发暑期速成班</a></td>
+											<td align="center"><a href="goods.php?id=170" title="Flex开发暑期速成班">详细介绍</a></td>
+										  </tr>										  
+										  <tr class="table-left">
+										    <td align="left"><a href="brand.php?id=11">北京理工大学百事特学校</a></td>
+										    <td align="left"><a href="goods.php?id=166" title="C#开发应用周末速成班">C#开发应用周末速成班</a></td>
+											<td align="center"><a href="goods.php?id=166" title="C#开发应用周末速成班">详细介绍</a></td>
+										  </tr>											  
+										  <tr>
+										    <td colspan="3" style="text-align:right;">&nbsp;<a href="search.php?category=15">更多...</a></td>
+										  </tr>
+									</table>								
+								</p>
+							</div>
+							<div class="index-box">
+								<p>成考自考</p>
+							</div>
+							<div class="index-box">
+								<p>外语培训</p>
+							</div>
+							<div class="index-box">
+								<p>出国留学</p>
+							</div>
+							<div class="index-box">
+								<p>就业培训</p>
+							</div>							
+						</div>
+					</div> 
+
+					<!-- COURSE LIST  javascript -->
+					<script type="text/javascript">
+						Element.cleanWhitespace('index-content');
+						init();
+					</script>          
+            	<!--  END inner TAB -->
+            </td>
+          </tr>
+         </table>
+    </td>
+  </tr>
+ 
+  <!-- END OF COURSE LIST-->
+</table>
+
+
+<table width="980" height="2" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td></td>
+  </tr>
+</table>
+<table width="980" border="0" align="center" cellpadding="0" cellspacing="0" class="tuijia">
+  <tr>
+    <td height="25" class="leftbt" width="75%">合作院校机构</td>
+    <td height="25" class="leftbt" width="25%"><img src="index-image/xiajia.gif" width="13" height="14" /><span class="tesewz"> 名校人气榜</span></td>
+  </tr>
+  <tr>
+    <td width="80%" valign="top"><table width="760" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td colspan="2" valign="top"><table width="98%" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td align="center" class="imgtb" width="33%"><a href="brand.php?id=10"><img src="index-image/college-image/logo_bupt.gif" width="250" height="48" border="0" /></a></td>
+            <td align="center" class="imgtb" width="33%"><a href="brand.php?id=13"><img src="index-image/college-image/logo_buat.gif" width="250" height="48" border="0" /></a></td>
+            <td align="center" class="imgtb" width="33%"><a href="brand.php?id=16"><img src="index-image/college-image/logo_bjpldx.gif" width="250" height="48" border="0" /></a></td>
+          </tr>
+          <tr>
+            <td class="wz" align="center"><a href="brand.php?id=10">北京邮电大学</a></td>
+            <td class="wz" align="center"><a href="brand.php?id=13">北京应用技术大学</a></td>
+            <td class="wz" align="center"><a href="brand.php?id=16">北京培黎职业学院</a></td>
+           </tr>
+		   <tr>
+            <td align="center" class="imgtb"><a href="brand.php?id=18"><img src="index-image/college-image/logo_pkurc.gif" width="250" height="48" border="0" /></a></td>
+			<td align="center" class="imgtb"><a href="brand.php?id=12"><img src="index-image/college-image/logo_bjjsdx.gif" width="250" height="48" border="0" /></a></td>
+            <td align="center" class="imgtb"><a href="brand.php?id=4"><img src="index-image/college-image/logo_bjjrxy.gif" width="250" height="48" border="0" /></a></td>
+           </tr>
+		   <tr>
+            <td class="wz" align="center"><a href="brand.php?id=18">北大资源学院</a></td>
+            <td class="wz" align="center"><a href="brand.php?id=12">北京建设大学</a></td>
+            <td class="wz" align="center"><a href="brand.php?id=4">北京金融学院</a></td>
+           </tr>
+		   <tr>
+            <td align="center" class="imgtb"><a href="brand.php?id=14"><a href="#"><img src="index-image/college-image/logo_iyu.gif" width="250" height="48" border="0" /></a></td>
+            <td align="center" class="imgtb"><a href="brand.php?id=20"><img src="index-image/college-image/logo_bjwlxy.gif" width="250" height="48" border="0" /></a></td>
+            <td align="center" class="imgtb"><a href="brand.php?id=15"><img src="index-image/college-image/logo_bcu.gif" width="250" height="48" border="0" /></a></td>
+           </tr>
+		   <tr>
+            <td class="wz" align="center"><a href="brand.php?id=14">北京国际青年研修学院</a></td>            
+			<td class="wz" align="center"><a href="brand.php?id=20">北京文理研修学院</a></td>
+            <td class="wz" align="center"><a href="brand.php?id=15">北京城市学院</a></td>
+           </tr>           
+        </table></td>
+      </tr>
+      <tr>
+        <td colspan="2" width="100%" height="20" align="right" valign="middle"><img src="index-image/leftzongj.gif" width="4" height="7" />
+			<span class="STYLE1"><a href="category.php?id=15">  更多...  </a></span>
+		</td>
+      </tr>
+		<tr>
+		  <td height="20" valign="middle"><img src="index-image/xiajia.gif" width="13" height="14" /><span class="tesewz"> 品牌课程火热招生</span></td>
+	    </tr>
+		<tr>
+        <td height="20" valign="top"><table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="33%" class="imgtb"><a href="brand.php?id=9"><img src="index-image/college-image/logo_tarena.gif" width="250" height="48" border="0" /></a></td>
+            <td width="33%" class="imgtb"><a href="brand.php?id=17"><img src="index-image/college-image/logo_ict.gif" width="250" height="48" border="0" /></a></td>
+            <td width="33%" class="imgtb"><a href="brand.php?id=19"><img src="index-image/college-image/logo_chunxue.gif" width="250" height="48" border="0" /></a></td>
+          </tr>
+          <tr>
+            <td width="33%" class="imgtb"><a href="brand.php?id=21"><img src="index-image/college-image/logo_beiwen.gif" width="250" height="48" border="0" /></a></td>
+            <td width="33%" class="imgtb"><a href="brand.php?id=11"><img src="index-image/college-image/logo_best.gif" width="250" height="48" border="0" /></a></td>
+            <td width="33%" class="imgtb"><a href="brand.php?id=3"><img src="index-image/college-image/logo_ielts.gif" width="250" height="48" border="0" /></a></td>
+          </tr>		  
+		  <tr>
+            <td width="33%" class="imgtb"><a href="brand.php?id=8"><img src="index-image/college-image/jiuzhou_sifa.gif" width="250" height="48" border="0" /></a></td>
+            <td width="33%" class="imgtb"><a href="brand.php?id=8"><img src="index-image/college-image/jiuzhou_zk.gif" width="250" height="48" border="0" /></a></td>
+            <td width="33%" class="imgtb"><a href="brand.php?id=8"><img src="index-image/college-image/jiuzhou_mba.gif" width="250" height="48" border="0" /></a></td>
+          </tr>
+        </table></td>
+		</tr>
+    </table></td>
+    <td width="20%"><table width="200" height="467" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td valign="top"><table width="98%" border="0" bgcolor="#fffbe7">
+          <tr>
+            <td class="newpb"><a href="brand.php?id=13">· 北京应用技术大学</a></td>
+          </tr>
+          <tr>
+            <td class="newpb"><a href="brand.php?id=10">· 北京邮电大学</a></td>
+          </tr>
+          <tr>
+            <td class="newpb"><a href="brand.php?id=18">· 北大资源学院</a></td>
+          </tr>
+          <tr>
+            <td class="newpb"><a href="brand.php?id=4">· 北京金融学院</a></td>
+          </tr>
+          <tr>
+            <td class="newpb"><a href="brand.php?id=14">· 北京国际青年研修学院</a></td>
+          </tr>
+          <tr>
+            <td class="newpb"><a href="brand.php?id=16">· 北京培黎职业学院</a></td>
+          </tr>
+          <tr>
+            <td class="newpb"><a href="brand.php?id=12">· 北京建设大学</a></td>
+          </tr>		  
+          <tr>
+            <td class="newpb"><a href="brand.php?id=20">· 北京文理研修学院</a></td>
+          </tr>		  
+          <tr>
+            <td class="newpb"><a href="brand.php?id=15">· 北京城市学院</a></td>
+          </tr>
+          <tr>
+            <td class="newpb"><a href="brand.php?id=9">· 达内外企IT培训</a></td>
+          </tr>
+          <tr>
+            <td class="newpb"><a href="brand.php?id=11">· 北京理工大学百事特学校</a></td>
+          </tr>
+          <tr>
+            <td class="newpb"><a href="brand.php?id=17">· 中科院计算所培训中心</a></td>
+          </tr>
+          <tr>
+            <td class="newpb"><a href="brand.php?id=8">· 新九州</a></td>
+          </tr>
+          <tr>
+            <td class="newpb"><a href="brand.php?id=21">· 北文教育</a></td>
+          </tr>		  
+          <tr>
+            <td class="newpb"><a href="brand.php?id=19">· 春雪会计</a></td>
+          </tr>		  
+          <tr>
+            <td class="newpb" align="right"><a href="category.php?id=15"> 更多...</a></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+
+<table width="980" height="5" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td></td>
+  </tr>
+</table>
+
+</div> <!--end of content-->
+
+<div class="clear"></div>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="36" align="center"><span class="foot14">网上报名及课程咨询与服务热线：010-69799625</span> &nbsp; </span><a href="tencent://message/?uin=1171196009&Site=www.iastudy.com&Menu=yes" target="_blank" ><img src="images/qq.jpg" width="69" height="17" border=0 align="absmiddle"></a>&nbsp; </td>
+  </tr>
+</table>
+<div id="footer2">
+<div class="footer2_ad">
+  <ul>
+    <li class="footer2_ad_h"><img src="images/now.gif" alt="IAStudy" /> 咨询更专业</li>
+	    <li>专业教育咨询师将为学员提供个性化咨询服务！</li>
+	  </ul>	
+  <ul>
+    <li class="footer2_ad_h"><img src="images/now.gif" alt="IAStudy" /> 学费更优惠</li>
+	    <li>网上报名独享团体报名优惠价，其他优惠同样享受！</li>
+	  </ul>
+  <ul>
+    <li class="footer2_ad_h"><img src="images/now.gif" alt="IAStudy" /> 服务更超值</li>
+	    <li>密切跟踪学员学习情况，为学员提供增值服务。老学员下次报名可享受进一步的优惠！</li>
+	  </ul>  
+  <ul>
+    <li class="footer2_ad_h"><img src="images/now.gif" alt="IAStudy" /> 退费规则</li>
+	    <li><A href="article.php?id=7" title="退款问题">退款问题</A></li>
+	    <li><A href="article.php?id=7" title="学员自身要求退费该如何处理？">学员自身要求退费该如何处理？</A></li>
+	  </ul>
+  <ul>
+    <li class="footer2_ad_h"><img src="images/now.gif" alt="IAStudy" /> 常见问题</li>
+	    <li><A href="article.php?id=9" title="如何得到发票？">如何得到发票？</A></li>
+	    <li><A href="article.php?id=10" title="教材有，可扣书费吗？">教材有，可扣书费吗？</A></li>
+	    <li><A href="article.php?id=11" title="如果学校的班级取消或延期了，怎么办？">如果学校的班级取消或延期了，怎么办？</A></li>
+	  </ul>
+</div>
+</div>
+
+<div id="help">
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="2" bgcolor="#E3E7EC" >
+  <tr>
+    <td width="107" align="center" bgcolor="#FFFFFF" ><a href="http://www.iastudy.com" target="_blank"><img src="index-image/friendlink.gif" width="80" height="31" border="0" align="absmiddle" /></a></td>
+    <td colspan="10" align="center" bgcolor="#FFFFFF" ><div align="justify"><a href="http://www.homeold.cn/" target="_blank">家有老人</a> | <a href="http://www.jiajiajk.com/" target="_blank">佳家健康</a> | <a href="http://www.58daohang.com/" target="_blank">网吧导航</a> | <a href="http://www.58xing.com/" target="_blank">58行</a> |  <a href="http://www.58hui.com/" target="_blank">58会</a> | <a href="http://www.homeold.cn/" target="_blank">家居用品</a> | <a href="http://www.jiajiajk.com/" target="_blank">健康保健</a> | <a href="http://www.homeold.cn/" target="_blank">老年礼品</a> |  <a href="http://www.homeold.cn/shop" target="_blank">老年用品</a> | <a href="http://www.dodoe.cn/" target="_blank">爱心导航</a> | <a href="http://www.100yuren.com/" target="_blank">十年育树百年育人</a> |<a href="http://www.iastudy.com" target="_blank">更多&gt;&gt;</a></div></td>
+  </tr>
+</table>
+</div>
+
+<div id="help">
+</div><div id="footer-article">
+          <a href="article.php?id=1" >免责条款</a> 
+        |
+          <a href="article.php?id=2" >隐私保护</a> 
+        |
+          <a href="article.php?id=3" >咨询热点</a> 
+        |
+          <a href="article.php?id=4" >联系我们</a> 
+        |
+          <a href="article.php?id=5" >公司简介</a> 
+         </div>
+<div id="footer-top"><a href="#top"><img src="themes/iastudy/images/top.gif" alt="top" border="0" /></a></div>
+<div id="footer"> <div>Copyright &copy; 2005-2009 百年育人网 版权所有，并保留所有权利。</div>
+    Tel: 010-69799625                          <img src="themes/iastudy/images/msn.gif" width="18" height="17" border="0" alt="MSN" /> iastudy@hotmail.com          <img src="http://mystatus.skype.com/smallclassic/iastudy" alt="Skype" /><a href="skype:iastudy?call">iastudy</a>
+      <div>  </div>
+    <div> ICP备案证书号:<a href="http://www.miibeian.gov.cn/" target="_blank">09060519</a> </div>
+</div>
+
+ <script language=JavaScript src=http://www.100yuren.com/js/floatcard.js charset="gb2312"></script>  
+
+</body>
+ <script type="text/javascript" src="http://www.58google.com/statistics/myvistjx.php?adid=31&visites=iastudy&adw=page_icon"></script> 
+</html>
+
