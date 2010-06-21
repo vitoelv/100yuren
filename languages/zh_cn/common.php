@@ -569,7 +569,7 @@ $_LANG['course_save_money_short'] = '省';
 
 /*  在线报名 */
 $_LANG['course_signup_tel'] = '报名电话';
-$_LANG['course_signup_phone'] = '010-69799625';
+$_LANG['course_signup_phone'] = '010-82608626 15110263446 13810602270';
 
 /* 咨询 */
 $_LANG['consult_submit_error'] = '对不起，您提交的信息不完整，请重新提交！';

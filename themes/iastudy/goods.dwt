@@ -87,6 +87,11 @@
 						<table width="100%">
 							<tr>
 							    <td width="100%" colspan="3">&nbsp;&nbsp;				    
+										<strong>{$lang.course_telephone}：</strong> <span><!-- 客服电话{if $service_phone} --> {$service_phone} <!--{else}--> {$lang.course_signup_phone} <!-- 结束客服电话{/if} --></span>
+							    </td>
+							</tr>							
+							<tr>
+							    <td width="100%" colspan="3">&nbsp;&nbsp;				    
 							    	<!-- {if $goods.save_money gt 0 } -->
 							    	 	<strong>{$lang.course_market_price}:  </strong><span class="market-price">{$goods.market_price}</span>&nbsp;&nbsp;
 							    	 	<strong>{$lang.course_discount_price}:  </strong><b>{$goods.shop_price_formated}</b>&nbsp;&nbsp;
@@ -198,11 +203,13 @@
 											    <td><strong>{$lang.course_telephone}</strong></td>
 											    <td><span>{$goods.course_telephone}</span></td>
 											  </tr>
-									<!--{else}-->  <!-- set default phone -->
+									<!--{else}-->  <!-- set default phone -->	
+											<!--	Disable default phone		
 											  <tr>
 											    <td><strong>{$lang.course_telephone}</strong></td>
 											    <td><span>{$lang.course_signup_phone}</span></td>
-											  </tr>									 		  								
+											  </tr>
+										  -->									 		  								
 							        <!--{/if}-->    
 							        <!-- {if $goods.course_desc neq "" } -->
 											  <tr>
@@ -234,7 +241,8 @@
 											<!-- {else} -->
 												<li class="bt_x"><a href="{$goods.goods_brand_url}"><img src="images/school_detail.gif" alt="" border="0" /></a></li>  	<!-- 课程 -->	 
 											<!--{/if}-->											
-											<li class="bt_x">{$lang.course_signup_tel}：{$lang.course_signup_phone}</li> <!-- 报名电话：010-69799625 -->
+											<!-- <li class="bt_x">{$lang.course_signup_tel}：<!-- 客服电话{if $service_phone} --> {$service_phone} <!--{else}--> {$lang.course_signup_phone} <!-- 结束客服电话{/if} --></li> -->
+											<!-- <li class="bt_x">{$lang.course_signup_tel}：{$lang.course_signup_phone}</li> <!-- 报名电话：010-69799625 --> -->
 										</ul>
 									  </td></tr>
 									</table>
@@ -245,6 +253,11 @@
 						
 						
                 <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                  <tr>
+                    <td width="100%" align="center">
+ 											{$lang.course_signup_tel}：<!-- 客服电话{if $service_phone} --> {$service_phone} <!--{else}--> {$lang.course_signup_phone} <!-- 结束客服电话{/if} -->
+                    </td>
+                  </tr>                
                   <tr>
                     <td width="100%" align="center">
                     <a href="javascript:addToCart({$goods.goods_id})"><img src="images/add_cart.gif" alt="" width="71" height="21" border="0" /></a> 

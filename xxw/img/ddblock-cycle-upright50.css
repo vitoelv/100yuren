@@ -1,0 +1,144 @@
+*{
+
+margin:0;
+padding:0;
+font-size:14px;}
+.slider_border {
+	FLOAT: left; WIDTH: 410px;
+	height:250px;
+}
+.container {
+	WIDTH: 810px
+}
+.slide-inner {
+	WIDTH: 510px
+}
+.custom-pager-inner {
+	FLOAT: left; WIDTH: 175px
+}
+
+#ddblock-custom-pager-8 {
+	FLOAT: left; WIDTH: 175px;
+	height:50px;
+}
+DIV.ddblock-cycle-upright50 DIV.slider {
+	FLOAT: left; WIDTH: 410px
+}
+DIV.ddblock-cycle-upright50 DIV.slider-inner {
+	BACKGROUND: url( transparent_bg.png) 0px 0px; VISIBILITY: hidden; OVERFLOW: hidden; HEIGHT: 250px
+}
+DIV.ddblock-cycle-upright50 DIV.slide {
+	DISPLAY: none; LEFT: 0px; TOP: 0px; HEIGHT: 100%
+}
+DIV.ddblock-cycle-upright50 DIV.slide-inner IMG {
+	 PADDING-RIGHT: 0px! important;  PADDING-LEFT: 0px! important; PADDING-BOTTOM: 0px! important; MARGIN: 0px;  WIDTH: 410px; PADDING-TOP: 0px! important; HEIGHT: 250px
+}
+DIV.ddblock-cycle-upright50 DIV.slide-text {
+	BACKGROUND: url( transparent_bg.png) 0px 0px; POSITION: absolute
+}
+DIV.ddblock-cycle-upright50 DIV.slide-text-horizontal {
+	LEFT: 0px; WIDTH: 410px; HEIGHT: 50px
+}
+DIV.ddblock-cycle-upright50 DIV.slide-text-top {
+	TOP: 7px
+}
+DIV.ddblock-cycle-upright50 DIV.slide-text-right {
+	RIGHT: 30px; BOTTOM: 0px
+}
+DIV.ddblock-cycle-upright50 DIV.slide-text-bottom {
+	BOTTOM: 7px
+}
+DIV.ddblock-cycle-upright50 DIV.slide-text-left {
+	LEFT: 30px; BOTTOM: 0px
+}
+
+DIV.ddblock-cycle-upright50 DIV.slide-title {
+	FLOAT: left
+}
+DIV.ddblock-cycle-upright50 DIV.slide-title-vertical {
+	WIDTH: 130px
+}
+DIV.ddblock-cycle-upright50 DIV.slide-title-horizontal {
+	FLOAT: left; WIDTH: 158px
+}
+DIV.ddblock-cycle-upright50 DIV.slide-title H2 {
+	PADDING-RIGHT: 0px; MARGIN-TOP: 5px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+DIV.ddblock-cycle-upright50 DIV.slide-title-inner {
+	FONT-WEIGHT: bold; COLOR: white
+}
+DIV.ddblock-cycle-upright50 DIV.slide-body-vertical {
+	WIDTH: 80px
+}
+
+DIV.ddblock-cycle-upright50 DIV.slide-body-inner {
+	COLOR: white
+}
+DIV.ddblock-cycle-upright50 DIV.slide-body-inner P {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 8px 0px 0px; PADDING-TOP: 0px
+}
+DIV.ddblock-cycle-upright50 DIV.slide-read-more {
+	WIDTH: 410px
+}
+DIV.ddblock-cycle-upright50 DIV.slide-read-more P {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+DIV.ddblock-cycle-upright50 DIV.slide-read-more A {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 19px; FONT-SIZE: 14px; BACKGROUND: url( readmore.png) no-repeat; PADDING-BOTTOM: 4px; MARGIN: 0px 10px 0px 0px; WIDTH: 100px; COLOR: #fff; BORDER-TOP-STYLE: none; BOTTOM: 5px; PADDING-TOP: 4px; FONT-FAMILY: times New Roman; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; POSITION: absolute; TEXT-ALIGN: left; TEXT-DECORATION: none; BORDER-BOTTOM-STYLE: none
+}
+DIV.ddblock-cycle-upright50 DIV.slide-read-more-horizontal A {
+	RIGHT: -17px
+}
+DIV.ddblock-cycle-upright50 DIV.slide-read-more-vertical A {
+	RIGHT: 5px
+}
+DIV.ddblock-cycle-upright50 DIV.slide-read-more A:hover {
+	BACKGROUND: url( readmore-hover.png) no-repeat; TEXT-DECORATION: underline
+}
+DIV.ddblock-cycle-upright50 DIV.slide-read-more-horizontal A:hover {
+	RIGHT: -17px
+}
+DIV.ddblock-cycle-upright50 DIV.slide-read-more-vertical A:hover {
+	RIGHT: 5px
+}
+DIV.ddblock-cycle-upright50 DIV.custom-pager {
+	WIDTH: 283px
+}
+DIV.ddblock-cycle-upright50 DIV.custom-pager-inner {
+	HEIGHT: 101px;WIDTH: 283px
+}
+DIV.ddblock-cycle-upright50 DIV.custom-pager .custom-pager-item {
+	FLOAT: left
+}
+
+DIV.ddblock-cycle-upright50 DIV.custom-pager A {
+	DISPLAY: block; FONT-WEIGHT: bold;  FLOAT: left; BACKGROUND-IMAGE: url( slide_back.gif); WIDTH: 283px; COLOR: #000; LINE-HEIGHT: 50px; FONT-FAMILY: Tahoma,Arial,sans-serif; HEIGHT: 50px; TEXT-ALIGN: left; TEXT-DECORATION: none; 
+	font-size:14px;
+	
+}
+DIV.ddblock-cycle-upright50 DIV.custom-pager A.activeSlide {
+	BACKGROUND-IMAGE: url( slide_hover.gif); COLOR: #fff; opacity: 1
+}
+DIV.ddblock-cycle-upright50 DIV.custom-pager A:hover {
+	BACKGROUND: #fff; COLOR: #96f; opacity: 1
+}
+DIV.ddblock-cycle-upright50 DIV.custom-pager A:focus {
+	outline: none
+}
+DIV.ddblock-cycle-upright50 DIV.custom-pager IMG {
+	BORDER-RIGHT: #000 1px solid; PADDING-RIGHT: 3px! important; BORDER-TOP: #000 1px solid; PADDING-LEFT: 3px! important; PADDING-BOTTOM: 3px! important; MARGIN: 5px; VERTICAL-ALIGN: middle; BORDER-LEFT: #000 1px solid; WIDTH: 50px; PADDING-TOP: 3px! important; BORDER-BOTTOM: #000 1px solid; HEIGHT: 30px
+}
+DIV.ddblock-cycle-upright50 DIV.spacer-vertical {
+	DISPLAY: block; FLOAT: left; WIDTH: 5px; HEIGHT: 50px; BACKGROUND-COLOR: #ccc
+}
+DIV.ddblock-cycle-upright50 DIV.spacer-horizontal {
+	CLEAR: both; HEIGHT: 5px; BACKGROUND-COLOR: #ccc
+}
+#slide_show{
+	height:250px;
+	border: 1px solid #000000;
+	width:693px;
+	overflow: hidden;	
+	
+}
+

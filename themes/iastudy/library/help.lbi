@@ -2,7 +2,13 @@
 <div class="clear"></div>
 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td height="36" align="center"><span class="foot14">网上报名及课程咨询与服务热线：010-69799625</span> &nbsp; </span><a href="tencent://message/?uin=1171196009&Site=www.iastudy.com&Menu=yes" target="_blank" ><img src="images/qq.jpg" width="69" height="17" border=0 align="absmiddle"></a>&nbsp; </td>
+    <td height="36" align="center">
+    	<span class="foot14">
+    			<!-- 客服电话{if $service_phone} -->
+  					网上报名及课程咨询与服务热线：{$service_phone}
+  				<!-- 结束客服电话{/if} -->
+    	</span> &nbsp; </span>
+    	<a href="tencent://message/?uin=1171196009&Site=www.iastudy.com&Menu=yes" target="_blank" ><img src="images/qq.jpg" width="69" height="17" border=0 align="absmiddle"></a>&nbsp; </td>
   </tr>
 </table>
 <div id="footer2">
