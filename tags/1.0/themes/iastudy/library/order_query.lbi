@@ -1,0 +1,46 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+//<![CDATA[
+  var invalid_order_sn = "{$lang.invalid_order_sn}"
+//]]>
+</script>
+<!-- {if empty($order_query)} -->
+<div class="title-02">
+  <div class="title">报名课程查询</div>
+  <ul>
+    <li>  <form name="ecsOrderQuery" action="javascript:;" id="ecsOrderQuery">
+    <input type="text" name="order_sn" class="text_input" />
+    <input type="button" onClick="orderQuery()" value="查询" class="button" />
+  </form></li>
+    <li>
+<div id="ECS_ORDER_QUERY">
+  <!-- {else} -->
+    <ul>
+      <!-- {if $order_query.user_id} -->
+      <li><strong>{$lang.order_number}</strong><br />
+        <a href="user.php?act=order_detail&amp;order_id={$order_query.order_id}" >{$order_query.order_sn}</a>
+      </li>
+      <!-- {else} -->
+      <li><strong>{$lang.order_number}</strong><br />
+        {$order_query.order_sn}
+      </li>
+      <!-- {/if} -->
+      <li><strong>{$lang.order_status}</strong><br />
+        {$order_query.order_status}
+      </li>
+      <!-- {if $order_query.invoice_no } -->
+      <li><strong>{$lang.consignment}</strong><br />
+        {$order_query.invoice_no}
+      </li>
+      <!-- {/if} -->
+      <!-- {if $order_query.shipping_date} -->
+      <li><strong>{$lang.shipping_date}</strong><br />
+        {$order_query.shipping_date}
+      </li>
+      <!-- {/if} -->
+    </ul>
+  <!-- {/if} -->
+    </li>
+  </ul>
+</div>
+

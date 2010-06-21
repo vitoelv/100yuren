@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}{insert_scripts files='common.js,global.js'}
+</head>
+<body> 
+	<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+	<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+<div id="outer_wrapper">
+  <div id="wrapper">
+    <div id="container">
+      <div id="content" style="margin-right:15px;">
+        <div id="left">
+		<!-- TemplateBeginEditable name="左边" -->
+		<!-- #BeginLibraryItem "/Library/category_tree.lbi" --><!-- #EndLibraryItem -->
+		<!-- #BeginLibraryItem "/library/goods_related.lbi" --><!-- #EndLibraryItem -->
+		<!-- #BeginLibraryItem "/library/goods_gallery.lbi" --><!-- #EndLibraryItem -->
+		<!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem -->
+		  <!-- TemplateEndEditable --></div>
+        <div id="main" style="margin-left:215px;">
+          <div id="goods-info">
+          <!--
+            <div class="photo">
+             <a href="javascript:;" onClick="window.open('gallery.php?id={$goods.goods_id}'); return false;"><img src="{$goods.goods_img}" alt="{$goods.goods_name|escape:html}" /></a>
+              <div class="zoom"><a href="javascript:;" onClick="window.open('gallery.php?id={$goods.goods_id}'); return false;">点击查看大图</a></div>
+            </div>
+					-->
+            <form action="javascript:addToCart({$goods.goods_id})" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY">
+            <dl>
+              <dt>{$goods.goods_name|escape:html}
+              <!-- {if $goods.watermark_img eq watermark_promote} -->
+          <span class="water_mart">[限时抢报]</span> 
+          <!-- {else} -->
+          <!-- {if $goods.watermark_img eq watermark_new} -->
+          <span class="water_mart">[新推课程]</span>
+          <!-- {else} -->
+          <!-- {if $goods.watermark_img eq watermark_hot} -->
+          <span class="water_mart">[热门课程]</span>
+          <!-- {else} -->
+          <span class="water_mart">[强烈推荐]</span>
+          <!-- {/if} -->
+          <!-- {/if} -->
+          <!-- {/if} -->
+
+                <!-- 报名冠军 {if $goods_rank}-->
+                <img src="images/rank_{$goods_rank}.gif" alt="{$goods_rank}" />
+                <!--{/if}-->
+              </dt>
+              <!-- {foreach from=$promotion item=item key=key} -->
+<dd style="font-size: 12px; font-weight: bold; color: red;">
+{$lang.activity}
+<!-- {if $item.type eq "snatch"} -->
+<a href="snatch.php" title="{$lang.snatch}" style="font-size: 12px; font-weight: bold; color: red;">[{$lang.snatch}]</a>
+<!-- {elseif $item.type eq "group_buy"} -->
+<a href="group_buy.php" title="{$lang.group_buy}" style="font-size: 12px; font-weight: bold; color: red;">[{$lang.group_buy}]</a>
+<!-- {elseif $item.type eq "auction"} -->
+<a href="auction.php" title="{$lang.auction}" style="font-size: 12px; font-weight: bold; color: red;">[{$lang.auction}]</a>
+<!-- {elseif $item.type eq "favourable"} -->
+<a href="activity.php" title="{$lang.favourable}" style="font-size: 12px; font-weight: bold; color: red;">[{$lang.favourable}]</a>
+<!-- {/if} -->
+<a href="{$item.url}" title="{$lang.$item.type} {$item.act_name}{$item.time}" style="font-size: 12px; font-weight: bold; color: red;">{$item.act_name}</a>
+</dd>
+<!-- {/foreach} --> 
+
+        <div style="width: 650px;">
+            <div style="width: 388px; float: left; padding-right: 20px; ">
+							<table>
+		              <!-- {if $cfg.show_goodssn} -->
+									  <tr>
+									    <th><strong>{$lang.course_sn}</strong></th>
+									    <td><span>{$goods.goods_sn}</span></td>
+									    <th><strong>{$lang.course_market_price}</strong></th>
+									    <td><span class="market-price">{$goods.market_price}</td>									    
+									  </tr>
+		              <!--{/if}-->	
+					        <!-- {if $goods.course_start_date neq "" } -->
+									  <tr>
+									    <th><strong>{$lang.course_start_date}</strong></th>
+									    <td><span>{$goods.course_start_date}</span></td>
+									    <th><strong>{$lang.course_discount_price}</strong></th>
+									    <td>{$goods.shop_price_formated}</td>											    
+									  </tr>								
+					        <!--{/if}-->     
+							</table>   
+							
+							<table>
+		              <!-- {if $cfg.show_goodssn} -->
+									  <tr>
+									    <th><strong>{$lang.course_sn}</strong></th>
+									    <td><span>{$goods.goods_sn}</span></td>
+									  </tr>
+		              <!--{/if}-->	
+					        <!-- {if $goods.course_start_date neq "" } -->
+									  <tr>
+									    <th><strong>{$lang.course_start_date}</strong></th>
+									    <td><span>{$goods.course_start_date}</span></td>
+									  </tr>								
+					        <!--{/if}--> 
+					        
+					        
+			        <!-- {if $goods.course_start_time neq "" } -->
+							  <tr>
+							    <th><strong>{$lang.course_start_time}</strong></th>
+							    <td><span>{$goods.course_start_time}</span></td>
+							  </tr>
+			        <!--{/if}-->    
+			        <!-- {if $goods.course_recruit_goal neq "" } -->
+							  <tr>
+							    <th><strong>{$lang.course_recruit_goal}</strong></th>
+							    <td><span>{$goods.course_recruit_goal}</span></td>
+							  </tr>
+			        <!--{/if}-->              
+			        <!-- {if $goods.course_material neq "" } -->
+							  <tr>
+							    <th><strong>{$lang.course_material}</strong></th>
+							    <td><span>{$goods.course_material}</span></td>
+							  </tr>						
+			        <!--{/if}-->            		
+			        <!-- {if $goods.course_goal neq "" } -->
+							  <tr>
+							    <th><strong>{$lang.course_goal}</strong></th>
+							    <td><span>{$goods.course_goal}</span></td>
+							  </tr>														
+			        <!--{/if}-->    
+			        <!-- {if $goods.course_teacher_desc neq "" } -->
+							  <tr>
+							    <th><strong>{$lang.course_teacher_desc}</strong></th>
+							    <td><span>{$goods.course_teacher_desc}</span></td>
+							  </tr>																						
+			        <!--{/if}-->    
+			        <!-- {if $goods.course_address neq "" } -->
+							  <tr>
+							    <th><strong>{$lang.course_address}</strong></th>
+							    <td><span>{$goods.course_address}</span></td>
+							  </tr>								
+			        <!--{/if}-->            		
+			        <!-- {if $goods.course_address_map neq "" } -->
+							  <tr>
+							    <th><strong>{$lang.course_address_map}</strong></th>
+							    <td><span>{$goods.course_address_map}</span></td>
+							  </tr>								
+			        <!--{/if}-->    
+			        <!-- {if $goods.course_telephone neq "" } -->
+							  <tr>
+							    <th><strong>{$lang.course_telephone}</strong></th>
+							    <td><span>{$goods.course_telephone}</span></td>
+							  </tr>								
+			        <!--{/if}-->    
+			        <!-- {if $goods.course_desc neq "" } -->
+							  <tr>
+							    <th><strong>{$lang.course_desc}</strong></th>
+							    <td><span>{$goods.course_desc}</span></td>
+							  </tr>								
+			        <!--{/if}-->  					        
+					            
+							</table> 							         
+            </div>
+            <div style="width: 240px; float:left; padding-right: 20px; ">
+							<table>
+					         <!-- {if $goods.goods_brand neq "" and $cfg.show_brand} -->
+									  <tr>
+									    <td><strong>{$lang.goods_brand}</strong><span>{$goods.goods_brand}</span></td>
+									  </tr>								
+					        <!--{/if}-->  		              
+		              
+							</table>            
+            </div> 
+        </div>	
+
+			        <!-- {if $goods.course_start_time neq "" } -->
+								<dd><strong>{$lang.course_start_time}</strong>{$goods.course_start_time}</dd> 
+			        <!--{/if}-->    
+			        <!-- {if $goods.course_recruit_goal neq "" } -->
+								<dd><strong>{$lang.course_recruit_goal}</strong>{$goods.course_recruit_goal}</dd> 
+			        <!--{/if}-->              
+			        <!-- {if $goods.course_material neq "" } -->
+								<dd><strong>{$lang.course_material}</strong>{$goods.course_material}</dd> 
+			        <!--{/if}-->            		
+			        <!-- {if $goods.course_goal neq "" } -->
+								<dd><strong>{$lang.course_goal}</strong>{$goods.course_goal}</dd> 
+			        <!--{/if}-->    
+			        <!-- {if $goods.course_teacher_desc neq "" } -->
+								<dd><strong>{$lang.course_teacher_desc}</strong>{$goods.course_teacher_desc}</dd> 
+			        <!--{/if}-->    
+			        <!-- {if $goods.course_address neq "" } -->
+								<dd><strong>{$lang.course_address}</strong>{$goods.course_address}</dd> 
+			        <!--{/if}-->            		
+			        <!-- {if $goods.course_address_map neq "" } -->
+								<dd><strong>{$lang.course_address_map}</strong>{$goods.course_address_map}</dd> 
+			        <!--{/if}-->    
+			        <!-- {if $goods.course_telephone neq "" } -->
+								<dd><strong>{$lang.course_telephone}</strong>{$goods.course_telephone}</dd> 
+			        <!--{/if}-->    
+			        <!-- {if $goods.course_desc neq "" } -->
+								<dd><strong>{$lang.course_desc}</strong>{$goods.course_desc}</dd> 
+			        <!--{/if}-->               
+              
+              <!-- {if $goods.goods_brand neq "" and $cfg.show_brand} -->
+              <dd><strong>{$lang.goods_brand}</strong>{$goods.goods_brand}</dd>
+              <!--{/if}-->
+              <!-- {if $cfg.show_marketprice} -->
+              <dd><strong>{$lang.market_price}</strong><span class="market-price">{$goods.market_price}</span></dd>
+              <!-- {/if} -->
+              <dd><strong>{$lang.shop_price}</strong>{$goods.shop_price_formated}</dd>
+              <!-- {foreach from=$rank_prices item=rank_price} -->
+              <dd><strong>{$rank_price.rank_name}：</strong><span class="goods-price">{$rank_price.price}</span></dd>
+              <!--{/foreach}-->
+              <!-- 倒计时js{if $goods.is_promote and $goods.gmt_end_time} -->
+              {insert_scripts files="lefttime.js"}
+              <dd><strong>{$lang.promote_price}</strong><span class="goods-price">{$goods.promote_price}</span></dd>
+              <dd><strong>{$lang.residual_time}</strong><span class="goods-price" id="leftTime" style="color:red;"> {$lang.please_waiting} </span></dd>
+              <!--{/if}-->
+              <dd><strong>{$lang.goods_rank}</strong><img src="images/stars{$goods.comment_rank}.gif" width="64" height="12" alt="comment rank {$goods.comment_rank}" /></dd>
+              <!-- {if $goods.integral > 0} -->
+              <dd><strong>{$lang.goods_integral}:</strong>{$goods.integral} {$points_name}</dd>
+              <!--{/if}-->
+              <!-- {if $goods.bonus_money} -->
+              <dd><strong>{$lang.bonus}:</strong>{$goods.bonus_money}</dd>
+              <!--{/if}-->
+              <dd><strong>{$lang.goods_click_count}：</strong>{$goods.click_count}</dd>
+            <!-- 开始循环所有可选属性{foreach from=$specification item=spec key=spec_key} -->
+            <dd><strong>{$spec.name}</strong>：
+              <!-- {if $cfg.goodsattr_style eq 1} -->
+              <!-- {foreach from=$spec.values item=value key=key} -->
+              <label for="spec_value_{$value.id}">
+              <input type="radio" name="spec_{$spec_key}" value="{$value.id}" id="spec_value_{$value.id}" {if $key eq 0}checked{/if} onclick="changePrice()" />
+              {$value.label} <!-- {if $value.price gt 0} -->[{$lang.plus}<!-- {elseif $value.price gt 0} -->[{$lang.minus}<!-- {/if} --><!-- {if $value.price neq 0} -->{$value.format_price}]<!-- {/if} --></label>
+              <!-- {/foreach} -->
+              <input type="hidden" name="spec_list" value="{$key}" />
+              <!-- {else} -->
+              <select name="spec_{$spec_key}">
+                <!-- {foreach from=$spec.values item=value key=key} -->
+                <option label="{$value.label}" value="{$value.id}">{$value.label} <!-- {if $value.price gt 0} -->{$lang.plus}<!-- {elseif $value.price lt 0} -->{$lang.minus}<!-- {/if} --><!-- {if $value.price neq 0} -->{$value.format_price}<!-- {/if} --></option>
+                <!-- {/foreach} -->
+              </select>
+              <input type="hidden" name="spec_list" value="{$key}" />
+              <!-- {/if} -->
+            </dd>
+            <!-- 结束循环可选属性{/foreach} -->
+             <dd><strong>{$lang.amount}：</strong><span id="ECS_GOODS_AMOUNT" class="goodsPrice"></span></dd>
+              <dd style="padding-top:10px;">
+                <table border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                  <td><strong>所选课程数量：</strong></td>
+                    <td><input name="number" type="text" value="1" size="4" onblur="changePrice()" id="number" style="vertical-align:middle;border:1px solid #CCC;width:25px;height:16px;font-size:12px;color:#32424F;" /></td>
+                    <td>
+					<script>
+{literal}
+                    function add()
+                    {
+                      var num = document.getElementById("number");
+                      if( !Utils.isNumber(num.value))
+                        return;
+                      else
+                      {
+                        num.value = parseInt(num.value) + 1;
+                      }
+                    }
+                    
+                    function decrease()
+                    {
+                      var num = document.getElementById("number");
+                      if( !Utils.isNumber(num.value))
+                        return;
+                      else
+                      {
+                        if (parseInt(num.value) == 1) return;
+                        num.value = parseInt(num.value) - 1;
+                      }
+                    }
+                    {/literal}
+                    </script>
+                      <table width="16" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td style="padding:0;"><img src="images/goods_up.gif" width="13" height="10" alt="加一个" onclick="add()" style="cursor:hand;"></td>
+                        </tr>
+                        <tr>
+                          <td style="padding:0;"><img src="images/goods_down.gif" width="13" height="10" alt="减一个" onclick="decrease()" style="cursor:hand;"></td>
+                        </tr>
+                      </table></td>
+                    <td>
+                    <a href="javascript:addToCart({$goods.goods_id})"><img src="images/add_cart.gif" alt="" width="71" height="21" border="0" /></a> 
+                    <a href="javascript:collect({$goods.goods_id})"><img src="images/collect.gif" alt="" border="0" /></a>
+                    <!-- {if $affiliate.on} -->
+              <a href="user.php?act=affiliate&amp;goodsid={$goods.goods_id}"><img src="images/btn_recommend.gif" alt="" /></a>
+              <!-- {/if} -->
+                    </td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+            </form>
+          </div>
+            <!--{if $properties or $specification}-->
+            <div class="goods-title">课程属性</div>
+			<table border="1" class="goods-table">
+                <!-- {foreach from=$properties item=property_group key=key} -->
+                <!-- {foreach from=$property_group item=property} -->
+                <tr>
+                  <th>{$property.name|escape:html} :</th>
+                  <td>{$property.value|escape:html}</td>
+                </tr>
+                <!-- {/foreach}-->
+                <!-- {/foreach}-->
+              </table>
+            <!-- {/if}-->
+            <!-- {if $goods.goods_desc} -->
+          <div class="goods-title">详细介绍</div>
+          <div class="article-content">{$goods.goods_desc}</div>
+          <!-- {/if} -->
+          <!-- #BeginLibraryItem "/library/bought_goods.lbi" --><!-- #EndLibraryItem -->
+          <!-- #BeginLibraryItem "/library/goods_attrlinked.lbi" --><!-- #EndLibraryItem -->
+          <!-- #BeginLibraryItem "/library/goods_fittings.lbi" --><!-- #EndLibraryItem -->
+          <!-- #BeginLibraryItem "/library/goods_article.lbi" --><!-- #EndLibraryItem -->
+		  <!-- #BeginLibraryItem "/library/goods_tags.lbi" --><!-- #EndLibraryItem -->
+		  <!-- #BeginLibraryItem "/library/comments.lbi" --><!-- #EndLibraryItem -->
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!--End #footer-->
+  <script type="text/javascript">
+  //<![CDATA[
+  var goodsattr_style = {$cfg.goodsattr_style|default:1};
+  var gmt_end_time = {$promote_end_time|default:0};
+  
+  {foreach from=$lang.goods_js item=item key=key}
+  var {$key} = "{$item}";
+  {/foreach}
+  var goodsId = {$goods_id};
+
+  {literal}
+  Event.observe(window, "load",function(){
+    changePrice();
+    try { onload_leftTime(); }
+    catch (e) {}
+  } );
+  
+
+  /**
+   * 点选可选属性或改变数量时修改商品价格的函数
+   */
+  function changePrice()
+  {
+    var attr = getSelectedAttributes(document.forms['ECS_FORMBUY']);
+    var qty = document.forms['ECS_FORMBUY'].elements['number'].value;
+
+    Ajax.call('goods.php', 'act=price&id=' + goodsId + '&attr=' + attr + '&number=' + qty, changePriceResponse, 'GET', 'JSON');
+  }
+
+  /**
+   * 接收返回的信息
+   */
+  function changePriceResponse(res)
+  {
+    if (res.err_msg.length > 0)
+    {
+      alert(res.err_msg);
+    }
+    else
+    {
+      document.forms['ECS_FORMBUY'].elements['number'].value = res.qty;
+
+      if (document.getElementById('ECS_GOODS_AMOUNT')) 
+        document.getElementById('ECS_GOODS_AMOUNT').innerHTML = res.result;
+    }
+  }
+  {/literal}
+  //]]>
+  </script>
+</body>
+</html>

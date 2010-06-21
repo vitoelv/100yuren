@@ -1,0 +1,166 @@
+<!-- $Id: picture_batch.htm 13893 2007-12-25 08:03:38Z fenghl $ -->
+{insert_scripts files="../js/utils.js"}
+{include file="pageheader.htm"}
+<div class="main-div">
+<form action="picture_batch.php" method="post" name="theForm" onsubmit="return start()">
+  <table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td>{$lang.notes}</td>
+  </tr>
+  <tr>
+    <td><label for="process_thumb"><input type="checkbox" name="process_thumb" value="1" id="process_thumb" checked="true" />{$lang.thumb}</label></td>
+  </tr>
+  <tr>
+    <td><label for="process_watermark"><input type="checkbox" name="process_watermark" value="1" id="process_watermark" checked="true" />{$lang.watermark}</label></td>
+  </tr>
+  <tr>
+    <td>
+        <label for="yes_change"><input type="radio" name="change_link" value="1" id="yes_change" />{$lang.yes_change}</label>
+        <label for="no_change"><input type="radio" name="change_link" value="0" checked="true" id="no_change" />{$lang.no_change}</label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <label for="silent"><input type="radio" name="silent" value="1" id="silent" checked="checked" />{$lang.silent}</label>
+        <label for="no_silent"><input type="radio" name="silent" value="0"  id="no_silent" />{$lang.no_silent}</label>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+    </td>
+  </tr>
+  </table>
+</form>
+</div>
+
+<div class="list-div" id="listDiv">
+  <table cellspacing='1' cellpadding='3' id='listTable'>
+    <tr>
+      <th>{$lang.page}</th>
+      <th>{$lang.total}</th>
+      <th>{$lang.time}</th>
+    </tr>
+  </table>
+</div>
+
+<div style="display:none;border: 1px solid rgb(204, 0, 0);margin-top:10px; padding: 4px; background-color: rgb(255, 255, 206); color: rgb(206, 0, 0);" id="errorMsg" ></div>
+
+<script type="Text/Javascript" language="JavaScript">
+<!--
+{literal}
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+
+/**
+ * 开始处理数据
+ */
+function start()
+{
+    var thumb = document.forms['theForm'].elements['process_thumb'].checked ? 1 : 0;
+    var watermark = document.forms['theForm'].elements['process_watermark'].checked ? 1 : 0;
+    var change = document.forms['theForm'].elements['change_link'][0].checked? 1 : 0;
+    var silent = document.forms['theForm'].elements['silent'][0].checked? 1 : 0;
+
+    if (thumb || watermark )
+    {
+        var tbl = document.getElementById("listTable");
+        for (i = tbl.rows.length - 1; i > 0; i--)
+        {
+          tbl.deleteRow(i);
+        }
+        var elem = document.getElementById('errorMsg');
+        elem.style.display = 'none';
+        elem.innerHTML = '';
+
+        Ajax.call('picture_batch.php?is_ajax=1&start=1', 'thumb=' + thumb + '&watermark=' + watermark + '&change=' + change + '&silent=' + silent , start_response, 'GET', 'JSON');
+    }
+    else
+    {
+        alert(no_action);
+    }
+    return false;
+}
+
+/**
+ * 处理反馈信息
+ * @param: result
+ * @return
+ */
+function start_response(result)
+{
+    //没有执行错误
+    if (result.error == 0)
+    {
+      if (result.done == 0)
+      {
+        //执行结束
+        if (result.module_no > 0)
+        {
+          /* 结束时，删除多余的最后一行 */
+          var tbl = document.getElementById("listTable"); //获取表格对象
+          tbl.deleteRow(tbl.rows.length - 1);
+        }
+      }
+      else
+      {
+        var cell;
+        var tbl = document.getElementById("listTable"); //获取表格对象
+
+        if (result.done == 1)
+        {
+          if (result.module_no > 0)
+          {
+            /* 已经换模块，删除多余的最后一行 */
+            tbl.deleteRow(tbl.rows.length - 1);
+          }
+          /* 产生一个标题行 */
+          var row = tbl.insertRow(-1);
+
+          cell = row.insertCell(0);
+          cell.className = 'first-cell';
+          cell.colSpan = '3';
+          cell.innerHTML = result.title ;
+        }
+        else
+        {
+          document.getElementById(result.row.pre_id).innerHTML = result.row.pre_time; //更新上一行执行时间
+        }
+
+        //创建新任务行
+        var row = tbl.insertRow(-1);
+        cell = row.insertCell(0);
+        cell.innerHTML = result.row.new_page ;
+        cell = row.insertCell(1);
+        cell.innerHTML = result.row.new_total ;
+        cell = row.insertCell(2);
+        cell.id = result.row.cur_id;
+        cell.innerHTML = result.row.new_time ;
+
+        //提交任务
+        Ajax.call('picture_batch.php?is_ajax=1', 'thumb=' + result.thumb + '&watermark=' + result.watermark + '&change=' + result.change + '&module_no=' + result.module_no + '&page=' + result.page + '&page_size=' + result.page_size + '&total=' + result.total + '&silent=' + result.silent , start_response, 'GET', 'JSON');
+      }
+
+      if (result.silent && result.content.length > 0)
+      {
+        var elem = document.getElementById('errorMsg');
+        elem.style.display = '';
+        elem.innerHTML += result.content;
+      }
+
+
+    }
+
+    if (result.message.length > 0)
+    {
+      //有信息则输出出错信息
+      alert(result.message);
+    }
+}
+{/literal}
+//-->
+</script>
+{include file="pagefooter.htm"}

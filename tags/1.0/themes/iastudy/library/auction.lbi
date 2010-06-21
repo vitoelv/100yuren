@@ -1,0 +1,22 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $auction_list} -->
+<div class="title-03">
+              <div class="title">转让课程</div>
+              <div class="more"><a href="../auction.php">more...</a></div>
+  <div class="box">
+    <ul class="product-list">
+    <!-- {foreach from=$auction_list item=auction} -->
+    <li>
+      <p class="photo"><a href="{$auction.url}"><img src="{$auction.thumb}" alt="{$auction.goods_name|escape:html}" /></a></p>
+      <p class="info" align="center">
+      <span class="name"><a href="{$auction.url}" title="{$auction.goods_name|escape:html}">{$auction.goods_name|escape:html}</a></span>
+      <span class="price">
+        <span class="goodsPrice">{$auction.formated_start_price}</span>
+      </span>
+      </p>
+    </li>
+    <!-- {/foreach} -->
+    </ul>
+  </div>
+</div>
+<!-- {/if} -->

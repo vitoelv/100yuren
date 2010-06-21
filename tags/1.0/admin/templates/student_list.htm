@@ -1,0 +1,92 @@
+<!-- $Id: student_list.htm 13868 2007-12-17 03:26:41Z fenghl $ -->
+
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+<div class="form-div">
+  <form action="javascript:searchStudent()" name="searchForm">
+    <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
+    {$lang.student_name} <input type="text" name="keyword" id="keyword" />
+    <input type="submit" value="{$lang.button_search}" class="button" />
+  </form>
+</div>
+
+<form method="POST" action="course_signup.php?act=batch_remove" name="listForm">
+<!-- start cat list -->
+<div class="list-div" id="listDiv">
+{/if}
+
+<table cellspacing='1' cellpadding='3' id='list-table'>
+  <tr>
+    <th><input onclick='listTable.selectAll(this, "checkboxes")' type="checkbox">
+      <a href="javascript:listTable.sort('id'); ">{$lang.id}</a>{$sort_id}</th>
+    <th>{$lang.true_name}</th>
+	<th>{$lang.telephone}</th>
+	<th>{$lang.mobile_phone}</th>
+	<th>{$lang.course_name}</th>
+    <th>{$lang.business_type}</th>	
+    <th>{$lang.status}</th>
+	<th>{$lang.admin_verify}</th>
+	<th>{$lang.postscript}</th>	
+	<!-- <th>{$lang.request_url}</th> -->
+	<th>{$lang.request_ip}</th>
+	<th><a href="javascript:listTable.sort('signup_date'); ">{$lang.signup_date}</a>{$sort_signup_date}</th>
+    <th>{$lang.handler}</th>
+  </tr>
+  {foreach from=$student_list item=list}
+  <tr>
+    <td><span><input name="checkboxes[]" type="checkbox" value="{$list.id}" />{$list.id}</span></td>
+    <td align="left"><span>{$list.true_name} {if $list.user_name neq ''}[{$list.user_name}]{/if}</span></td>
+	<td align="left"><span>{$list.telephone}</span></td>
+	<td align="left"><span>{$list.mobile_phone}</span></td>
+	<td align="left"><span>{$list.course_name} {if $list.course_id neq ''}[<a href="../goods.php?id={$list.course_id}" target="_blank" title="查看" >{$list.course_id}--{$list.goods_name}</a>]{/if}</span></td>
+    <td align="center"><span>{if $list.business_type eq 1}{$lang.business_type1}{elseif $list.business_type eq 2}{$lang.business_type2}{else}{$lang.business_type0}{/if}</span></td>
+	<td align="center"><span>{if $list.status eq 1}{$lang.status1}{else}{$lang.status0}{/if}</span></td>
+	<td align="center"><span>{if $list.admin_verify eq 2}{$lang.admin_verify2}{elseif $list.admin_verify eq 1}{$lang.admin_verify1}{else}{$lang.admin_verify0}{/if}</span></td>	
+	<td align="center"><span>{if $list.postscript neq ''}<a href="course_signup.php?act=edit&id={$list.id}" title="{$list.postscript}">{$lang.postscript_yes}</a>{/if}</span> </td>
+	<!-- <td align="center"><span>{$list.request_url}</span></td> -->
+	<td align="center"><span>{if $list.request_url neq ''}<a href="{$list.request_url}"  target="_blank" title="{$lang.request_url}: {$list.request_url}">{$list.request_ip}</a>{else}{$list.request_ip}{/if}</span></td> 
+	<td align="center"><span>{$list.signup_date}</span></td>
+	<td align="center" nowrap="true"><span>
+      <!--<a href="../course_signup.php?id={$list.id}" target="_blank" title="{$lang.view}"><img src="images/icon_view.gif" border="0" height="16" width="16" /></a>&nbsp; -->
+      <a href="course_signup.php?act=edit&id={$list.id}" title="{$lang.edit}"><img src="images/icon_edit.gif" border="0" height="16" width="16" /></a>&nbsp;
+    </td>
+   </tr>
+   {foreachelse}
+    <tr><td class="no-records" colspan="10">{$lang.no_student}</td></tr>
+  {/foreach}
+  <tr>
+    <td colspan="2"><input type="submit" class="button" id="btnSubmit" value="{$lang.button_remove}" disabled="true" /></td>
+    <td align="right" nowrap="true" colspan="8">{include file="page.htm"}</td>
+  </tr>
+</table>
+
+{if $full_page}
+</div>
+<!-- end cat list -->
+<script type="text/javascript" language="JavaScript">
+  listTable.recordCount = {$record_count};
+  listTable.pageCount = {$page_count};
+
+  {foreach from=$filter item=item key=key}
+  listTable.filter.{$key} = '{$item}';
+  {/foreach}
+  {literal}
+
+  onload = function()
+  {
+    // 开始检查订单
+    startCheckOrder();
+  }
+
+ /* 搜索文章 */
+ function searchStudent()
+ {
+    listTable.filter.keyword = Utils.trim(document.forms['searchForm'].elements['keyword'].value);
+    listTable.filter.page = 1;
+    listTable.loadList();
+ }
+ {/literal}
+</script>
+{include file="pagefooter.htm"}
+{/if}

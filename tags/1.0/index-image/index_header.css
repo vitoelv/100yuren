@@ -1,0 +1,54 @@
+
+.w980{width:980px; margin:5px auto 0px}
+.flashbox {MARGIN-BOTTOM: 10px; OVERFLOW: hidden; POSITION: relative; HEIGHT: 254px; }
+.flashbox .pic {BORDER-RIGHT: #FFB981 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #FFB981 1px solid; PADDING-LEFT: 1px; LEFT: 0px; PADDING-BOTTOM: 1px; BORDER-LEFT: #FFB981 1px solid; WIDTH: 410px; PADDING-TOP: 1px; BORDER-BOTTOM: #FFB981 1px solid; POSITION: absolute; TOP: 0px; HEIGHT: 250px}
+.flashbox UL {LEFT: 415px; WIDTH: 270px; POSITION: relative; TOP: 0px; border:5px solid #E00;}
+.flashbox LI {MARGIN-BOTTOM: 1px; OVERFLOW: hidden; LINE-HEIGHT: 24px; HEIGHT: 50px}
+.flashbox LI A {PADDING-RIGHT: 5px; DISPLAY: block; PADDING-LEFT: 5px; BACKGROUND: #e8e9ea; PADDING-BOTTOM: 0px; COLOR: #333; PADDING-TOP: 10px; POSITION: relative; HEIGHT: 40px}
+.flashbox LI.selected A {BACKGROUND: url(index_icon.gif) repeat-x; COLOR: #333; TEXT-DECORATION: none}
+.flashbox LI A:hover {BACKGROUND: url(index_icon.gif) repeat-x; COLOR: #333; TEXT-DECORATION: none}
+.flashbox LI STRONG {DISPLAY: block; OVERFLOW: hidden; CURSOR: pointer; LINE-HEIGHT: 18px; HEIGHT: 18px}
+.flashbox LI IMG {RIGHT: 7px; WIDTH: 74px; POSITION: absolute; TOP: 3px; HEIGHT: 44px}
+
+.course-menu-tab
+{
+    background-color: #FAFAFA;
+    margin: 5px 8px;
+    padding: 5px 10px;
+}
+.course-menu-tab p span
+{
+    background-color: #EFEFEF;
+    border: 1px solid #CCCCCC;
+    cursor: pointer;
+    margin-right: 6px;
+    padding: 2px 5px;
+}
+.course-menu-tab p span.current
+{
+    background-color: #FAFAFA;
+    border-bottom-color: #fafafa;
+}
+.course-menu-tab p
+{
+    border-bottom: 1px solid #CCCCCC;
+    font-weight: bold;
+    padding: 0 10px 2px;
+}
+.course-menu-tab li
+{
+    border-bottom: 1px dotted #CCCCCC;
+    padding-bottom: 3px;
+    margin: 5px 0;
+}
+.course-menu-tab .mhot, .course-menu-tab.allhot
+{
+    display: none;
+}
+
+
+
+
+
+
+

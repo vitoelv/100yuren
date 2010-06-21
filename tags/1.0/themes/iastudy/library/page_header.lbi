@@ -1,0 +1,56 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<a name="top"></a>
+<div id="header">
+<div id="logo-topnav">  
+		<a href="http://www.jiajiajk.com/" target="_blank"><span id="reward"><strong>要上大学了，赶紧登录佳家健康网(www.jiajiajk.com)，买件礼品谢师恩! </strong></span></a>
+		<script language="JavaScript1.1" type="text/javascript"> 
+		if (navigator.appName.indexOf('Netscape') == '-1') 
+		{ 
+			var colors = ["666666","ff6600"]; 
+			var nextcolor = 0;
+
+			function changecolor() 
+			{ 
+			document.all.reward.style.color = colors[nextcolor++]; 
+			nextcolor = nextcolor % colors.length; 
+			} 
+			setInterval("changecolor()", 600); 
+		} 
+		</script>
+  </div>
+  <div>
+    <div id="logo"><img src="images/logo.gif" alt="IAStudy" /></div>
+    <div id="top_nav">
+      <ul>
+    <li{if $navigator_list.config.index eq 1} id="cur"{/if}><a href="../index.html"><span>{$lang.home}</span></a></li>
+    <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+    <li{if $nav.active eq 1} class="current"{/if}><a href="{$nav.url}" <!-- {if $nav.opennew eq 1} -->target="_blank"<!-- {/if} -->><span>{$nav.name}</span></a></li>
+    <!-- {/foreach} -->
+      </ul>
+    </div>
+  </div>
+  </div>
+  <div id="top-bg">
+  <div class="to-bg2">
+  <div class="top-list">
+  <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()">
+        <span class="top-form14">{$lang.search_goods}</span>
+        <select name="category" id="category" class="vertical-middle">
+          <option value="0">{$lang.all_category}</option>
+      {$category_list}
+        </select>
+        <input name="keywords" class="textbox" type="text" id="keyword" value="{$search_keywords|escape}" />
+        <input type="image" name="imageField" src="images/btn_search.gif" class="btn-search" />
+        <a href="search.php?act=advanced_search">{$lang.advanced_search}</a>
+      </form>
+    </div>
+    <div class="top-list"><!-- {if $searchkeywords} -->
+<span>
+    <!-- {foreach from=$searchkeywords item=val} -->
+    <a href="search.php?keywords={$val|escape:url}">{$val}</a>
+    <!-- {/foreach} -->
+</span><!-- /globalSearchKeywords -->
+<!-- {/if} -->
+<img src="images/az-topnav-cart.gif" width="19" height="16" border="0" alt="课程书包" /><span id="ECS_CARTINFO">{insert_scripts files='transport.js'}{insert name='cart_info'}</span></div>
+    </div>
+  </div>

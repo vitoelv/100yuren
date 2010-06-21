@@ -1,0 +1,178 @@
+<!-- $Id: export_paipai.htm 12153 2007-09-19 07:40:11Z wj $ -->
+{include file="pageheader.htm"}
+<table width="100%">
+<tr>
+  <td width="25%">
+    <div class="main-div" style="height:280px;background-color: white;">
+    <form action="goods_export.php" method="post"  name="theForm">
+    <h3><center>{$lang.export_ecshop}</center></h3>
+    <center>
+    <select name="charset" >
+          <option value="0">{$lang.select_charset}</option>
+          <option value="UTF8">UTF8</option>
+          <option value="GB2312">GB2312</option>
+          <option value="GBK">GBK</option>
+        </select>
+    </center>
+    <center>
+    <select name="cat_id" >
+          <option value="0">{$lang.select_please}</option>
+          {$cat_list}
+        </select>
+    </center>
+    <br />
+    <center>
+    <input name="submit" type="submit" id="submit" value="{$lang.button_submit}" class="button" />
+    <input type="hidden" name="act" value="act_export_ecshop">
+    </center>
+    </form>
+    </div>
+  </td>
+  <td width="40%">
+    <div class="main-div" style="height:280px;background-color: white;">
+    <form action="goods_export.php" method="post"  name="theForm1" onsubmit="return formValidate1()">
+    <h3><center>{$lang.export_taobao}</center></h3>
+    <table width="100%" >
+      <tr>
+        <td class="label">{$lang.goods_cat}</td>
+        <td><select name="cat_id" >
+          <option value="0">{$lang.select_please}</option>
+          {$cat_list}
+        </select></td>
+      </tr>
+      <tr>
+        <td class="label"><a href="javascript:showNotice('noticeGoodsClass');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.goods_class}</td>
+        <td><input type="text" name="goods_class" value="0" /><br />
+          <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="noticeGoodsClass">{$lang.notice_goods_class}</span></tr>
+      <tr>
+      <tr>
+        <td ></tr>
+      <tr>
+      <tr>
+        <td class="label">{$lang.post_express}</td>
+        <td><input type="text" name="post_express" value="0" /></tr>
+      <tr>
+      <tr>
+        <td class="label">{$lang.express}</td>
+        <td><input type="text" name="express" value="0" /></tr>
+      <tr>
+      <tr>
+        <td class="label">{$lang.ems}</td>
+        <td><input type="text" name="ems" value="0" /></tr>
+      <tr>
+      <tr>
+        <td>&nbsp;<input type="hidden" name="act" value="act_export_taobao"></td>
+        <td><input name="submit" type="submit" id="submit" value="{$lang.button_submit}" class="button" /></td>
+      </tr>
+    </table>
+    </form>
+    </div>
+  </td>
+  <td width="35%">
+    <div class="main-div" style="height:280px; background-color: white;">
+    <form action="goods_export.php" method="post"  name="theForm2" onsubmit="return formValidate2()">
+    <h3><center>{$lang.export_paipai}</center></h3>
+    <table width="100%" >
+      <tr>
+        <td class="label">{$lang.goods_cat}</td>
+        <td><select name="cat_id" >
+          <option value="0">{$lang.select_please}</option>
+          {$cat_list}
+        </select></td>
+      </tr>
+      <tr>
+        <td ></tr>
+      <tr>
+      <tr>
+        <td class="label">{$lang.post_express}</td>
+        <td><input type="text" name="post_express" value="0" /></tr>
+      <tr>
+      <tr>
+        <td class="label">{$lang.express}</td>
+        <td><input type="text" name="express" value="0" /></tr>
+      <tr>
+      <tr>
+        <td>&nbsp;<input type="hidden" name="act" value="act_export_paipai"></td>
+        <td><input name="submit" type="submit" id="submit" value="{$lang.button_submit}" class="button" /></td>
+      </tr>
+    </table>
+    </form>
+    </div>
+  </td>
+</tr>
+</table>
+{insert_scripts files="../js/utils.js,validator.js"}
+<script language="JavaScript">
+var post_express_not_null = "{$lang.post_express_not_null}";
+var express_not_null = "{$lang.express_not_null}";
+var ems_not_null = "{$lang.ems_not_null}";
+
+{literal}
+
+    var elements;
+    onload = function()
+    {
+        // 开始检查订单
+        startCheckOrder();
+    }
+
+    /**
+     * 检查输入是否完整
+     */
+    function formValidate2()
+    {
+        var elements = document.forms['theForm2'].elements;
+        var msg = '';
+
+        if (parseFloat(elements['post_express'].value) <= 0)
+        {
+            msg += post_express_not_null + '\n';
+        }
+        if (parseFloat(elements['express'].value) <= 0)
+        {
+            msg += express_not_null + '\n';
+        }
+        if (msg.length > 0)
+        {
+            alert(msg);
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    /**
+     * 检查输入是否完整
+     */
+    function formValidate1()
+    {
+        var elements = document.forms['theForm1'].elements;
+        var msg = '';
+
+        if (parseFloat(elements['post_express'].value) <= 0)
+        {
+            msg += post_express_not_null + '\n';
+        }
+        if (parseFloat(elements['express'].value) <= 0)
+        {
+            msg += express_not_null + '\n';
+        }
+        if (parseFloat(elements['ems'].value) <= 0)
+        {
+            msg += ems_not_null + '\n';
+        }
+        if (msg.length > 0)
+        {
+            alert(msg);
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+</script>
+{/literal}
+{include file="pagefooter.htm"}

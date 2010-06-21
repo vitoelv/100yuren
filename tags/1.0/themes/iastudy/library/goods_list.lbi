@@ -1,0 +1,139 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="title-03">
+              <div class="title">
+                <!-- {if $brand.brand_type=="0"}-->
+                	{$lang.course_major_list0}<!-- 专业列表 -->
+                <!-- {elseif $brand.brand_type=="1"} -->
+                	{$lang.course_major_list1}<!-- 课程列表 -->
+                <!-- {else} -->
+                	{$lang.course_major_list}<!-- 课程/专业列表 -->
+                <!--{/if}-->
+              </div>
+             <form method="get" action="../category.php" class="goods_form" name="listform">
+      <span>
+         <a href="javascript:;" onclick="javascript:display_mode('list')"><img src="../images/btn_display_mode_list<!-- {if $pager.display == 'list'} -->_act<!-- {/if} -->.gif" alt="{$lang.display.list}" /></a> <a href="javascript:;" onClick="javascript:display_mode('grid')"><img src="../images/btn_display_mode_grid<!-- {if $pager.display == 'grid'} -->_act<!-- {/if} -->.gif" alt="{$lang.display.grid}" /></a> <a href="javascript:;" onClick="javascript:display_mode('text')"><img src="../images/btn_display_mode_text<!-- {if $pager.display == 'text'} -->_act<!-- {/if} -->.gif" alt="{$lang.display.text}" /></a>
+      </span>
+      <select name="sort">
+        {html_options options=$lang.sort selected=$pager.sort}
+      </select>
+      <select name="order">
+        {html_options options=$lang.order selected=$pager.order}
+      </select>
+      <input type="image" name="imageField" src="../images/btn_go.gif" />
+      <input type="hidden" name="category" value="{$category}" />
+      <input type="hidden" name="display" value="{$pager.display}" id="display" />
+      <input type="hidden" name="brand" value="{$brand_id}" />
+      <input type="hidden" name="price_min" value="{$price_min}" />
+      <input type="hidden" name="price_max" value="{$price_max}" />
+      <input type="hidden" name="filter_attr" value="{$filter_attr}" />
+      <input type="hidden" name="page" value="{$pager.page}" />
+    </form>
+  <!-- {if $category > 0} -->
+    <form name="compareForm" action="compare.php" method="post" onSubmit="return compareGoods(this);">
+  <!-- {/if} -->
+<div class="good-list">
+ <!-- {if $pager.display == 'grid'} -->
+  <div class="item_text">
+	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+	  <tr>
+		<th width="40%" align="left">{$lang.goods_name}</th><!--课程名称-->
+		<th width="30%" align="left">{$lang.brand}</th><!--授课学校-->
+		<th width="20%" align="left">{$lang.shop_prices}</th><!--优惠价-->
+		<th width="10%" align="right">{$lang.course_sign_up}</th><!--在线报名-->
+	  </tr>  
+	  <!-- {foreach from=$goods_list item=goods} -->
+	   <!-- {if $goods.goods_name neq ""} -->
+		  <tr class="table-left">
+			<td align="left" class="sea01"><a href="{$goods.url}" title="{$goods.goods_full_name|escape:html}">{$goods.goods_name}</a></td>
+			<td align="left"><a href="{$goods.goods_brand_url}">{$goods.brand_name|escape:html}</a></td>
+			<td align="left"><span class="goods-price">{$goods.shop_price}</span></td>
+			<td align="right">
+			  <a href="javascript:addToCart({$goods.goods_id})"><img src="images/add_cart.gif" alt="报名" width="71" height="21" /></a>  
+			</td>
+		  </tr>
+	   <!-- {/if} -->		  
+	 <!-- {/foreach} -->
+	</table> 
+  </div>
+ <!-- { else } -->
+   <div class="item_list">
+	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+	  <tr><td>   
+	  <!-- {foreach from=$goods_list item=goods} -->
+		<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody>
+		    <tr>
+		      <td ><table border="0" cellpadding="0" cellspacing="0" width="100%">
+		        <tbody>
+		          <tr>
+		            <td align="left" width="20"><img src="images/keypoint.gif"</td>
+		            <td align="left" class="sea01"><a href="{$goods.url}" title="{$goods.goods_name|escape:html}"><span class='h9 strong'>{$goods.goods_name|escape:html}</span></a></td>
+		            <td align="right" width="70" ><a href="javascript:addToCart({$goods.goods_id})"><img src="images/add_cart.gif" alt="报名" border="0" /></a></td>
+		          </tr>
+		        </tbody>
+		      </table></td>
+		    </tr>
+		    <tr>
+		      <td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+		        <tbody>
+		          <tr>
+		            <td width="40%">【{$lang.brand}】<a href="{$goods.goods_brand_url}" title="{$goods.brand_name|escape:html}">{$goods.brand_name|escape:html}</a></td>
+		            <td width="35%">【{$lang.shop_prices}】<strong><span class="goods-price">{$goods.shop_price}</span> </strong></td>
+		            <td align="right" width="25%"><a href="{$goods.url}"><img src="images/course_detail.gif" alt="详细介绍" border="0" /></a></td>
+		          </tr>
+		          <tr>
+		            <!-- <td>【{$lang.course_start_date}】{$goods.course_start_date}</td>  -->
+		            <td>【{$lang.course_market_price}】<span class="goods-price">{$goods.market_price}</span> </td>
+		            <td> 【<strong>{$lang.course_save_money_short}</strong>】<span class="goods-price">{$goods.save_money}</span> </td>
+					<td align="right" width="25%"><a href="{$lang.QQ}" target="_blank"><img src="images/qq.gif" alt="QQ咨询，QQ号:1109811037" border="0" /></a></td>
+		          </tr>
+		        </tbody>
+		      </table></td>
+		    </tr>
+		    <tr>
+		      <td class="seaxian01">　</td>
+		    </tr>
+		  </tbody>
+		</table>	  
+	 <!-- {/foreach} -->
+	 </td></tr>
+	</table>
+  </div>
+
+  <!-- {/if} --> 
+  
+  <!-- {if $category > 0} -->
+  </form>
+  <!-- {/if} -->
+  <div id="pager">
+    <form name="selectPageForm" action="{$smarty.server.PHP_SELF}" method="get">
+      {$lang.pager_1}{$pager.record_count}{$lang.pager_2}{$lang.pager_3}{$pager.page_count}{$lang.pager_4} <a href="{$pager.page_first}">{$lang.page_first}</a> <a href="{$pager.page_prev}">{$lang.page_prev}</a> <a href="{$pager.page_next}">{$lang.page_next}</a> <a href="{$pager.page_last}">{$lang.page_last}</a>
+      <select name="page" onchange="selectPage(this)" id="page">
+      {html_options options=$pager.array selected=$pager.page}
+      </select>
+      <!-- {foreach from=$pager.search key=key item=item} -->
+      <input type="hidden" name="{$key}" value="{$item}" />
+      <!-- {/foreach} -->
+    </form>
+  </div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+  window.onload = function()
+  {
+    Compare.init();
+    fixpng();
+  }
+  {foreach from=$lang.compare_js item=item key=key}
+  var {$key} = "{$item}";
+  {/foreach}
+  var compare_no_goods = "{$lang.compare_no_goods}";
+  
+  function selectPage(sel)
+  {
+    sel.form.submit();
+  }
+//]]>
+</script>
+</div>

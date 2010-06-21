@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}{insert_scripts files='common.js,global.js, sms.js'}
+</head>
+<body> 
+	<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+	<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+<div id="outer_wrapper">
+  <div id="wrapper">
+    <div id="container">
+      <div id="content" style="margin-right:5px;">
+        <div id="left">
+		<!-- TemplateBeginEditable name="左边" -->
+		<!-- #BeginLibraryItem "/Library/category_tree.lbi" --><!-- #EndLibraryItem -->
+		<!-- #BeginLibraryItem "/Library/goods_advisor.lbi" --><!-- #EndLibraryItem -->
+		<!-- #BeginLibraryItem "/library/goods_related.lbi" --><!-- #EndLibraryItem -->
+		<!-- #BeginLibraryItem "/library/goods_gallery.lbi" --><!-- #EndLibraryItem -->
+		<!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem -->
+		  <!-- TemplateEndEditable --></div>
+        <div id="main" style="margin-left:215px;">
+          <div id="goods-info">
+          <!--
+            <div class="photo">
+             <a href="javascript:;" onClick="window.open('gallery.php?id={$goods.goods_id}'); return false;"><img src="{$goods.goods_img}" alt="{$goods.goods_name|escape:html}" /></a>
+              <div class="zoom"><a href="javascript:;" onClick="window.open('gallery.php?id={$goods.goods_id}'); return false;">点击查看大图</a></div>
+            </div>
+					-->
+            <form action="javascript:addToCart({$goods.goods_id})" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY">
+            <dl>
+              <dt>{$goods.goods_name|escape:html}
+	              <!-- {if $goods.watermark_img eq watermark_promote} -->
+			          <span class="water_mart">[限时抢报]</span> 
+			          <!-- {else} -->
+			          <!-- {if $goods.watermark_img eq watermark_new} -->
+			          <span class="water_mart">[新推<!-- {if $goods.brand_type=="0"}-->{$lang.course_major0}<!-- {elseif $goods.brand_type=="1"} -->{$lang.course_major1}<!-- {else} -->{$lang.course_major}<!--{/if}-->]</span>
+			          <!-- {else} -->
+			          <!-- {if $goods.watermark_img eq watermark_hot} -->
+			          <span class="water_mart">[热门<!-- {if $goods.brand_type=="0"}-->{$lang.course_major0}<!-- {elseif $goods.brand_type=="1"} -->{$lang.course_major1}<!-- {else} -->{$lang.course_major}<!--{/if}-->]</span>
+			          <!-- {else} -->
+			          <span class="water_mart">[强烈推荐]</span>
+			          <!-- {/if} -->
+			          <!-- {/if} -->
+			          <!-- {/if} -->
+
+                <!-- 报名冠军 {if $goods_rank}-->
+                <img src="images/rank_{$goods_rank}.gif" alt="{$goods_rank}" />
+                <!--{/if}-->
+				
+				
+                <!-- {if $goods.brand_type=="0"}-->
+                	<strong>本{$lang.course_major0}<!--专业-->已有{$goods.click_count }人次关注</strong>
+                
+                <!-- {elseif $goods.brand_type=="1"} -->
+                	<strong>本{$lang.course_major1}<!--课程-->已有{$goods.click_count }人次关注</strong>
+                <!-- {else} -->
+                	<strong>本{$lang.course_major}<!--课程/专业-->已有{$goods.click_count }人次关注</strong>
+                <!--{/if}-->
+                
+              </dt>
+              <!-- {foreach from=$promotion item=item key=key} -->
+								<dd style="font-size: 12px; font-weight: bold; color: red;">
+								{$lang.activity}
+								<!-- {if $item.type eq "snatch"} -->
+								<a href="snatch.php" title="{$lang.snatch}" style="font-size: 12px; font-weight: bold; color: red;">[{$lang.snatch}]</a>
+								<!-- {elseif $item.type eq "group_buy"} -->
+								<a href="group_buy.php" title="{$lang.group_buy}" style="font-size: 12px; font-weight: bold; color: red;">[{$lang.group_buy}]</a>
+								<!-- {elseif $item.type eq "auction"} -->
+								<a href="auction.php" title="{$lang.auction}" style="font-size: 12px; font-weight: bold; color: red;">[{$lang.auction}]</a>
+								<!-- {elseif $item.type eq "favourable"} -->
+								<a href="activity.php" title="{$lang.favourable}" style="font-size: 12px; font-weight: bold; color: red;">[{$lang.favourable}]</a>
+								<!-- {/if} -->
+								<a href="{$item.url}" title="{$lang.$item.type} {$item.act_name}{$item.time}" style="font-size: 12px; font-weight: bold; color: red;">{$item.act_name}</a>
+								</dd>
+					<!-- {/foreach} --> 
+					<!-- 课程信息 -->
+						<table width="100%">
+							<tr>
+							    <td width="100%" colspan="3">&nbsp;&nbsp;				    
+							    	<!-- {if $goods.save_money gt 0 } -->
+							    	 	<strong>{$lang.course_market_price}:  </strong><span class="market-price">{$goods.market_price}</span>&nbsp;&nbsp;
+							    	 	<strong>{$lang.course_discount_price}:  </strong><b>{$goods.shop_price_formated}</b>&nbsp;&nbsp;
+							    	 	<strong>{$lang.course_save_money}:  </strong>{$goods.shop_save_money_formated}
+							    	<!-- {else} -->
+							    		<strong>{$lang.course_discount_price}:  </strong><b>{$goods.shop_price_formated}</b>
+							    	<!-- {/if} -->
+							    </td>
+							</tr>	
+							<tr>
+								<td width="65%">
+									<table width="100%">
+									 <tr><td width="100%">								
+										<table width="100%">
+										  <!--
+										  <tr>
+										    <td><strong>{$lang.course_market_price}</strong></td>
+										    <td><span class="market-price">{$goods.market_price}</td>									    
+										  </tr>		
+										  <tr>										    
+										    <td><strong>{$lang.course_discount_price}</strong></td>
+										    <td><b>{$goods.shop_price_formated}</b></td>											    
+										  </tr>	
+										  <tr>  
+										    <td><strong>{$lang.course_save_money}</strong></td>
+										    <td>{$goods.shop_save_money_formated}</td>											    
+										  </tr>	
+										  -->
+							        <!-- {if $goods.goods_sn neq "" } -->
+										  <tr>
+										    <td width="25%">
+								                <!-- {if $goods.brand_type=="0"}-->
+								                	<strong>{$lang.course_sn2}</strong>	<!-- 专业编号 -->								                
+								                <!-- {else} -->
+								                	<strong>{$lang.course_sn}</strong>	<!-- 课程班号 -->	 
+								                <!--{/if}-->	
+										    </td>
+										    <td width="75%"><span>{$goods.goods_sn}</span></td>										  
+										  </tr>							
+							        <!--{/if}-->              
+							        <!-- {if $goods.course_start_date neq "" } -->		
+										  <tr>
+										    <td>
+								                <!-- {if $goods.brand_type=="0"}-->
+								                	<strong>{$lang.course_start_date2}</strong>	<!-- 专业 -->								                
+								                <!-- {else} -->
+								                	<strong>{$lang.course_start_date}</strong>	<!-- 课程 -->	 
+								                <!--{/if}-->										    
+										    </td>
+										    <td><span>{$goods.course_start_date}</span></td>
+										  </tr>
+							        <!--{/if}-->              
+							        <!-- {if $goods.course_start_time neq "" } -->								
+										  <tr>
+										    <td>
+								                <!-- {if $goods.brand_type=="0"}-->
+								                	<strong>{$lang.course_start_time2}</strong>	<!-- 专业 -->								                
+								                <!-- {else} -->
+								                	<strong>{$lang.course_start_time}</strong>	<!-- 课程 -->	 
+								                <!--{/if}-->										    
+										    </td>
+										    <td><span>{$goods.course_start_time}</span></td>
+										  </tr>
+							        <!--{/if}-->              
+							        <!-- {if $goods.course_recruit_goal neq "" } -->
+											  <tr>
+											    <td><strong>{$lang.course_recruit_goal}</strong></td>
+											    <td><span>{$goods.course_recruit_goal}</span></td>
+											  </tr>
+							        <!--{/if}-->              
+							        <!-- {if $goods.course_material neq "" } -->
+											  <tr>
+											    <td><strong>{$lang.course_material}</strong></td>
+											    <td><span>{$goods.course_material}</span></td>
+											  </tr>						
+							        <!--{/if}-->            		
+							        <!-- {if $goods.course_goal neq "" } -->
+											  <tr>
+											    <td>
+									                <!-- {if $goods.brand_type=="0"}-->
+									                	<strong>{$lang.course_goal2}</strong>	<!-- 专业 -->								                
+									                <!-- {else} -->
+									                	<strong>{$lang.course_goal}</strong>	<!-- 课程 -->	 
+									                <!--{/if}-->											    
+											    </td>
+											    <td><span>{$goods.course_goal}</span></td>
+											  </tr>														
+							        <!--{/if}-->    
+							        <!-- {if $goods.course_teacher_desc neq "" } -->
+											  <tr>
+											    <td><strong>{$lang.course_teacher_desc}</strong></td>
+											    <td><span>{$goods.course_teacher_desc}</span></td>
+											  </tr>																						
+							        <!--{/if}-->    
+							        <!-- {if $goods.course_address neq "" } -->
+											  <tr>
+											    <td><strong>{$lang.course_address}</strong></td>
+											    <td><span>{$goods.course_address}</span></td>
+											  </tr>								
+							        <!--{/if}-->            		
+							        <!-- {if $goods.course_address_map neq "" } -->
+											  <tr>
+											    <td><strong>{$lang.course_address_map}</strong></td>
+											    <td><span>{$goods.course_address_map}</span></td>
+											  </tr>								
+							        <!--{/if}-->    
+							        <!-- {if $goods.course_telephone neq "" } -->
+											  <tr>
+											    <td><strong>{$lang.course_telephone}</strong></td>
+											    <td><span>{$goods.course_telephone}</span></td>
+											  </tr>
+									<!--{else}-->  <!-- set default phone -->
+											  <tr>
+											    <td><strong>{$lang.course_telephone}</strong></td>
+											    <td><span>{$lang.course_signup_phone}</span></td>
+											  </tr>									 		  								
+							        <!--{/if}-->    
+							        <!-- {if $goods.course_desc neq "" } -->
+											  <tr>
+											    <td><strong>{$lang.course_desc}</strong></td>
+											    <td><span>{$goods.course_desc}</span></td>
+											  </tr>								
+							        <!--{/if}--> 										  		  
+										</table>   
+									</td></tr>
+								  </table>
+								</td>							
+							  	<td width="2%"></td>
+								<td width="33%">
+									<table width="100%"><tr><td width="100%">								
+										<ul class="con_x">
+											<li><strong>{$lang.goods_brand}</strong></li>
+											<li class="bt_x"><a href="{$goods.goods_brand_url}"><span class="bt_x">{$goods.goods_brand}</span></a></li>
+											<li class="lv_x" style="padding-top:8px;">
+												<strong>{$lang.goods_rank}</strong><img src="images/stars{$goods.comment_rank}.gif" width="64" height="12" alt="comment rank {$goods.comment_rank}" />
+											</li>
+											
+											<!-- {if $goods.brand_type=="0"}-->
+												<li class="bt_x"><a href="{$goods.goods_brand_url}"><img src="images/school_major.gif" alt="" border="0" /></a></li> 	<!-- 专业 -->								                
+											<!-- {else} -->
+												<li class="bt_x"><a href="{$goods.goods_brand_url}"><img src="images/course_list.gif" alt="" border="0" /></a></li> 	<!-- 课程 -->	 
+											<!--{/if}-->											
+											<!-- {if $goods.brand_type=="0"}-->
+												<li class="bt_x"><a href="{$goods.site_url}" target="_blank"><img src="images/school_website.gif" alt="" border="0" /></a></li> 	<!-- 专业 -->								                
+											<!-- {else} -->
+												<li class="bt_x"><a href="{$goods.goods_brand_url}"><img src="images/school_detail.gif" alt="" border="0" /></a></li>  	<!-- 课程 -->	 
+											<!--{/if}-->											
+											<li class="bt_x">{$lang.course_signup_tel}：{$lang.course_signup_phone}</li> <!-- 报名电话：010-69799625 -->
+										</ul>
+									  </td></tr>
+									</table>
+								</td>
+
+							</tr>								 							         
+						</table>
+						
+						
+                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                  <tr>
+                    <td width="100%" align="center">
+                    <a href="javascript:addToCart({$goods.goods_id})"><img src="images/add_cart.gif" alt="" width="71" height="21" border="0" /></a> 
+                    <a href="javascript:collect({$goods.goods_id})"><img src="images/collect.gif" alt="" border="0" /></a>
+                    <a href="tencent://message/?uin=1171196009&Site=www.iastudy.com&Menu=yes" target="_blank"><img src="images/onlinekf.gif" alt="" border="0" /></a>  
+					<!-- {if $goods.brand_type=="0"}-->
+						<a href="{$goods.site_url}" target="_blank"><img src="images/school_detail.gif" alt="" border="0" /></a> 	<!-- 专业 -->								                
+					<!-- {else} -->
+						<a href="{$goods.goods_brand_url}"><img src="images/school_detail.gif" alt="" border="0" /></a>  	<!-- 课程 -->	 
+					<!--{/if}-->					
+                    <!-- {if $affiliate.on} -->
+              <a href="user.php?act=affiliate&amp;goodsid={$goods.goods_id}"><img src="images/btn_recommend.gif" alt="" /></a>
+              <!-- {/if} -->
+                    </td>
+                  </tr>
+                </table>
+              </dd>
+
+            </form>
+          </div>
+          
+            <!-- {if $goods.goods_desc} -->
+          <div class="goods-title"><img src="../images/subtitle2.gif"/>&nbsp;详细介绍</div>
+          <div class="article-content">{$goods.goods_desc}</div>
+          <!-- {/if} -->
+          <!-- #BeginLibraryItem "/library/goods_signup.lbi" --><!-- #EndLibraryItem -->
+          <!-- #BeginLibraryItem "/library/bought_goods.lbi" --><!-- #EndLibraryItem -->
+          <!-- #BeginLibraryItem "/library/goods_attrlinked.lbi" --><!-- #EndLibraryItem -->
+          <!-- #BeginLibraryItem "/library/goods_fittings.lbi" --><!-- #EndLibraryItem -->
+          <!-- #BeginLibraryItem "/library/goods_article.lbi" --><!-- #EndLibraryItem -->
+		  <!-- #BeginLibraryItem "/library/goods_tags.lbi" --><!-- #EndLibraryItem -->
+		  <!-- #BeginLibraryItem "/library/comments.lbi" --><!-- #EndLibraryItem -->
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!--End #footer-->
+  <script type="text/javascript">
+  //<![CDATA[
+  var goodsattr_style = {$cfg.goodsattr_style|default:1};
+  var gmt_end_time = {$promote_end_time|default:0};
+  
+  {foreach from=$lang.goods_js item=item key=key}
+  var {$key} = "{$item}";
+  {/foreach}
+  var goodsId = {$goods_id};
+
+  {literal}
+  Event.observe(window, "load",function(){
+    changePrice();
+    try { onload_leftTime(); }
+    catch (e) {}
+  } );
+  
+
+  /**
+   * 点选可选属性或改变数量时修改商品价格的函数
+   */
+  function changePrice()
+  {
+    //var attr = getSelectedAttributes(document.forms['ECS_FORMBUY']);
+    //var qty = document.forms['ECS_FORMBUY'].elements['number'].value;
+
+    //Ajax.call('goods.php', 'act=price&id=' + goodsId + '&attr=' + attr + '&number=' + qty, changePriceResponse, 'GET', 'JSON');
+  }
+
+  /**
+   * 接收返回的信息
+   */
+  /* 
+  function changePriceResponse(res)
+  {
+    if (res.err_msg.length > 0)
+    {
+      alert(res.err_msg);
+    }
+    else
+    {
+      document.forms['ECS_FORMBUY'].elements['number'].value = res.qty;
+
+      if (document.getElementById('ECS_GOODS_AMOUNT')) 
+        document.getElementById('ECS_GOODS_AMOUNT').innerHTML = res.result;
+    }
+  }
+  */
+  {/literal}
+  //]]>
+  </script>
+  
+<script>
+	var schoolname = "{$goods.goods_brand}";
+	if(schoolname.length>9)
+		schoolname = "我爱学习网";
+</script>
+<script src="js/sms.js" type="text/javascript" charset="gb2312"></script>
+</body>
+</html>
